@@ -316,7 +316,7 @@ img{-webkit-user-drag:none;user-select:none;-webkit-user-select:none;-webkit-tou
 .field > label,.field legend{font-size:15px;font-weight:600;padding:0}
 .req{color:var(--danger);margin-left:3px}
 fieldset{border:0;margin:0;padding:0;min-width:0}
-input[type="text"],input[type="tel"],select,textarea{font:inherit;font-size:15px;color:var(--ink);background:#fff;border:1px solid var(--line-2);border-radius:8px;height:48px;padding:0 14px;width:100%}
+input[type="text"],input[type="tel"],input[type="password"],select,textarea{font:inherit;font-size:15px;color:var(--ink);background:#fff;border:1px solid var(--line-2);border-radius:8px;height:48px;padding:0 14px;width:100%}
 textarea{height:auto;min-height:110px;padding:12px 14px;resize:vertical}
 input::placeholder,textarea::placeholder{color:#A0A6B1}
 input:focus,select:focus,textarea:focus{outline:0;border-color:var(--red);box-shadow:0 0 0 3px rgba(234,0,44,.14)}
@@ -386,6 +386,54 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
 .dup-box .dup-how{color:var(--gray-2);font-size:14px}
 .dup-btns{display:flex;justify-content:flex-end;margin-top:6px}
 .lk-again{display:flex;justify-content:flex-end}
+.gnb-res{display:inline-flex;align-items:center;gap:6px}
+.gnb-lock{flex-shrink:0;color:var(--view-brown)}
+.gnb a[aria-current="true"] .gnb-lock{color:var(--red)}
+.lock-box{border:1px solid var(--line);border-radius:20px;padding:44px 24px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;background:var(--soft)}
+.lock-ico{width:64px;height:64px;border-radius:50%;background:#FFFFFF;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--view-brown);margin-bottom:6px}
+.lock-box strong{font-size:20px}
+.lock-box p{font-size:15px;color:var(--gray-2);max-width:460px}
+.lock-btns{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;justify-content:center}
+.lock-btns .btn{min-width:140px}
+.nt-hello{display:flex;justify-content:space-between;align-items:center;gap:8px 16px;flex-wrap:wrap;padding:14px 18px;border-radius:12px;background:var(--red-soft);border:1px solid var(--red-line);font-size:15px;margin-bottom:18px}
+.nt-hello b{color:var(--red)}
+.nt-links{display:flex;gap:14px;align-items:center;font-size:14px}
+.nt-links a{color:var(--gray-2)}
+.link-btn{border:0;background:none;padding:0;font:inherit;color:var(--gray-2);text-decoration:underline;cursor:pointer}
+.nt-loading,.nt-empty{font-size:15px;color:var(--gray);padding:28px 4px;text-align:center}
+.nt-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.nt-list:empty{display:none}
+.nt-item{border-bottom:1px solid var(--line)}
+.nt-head{width:100%;display:flex;align-items:center;gap:10px;padding:18px 6px;border:0;background:none;font:inherit;text-align:left;cursor:pointer;color:var(--ink)}
+.nt-head:hover .nt-title{color:var(--red)}
+.nt-pin{flex-shrink:0;font-size:12px;font-weight:700;color:#FFFFFF;background:var(--red);border-radius:4px;padding:2px 8px}
+.nt-pin.no{display:none}
+.nt-title{flex:1;min-width:0;font-size:16.5px;font-weight:600}
+.nt-date{flex-shrink:0;font-size:14px;color:var(--gray)}
+.nt-chev{flex-shrink:0;width:10px;height:10px;border-right:2px solid var(--gray);border-bottom:2px solid var(--gray);transform:rotate(45deg);margin:0 6px 4px}
+.nt-head[aria-expanded="true"] .nt-chev{transform:rotate(-135deg);margin-bottom:-4px}
+.nt-body{padding:4px 6px 24px;font-size:15px;line-height:1.8;color:var(--gray-2);white-space:pre-line}
+.mb-tabs{margin-bottom:18px}
+.mb-form{max-width:760px}
+.mb-rule{margin:0}
+.mb-help{margin-top:-8px}
+.nick-preview{font-size:14px;color:var(--gray-2)}
+.nick-preview b{color:var(--red)}
+.nick-preview small{color:var(--gray)}
+.opt{font-weight:400;color:var(--gray)}
+.me-card{border:1px solid var(--red-line);background:var(--red-soft);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:10px;max-width:760px}
+.me-badge{align-self:flex-start;font-size:12.5px;font-weight:700;color:#FFFFFF;background:var(--red);border-radius:999px;padding:3px 12px}
+.me-nick{font-size:26px;font-weight:800;color:var(--view-brown)}
+.me-dl{margin:0;display:grid;grid-template-columns:70px minmax(0,1fr);gap:4px 10px;font-size:15px}
+.me-dl dt{color:var(--gray)}
+.me-dl dd{margin:0}
+.me-form{margin-top:20px}
+.me-h{font-size:18px;font-weight:700}
+.ok-msg{font-size:14px;color:#0A7F42;font-weight:600}
+.withdraw{max-width:760px;margin-top:20px;border:1px solid var(--line);border-radius:14px;padding:14px 20px;font-size:14.5px;color:var(--gray-2)}
+.withdraw summary{cursor:pointer;color:var(--gray);font-weight:600}
+.wd-form{display:flex;flex-direction:column;gap:12px;margin-top:12px}
+.wd-btn{color:var(--danger);border-color:var(--red-line)}
 .lk-guide{margin:-8px 0 0;padding-left:18px;font-size:13.5px;color:var(--gray);line-height:1.7}
 .lk-result{margin-top:32px;display:flex;flex-direction:column;gap:14px}
 .lk-head{display:flex;align-items:baseline;justify-content:space-between;gap:6px 16px;flex-wrap:wrap;padding-bottom:14px;border-bottom:1px solid var(--ink)}
@@ -574,7 +622,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
   .dday-num{font-size:19px}
   .dday-range{font-size:11px}
   .gnb{height:52px;gap:24px;overflow-x:auto}
-  input[type="text"],input[type="tel"],select,textarea{font-size:16px}
+  input[type="text"],input[type="tel"],input[type="password"],select,textarea{font-size:16px}
   .ho-wrap{max-height:none}
   .gnb a{font-size:16px}
   .home{padding-block:20px 0}
@@ -659,7 +707,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
   .tilde{justify-self:center;line-height:1}
   .form,.done{padding:24px 20px}
   .form-foot .btn{width:100%}
-  .dup-btns .btn,.lk-again .btn{width:100%}
+  .dup-btns .btn,.lk-again .btn,.me-card .done-btns .btn{width:100%}
   .contact-list{padding:4px 20px}
   .contact-list strong,.contact-list .tel{font-size:17px}
 }
@@ -669,8 +717,17 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
   .gnb{height:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;overflow:visible;padding-inline:0;border-top:1px solid var(--line)}
   .gnb a{display:flex;align-items:center;justify-content:center;height:46px;font-size:15px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
   .gnb a:nth-child(3n){border-right:0}
-  .gnb a:nth-last-child(-n+3){border-bottom:0}
-  .gnb a[aria-current="true"]{background:var(--red-soft)}
+  .gnb a:last-child{grid-column:1/-1;border-right:0;border-bottom:0;background:var(--soft)}
+  .gnb a.gnb-res{justify-content:center}
+  .gnb a[aria-current="true"],.gnb a:last-child[aria-current="true"]{background:var(--red-soft)}
+  .lock-box{padding:32px 18px}
+  .lock-btns .btn{flex:1;min-width:0}
+  .nt-head{flex-wrap:wrap;row-gap:4px;padding:14px 2px}
+  .nt-title{flex:1 1 calc(100% - 40px);font-size:15.5px}
+  .nt-date{order:4;flex-basis:100%;font-size:13px}
+  .nt-chev{order:3}
+  .me-card{padding:22px 18px}
+  .me-nick{font-size:22px}
   .to-top{display:flex}
   .img-toast{bottom:80px}
   .rent-wrap,.rent-hint{display:none}
@@ -746,6 +803,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
     <a href="#rent" data-group="lease">임대조건</a>
     <a href="#apply" data-group="reserve">입주대기예약</a>
     <a href="#contact" data-group="cs">찾아오시는 길</a>
+    <a href="#notice" data-group="resident" class="gnb-res"><svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true" class="gnb-lock"><rect x="5" y="10.5" width="14" height="10" rx="2.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8.5 10.5V7.8a3.5 3.5 0 0 1 7 0v2.7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>입주민 전용</a>
   </nav>
 </header>
 
@@ -1227,6 +1285,161 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
         </div>
       </div>
     </section>
+
+    <!-- 입주민 전용: 공지사항 -->
+    <section class="page" data-page="notice" hidden>
+      <div class="page-head"><h1 class="page-title">공지사항</h1><p class="page-desc">입주민께 알려드리는 관리 소식입니다. 입주민 인증 후 볼 수 있어요.</p></div>
+      <div class="lock-box" id="nt-lock">
+        <span class="lock-ico"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8.5 10.5V7.8a3.5 3.5 0 0 1 7 0v2.7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+        <strong>입주민 전용 공간입니다</strong>
+        <p id="nt-lock-msg">로그인하면 공지사항을 볼 수 있어요. 아직 회원이 아니라면 회원가입 후 이용해 주세요.</p>
+        <div class="lock-btns"><a class="btn btn-blue" href="#member" data-mtab="login">로그인</a><a class="btn btn-line" href="#member" data-mtab="signup">회원가입</a></div>
+      </div>
+      <div class="nt-area" id="nt-area" hidden>
+        <div class="nt-hello"><span><b id="nt-nick"></b> 입주민님, 반갑습니다.</span><span class="nt-links"><a href="#member">내 정보</a><button type="button" class="link-btn" id="nt-logout">로그아웃</button></span></div>
+        <p class="nt-loading" id="nt-loading">공지사항을 불러오는 중…</p>
+        <ul class="nt-list" id="nt-list"></ul>
+        <p class="nt-empty" id="nt-empty" hidden>등록된 공지사항이 없습니다.</p>
+      </div>
+      <p class="err" id="e-notice" role="alert"></p>
+    </section>
+
+    <!-- 입주민 전용: 로그인·회원가입·내 정보 -->
+    <section class="page" data-page="member" hidden>
+      <div class="page-head"><h1 class="page-title" id="mb-title">로그인·회원가입</h1><p class="page-desc" id="mb-desc">입주민 전용 공간은 회원가입과 입주민 인증을 마친 뒤 이용할 수 있어요.</p></div>
+      <div id="mb-guest">
+        <div class="seg mb-tabs" role="tablist" aria-label="로그인 또는 회원가입">
+          <button type="button" role="tab" id="mt-login" data-mtab="login" aria-selected="true" aria-controls="login-form">로그인</button>
+          <button type="button" role="tab" id="mt-signup" data-mtab="signup" aria-selected="false" aria-controls="signup-form">회원가입</button>
+        </div>
+
+        <form class="form mb-form" id="login-form" novalidate>
+          <div class="field">
+            <label for="l-phone">휴대폰 번호(아이디)</label>
+            <input type="tel" id="l-phone" autocomplete="username" inputmode="numeric" placeholder="010-0000-0000">
+          </div>
+          <div class="field">
+            <label for="l-pw">비밀번호</label>
+            <input type="password" id="l-pw" autocomplete="current-password" placeholder="비밀번호">
+          </div>
+          <p class="err" id="e-login" role="alert"></p>
+          <div class="form-foot"><button type="submit" class="btn btn-blue" id="l-submit">로그인</button></div>
+          <p class="note mb-help">비밀번호를 잊으셨다면 관리사무소(임대관리센터)에서 본인 확인 후 임시 비밀번호로 초기화해 드립니다.</p>
+        </form>
+
+        <form class="form mb-form" id="signup-form" hidden novalidate>
+          <div class="rule-box mb-rule"><strong>입주민 인증 안내</strong><span>관리사무소에서 받은 <b>세대코드</b>를 입력하면 가입 즉시 이용할 수 있어요. 세대코드가 없으면 비워 두세요. 관리사무소 확인(승인) 후 이용할 수 있습니다.</span></div>
+          <div class="row2">
+            <div class="field">
+              <label for="s-phone">휴대폰 번호(아이디)<span class="req" aria-hidden="true">*</span></label>
+              <input type="tel" id="s-phone" autocomplete="tel" inputmode="numeric" placeholder="010-0000-0000">
+              <span class="err" id="e-s-phone" aria-live="polite"></span>
+            </div>
+            <div class="field">
+              <label for="s-name">이름<span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="s-name" autocomplete="name" placeholder="이름을 입력하세요">
+              <span class="err" id="e-s-name" aria-live="polite"></span>
+            </div>
+          </div>
+          <div class="row2">
+            <div class="field">
+              <label for="s-pw">비밀번호<span class="req" aria-hidden="true">*</span></label>
+              <input type="password" id="s-pw" autocomplete="new-password" placeholder="영문·숫자 포함 8자 이상">
+              <span class="err" id="e-s-pw" aria-live="polite"></span>
+            </div>
+            <div class="field">
+              <label for="s-pw2">비밀번호 확인<span class="req" aria-hidden="true">*</span></label>
+              <input type="password" id="s-pw2" autocomplete="new-password" placeholder="비밀번호를 한 번 더 입력">
+              <span class="err" id="e-s-pw2" aria-live="polite"></span>
+            </div>
+          </div>
+          <fieldset class="field">
+            <legend>동·호수<span class="req" aria-hidden="true">*</span></legend>
+            <div class="ym"><select id="s-dong" aria-label="동"></select><select id="s-ho" aria-label="호"></select></div>
+            <p class="nick-preview">닉네임 <b id="s-nick">동·호수를 선택하세요</b> <small>(동·호수로 자동 설정되며 바꿀 수 없어요)</small></p>
+            <span class="err" id="e-s-unit" aria-live="polite"></span>
+          </fieldset>
+          <div class="field">
+            <label for="s-code">세대코드 <small class="opt">(선택)</small></label>
+            <input type="text" id="s-code" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="예) ABCD-2345" maxlength="9">
+            <span class="note">관리사무소에서 받은 코드입니다. 없으면 비워 두세요.</span>
+            <span class="err" id="e-s-code" aria-live="polite"></span>
+          </div>
+          <div class="consent-box">
+            <h3 class="consent-title">개인정보 수집 및 이용에 관한 동의</h3>
+            <div class="consent-scroll" tabindex="0" aria-label="회원가입 개인정보 수집 및 이용 안내 전문">
+              <p class="c-lead">평택역 SK VIEW 임대관리센터는 입주민 전용 서비스 제공을 위해 아래와 같이 개인정보를 수집·이용합니다.</p>
+              <h4>1. 수집하는 개인정보 항목</h4>
+              <ul>
+                <li>필수 항목: 휴대폰 번호(아이디), 비밀번호, 이름, 동·호수</li>
+                <li>선택 항목: 세대코드</li>
+                <li>가입 일시와 최근 로그인 일시가 함께 기록됩니다. 비밀번호는 복원할 수 없는 방식으로 암호화하여 저장합니다.</li>
+              </ul>
+              <h4>2. 수집 및 이용 목적</h4>
+              <ul>
+                <li>입주민 여부 확인(세대코드 또는 관리사무소 확인) 및 회원 관리</li>
+                <li>입주민 전용 공지사항 제공</li>
+              </ul>
+              <h4>3. 보유 및 이용 기간</h4>
+              <ul>
+                <li>회원 탈퇴 또는 퇴거(임대차계약 종료) 확인 시까지 보유·이용하며, 이후 지체 없이 파기합니다.</li>
+              </ul>
+              <h4>4. 동의를 거부할 권리 및 불이익</h4>
+              <ul>
+                <li>개인정보 수집·이용에 동의하지 않을 권리가 있습니다. 다만, 동의하지 않으시면 회원가입 및 입주민 전용 서비스 이용이 제한됩니다.</li>
+              </ul>
+            </div>
+            <fieldset class="consent-q">
+              <legend><span class="req-tag">[필수]</span> 개인정보의 수집 및 이용에 동의하십니까?<small>동의를 하셔야 회원가입이 가능합니다.</small></legend>
+              <div class="consent-opts">
+                <label for="s-agree-y"><input type="radio" id="s-agree-y" name="s_agree" value="Y"> 동의함</label>
+                <label for="s-agree-n"><input type="radio" id="s-agree-n" name="s_agree" value="N"> 동의하지 않음</label>
+              </div>
+            </fieldset>
+            <span class="err" id="e-s-agree" aria-live="polite"></span>
+          </div>
+          <div class="hp" aria-hidden="true"><label for="s-website">웹사이트</label><input type="text" id="s-website" tabindex="-1" autocomplete="off"></div>
+          <p class="err" id="e-signup" role="alert"></p>
+          <div class="form-foot"><button type="submit" class="btn btn-blue" id="s-submit">회원가입</button></div>
+        </form>
+
+        <div class="done" id="signup-done" hidden>
+          <span class="ok"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#EA002C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+          <h2 tabindex="-1" id="signup-done-title">가입 신청이 접수되었습니다</h2>
+          <p id="signup-done-msg">관리사무소에서 입주민 여부를 확인한 뒤 승인해 드립니다. 승인되면 로그인해서 이용할 수 있어요.</p>
+          <div class="done-btns"><button type="button" class="btn btn-line" data-mtab="login">로그인 화면으로</button></div>
+        </div>
+      </div>
+
+      <div id="mb-user" hidden>
+        <div class="me-card">
+          <span class="me-badge">입주민 인증 완료</span>
+          <strong class="me-nick" id="me-nick"></strong>
+          <dl class="me-dl"><dt>이름</dt><dd id="me-name"></dd><dt>휴대폰</dt><dd id="me-phone"></dd></dl>
+          <div class="done-btns"><a class="btn btn-blue" href="#notice">공지사항 보기</a><button type="button" class="btn btn-line" id="me-logout">로그아웃</button></div>
+        </div>
+        <form class="form mb-form me-form" id="pw-form" novalidate>
+          <h2 class="me-h">비밀번호 변경</h2>
+          <div class="field"><label for="p-old">현재 비밀번호</label><input type="password" id="p-old" autocomplete="current-password"></div>
+          <div class="row2">
+            <div class="field"><label for="p-new">새 비밀번호</label><input type="password" id="p-new" autocomplete="new-password" placeholder="영문·숫자 포함 8자 이상"></div>
+            <div class="field"><label for="p-new2">새 비밀번호 확인</label><input type="password" id="p-new2" autocomplete="new-password"></div>
+          </div>
+          <p class="err" id="e-pw" role="alert"></p>
+          <p class="ok-msg" id="ok-pw" role="status" hidden>비밀번호를 변경했습니다.</p>
+          <div class="form-foot"><button type="submit" class="btn btn-line" id="p-submit">비밀번호 변경</button></div>
+        </form>
+        <details class="withdraw">
+          <summary>회원 탈퇴</summary>
+          <form class="wd-form" id="wd-form" novalidate>
+            <p>탈퇴하면 입주민 전용 공간을 이용할 수 없고, 이름·휴대폰 번호는 즉시 가림 처리됩니다. 다시 이용하려면 새로 가입해야 합니다.</p>
+            <div class="field"><label for="w-pw">현재 비밀번호</label><input type="password" id="w-pw" autocomplete="current-password"></div>
+            <p class="err" id="e-wd" role="alert"></p>
+            <div class="form-foot"><button type="submit" class="btn btn-line wd-btn" id="w-submit">회원 탈퇴</button></div>
+          </form>
+        </details>
+      </div>
+    </section>
   </div>
 </div>
 </main>
@@ -1247,12 +1460,11 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
 
       <div class="policy-sec">
         <h2 id="pv1">1. 수집하는 개인정보 항목 및 수집방법</h2>
-        <p>홈페이지는 입주대기예약 서비스 제공을 위해 필요한 최소한의 범위에서 개인정보를 수집합니다.</p>
+        <p>홈페이지는 입주대기예약 및 입주민 전용 서비스 제공을 위해 필요한 최소한의 범위에서 개인정보를 수집합니다.</p>
         <dl class="policy-dl">
-          <dt>필수 항목</dt><dd>성명, 휴대폰 번호, 희망 주택형, 희망 입주 시기</dd>
-          <dt>선택 항목</dt><dd>문의 사항</dd>
-          <dt>자동 기록</dt><dd>접수 일시</dd>
-          <dt>수집 방법</dt><dd>홈페이지 입주대기예약 신청</dd>
+          <dt>입주대기예약</dt><dd>필수: 성명, 휴대폰 번호, 희망 주택형, 희망 입주 시기 / 선택: 문의 사항 / 자동 기록: 접수 일시</dd>
+          <dt>입주민 회원</dt><dd>필수: 휴대폰 번호(아이디), 비밀번호(암호화 저장), 이름, 동·호수 / 선택: 세대코드 / 자동 기록: 가입 일시, 최근 로그인 일시</dd>
+          <dt>수집 방법</dt><dd>홈페이지 입주대기예약 신청, 입주민 회원가입</dd>
         </dl>
         <p>홈페이지는 개인정보 수집·이용에 대해 「동의함」 또는 「동의하지 않음」을 선택할 수 있는 절차를 마련하고 있으며, 「동의함」을 선택한 경우 개인정보 수집에 동의한 것으로 봅니다.</p>
       </div>
@@ -1263,6 +1475,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
           <li>입주대기예약 접수 및 대기 순번 관리</li>
           <li>희망 주택형에 입주 가능한 세대가 생긴 경우 입주 안내 연락(전화·문자)</li>
           <li>입주 상담, 신청자격 확인 안내 및 문의 사항에 대한 답변</li>
+          <li>입주민 여부 확인(세대코드 또는 관리사무소 확인), 회원 관리 및 입주민 전용 공지사항 제공</li>
         </ul>
         <p>수집한 개인정보는 위 목적 외의 용도로 이용하지 않으며, 이용 목적이 바뀌는 경우에는 미리 동의를 받겠습니다.</p>
       </div>
@@ -1281,13 +1494,13 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
         <p>홈페이지는 원활한 입주대기예약 접수를 위하여 다음과 같이 개인정보 처리업무를 위탁하고 있습니다. 위탁계약 시 개인정보가 안전하게 관리될 수 있도록 필요한 사항을 규정하고 있으며, 위탁 업무의 내용이나 수탁자가 변경될 경우에는 본 개인정보처리방침을 통하여 알려 드리겠습니다.</p>
         <div class="rtable-wrap"><table class="qtable policy-table">
           <thead><tr><th>수탁업체</th><th>위탁업무</th></tr></thead>
-          <tbody><tr><td>Google LLC</td><td>입주대기예약 접수 내용의 저장·보관 (클라우드 스프레드시트 서비스)</td></tr></tbody>
+          <tbody><tr><td>Google LLC</td><td>입주대기예약 접수 내용 및 입주민 회원 정보의 저장·보관 (클라우드 스프레드시트 서비스)</td></tr></tbody>
         </table></div>
       </div>
 
       <div class="policy-sec">
         <h2 id="pv5">5. 개인정보의 보유 및 이용기간</h2>
-        <p>수집한 개인정보는 <b>입주(임대차계약 체결) 또는 입주대기예약 취소 요청 시까지</b> 보유·이용하며, 목적이 달성되면 지체 없이 파기합니다. 다만, 관계 법령에 따라 보존해야 하는 경우에는 해당 법령에서 정한 기간 동안 보관합니다.</p>
+        <p>입주대기예약 정보는 <b>입주(임대차계약 체결) 또는 입주대기예약 취소 요청 시까지</b>, 입주민 회원 정보는 <b>회원 탈퇴 또는 퇴거(임대차계약 종료) 확인 시까지</b> 보유·이용하며, 목적이 달성되면 지체 없이 파기합니다. 다만, 관계 법령에 따라 보존해야 하는 경우에는 해당 법령에서 정한 기간 동안 보관합니다.</p>
       </div>
 
       <div class="policy-sec">
@@ -1303,6 +1516,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
         <ul class="policy-ul">
           <li>이용자(정보주체) 및 법정대리인은 언제든지 등록된 개인정보의 열람, 정정, 삭제 및 처리정지(입주대기예약 취소)를 요구할 수 있습니다.</li>
           <li>입주대기예약 확인 및 취소는 홈페이지 ‘입주대기예약 &gt; 예약 확인·취소’ 메뉴에서 성명과 휴대폰 번호로 직접 할 수 있으며, 취소 시 성명·휴대폰 번호는 즉시 가림 처리되고 문의 사항은 삭제됩니다.</li>
+          <li>입주민 회원은 ‘입주민 전용 &gt; 내 정보’에서 비밀번호 변경과 회원 탈퇴를 직접 할 수 있으며, 탈퇴 시 이름·휴대폰 번호는 즉시 가림 처리되고 비밀번호 정보는 삭제됩니다.</li>
           <li>그 밖의 권리 행사는 아래 개인정보 보호책임자에게 서면, 전화 또는 이메일로 연락하시면 지체 없이 조치하겠습니다.</li>
           <li>개인정보의 오류에 대한 정정을 요청한 경우에는 정정을 완료하기 전까지 해당 개인정보를 이용하지 않습니다.</li>
           <li>삭제 또는 처리정지를 요청하여 파기된 개인정보는 “5. 개인정보의 보유 및 이용기간”에 따라 처리하며, 그 외의 용도로 열람하거나 이용할 수 없도록 처리합니다.</li>
@@ -1311,7 +1525,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
 
       <div class="policy-sec">
         <h2 id="pv8">8. 개인정보 자동수집장치의 설치·운영 및 거부</h2>
-        <p>홈페이지는 이용자의 정보를 저장하고 수시로 불러오는 쿠키(cookie)를 사용하지 않습니다. 이용자는 웹 브라우저의 설정을 통해 쿠키 저장을 허용하거나 거부할 수 있습니다.</p>
+        <p>홈페이지는 이용자의 정보를 저장하고 수시로 불러오는 쿠키(cookie)를 사용하지 않습니다. 다만, 입주민 회원의 로그인 상태 유지를 위해 이용자 브라우저의 저장공간(localStorage)에 무작위로 만든 로그인 확인값만 저장하며, 로그아웃하면 삭제됩니다. 이용자는 웹 브라우저 설정에서 사이트 데이터를 삭제할 수 있습니다.</p>
       </div>
 
       <div class="policy-sec">
@@ -1321,6 +1535,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
           <li>홈페이지와 입주대기예약 접수 과정의 전송 구간을 암호화(HTTPS/SSL)하여 개인정보를 안전하게 전송합니다.</li>
           <li>접수된 개인정보에 접근할 수 있는 인원을 개인정보 보호책임자 및 담당자로 제한합니다.</li>
           <li>입력값 검증과 자동 등록 방지 기능을 통해 비정상적인 접수를 차단합니다.</li>
+          <li>회원 비밀번호는 복원할 수 없는 방식으로 암호화(해시)하여 저장하며, 로그인·인증을 반복해서 실패하면 일정 시간 이용을 제한합니다.</li>
         </ol>
       </div>
 
@@ -1353,7 +1568,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
         <h2 id="pv12">12. 개인정보처리방침의 변경</h2>
         <p>법령·정책 또는 보안기술의 변경에 따라 내용의 추가, 삭제 및 수정이 있을 경우에는 변경되는 개인정보처리방침을 시행하기 최소 7일 전에 홈페이지를 통해 변경 이유 및 내용 등을 공지하겠습니다.</p>
         <dl class="policy-dl">
-          <dt>버전</dt><dd>v1.0</dd>
+          <dt>버전</dt><dd>v1.1 (입주민 회원 항목 추가)</dd>
           <dt>시행일자</dt><dd class="num">2026년 9월 11일</dd>
         </dl>
       </div>
@@ -1418,7 +1633,8 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
     move: {title:"입주안내", desc:"신청자격과<br>계약 절차를 안내합니다.", pages:[["eligibility","신청자격"],["docs","계약 필요서류"],["process","예비임차인 모집 절차"]]},
     lease:{title:"임대조건", desc:"우리 아파트의<br>현재 임대조건입니다.", pages:[["rent","주택 임대조건"]]},
     reserve:{title:"입주대기예약", desc:"입주대기예약 신청과<br>예약 확인·취소를 할 수 있습니다.", pages:[["apply","입주대기예약"],["mybook","예약 확인·취소"]]},
-    cs:   {title:"찾아오시는 길", desc:"평택역 SK VIEW의<br>위치를 안내합니다.", pages:[["contact","찾아오시는 길"]]}
+    cs:   {title:"찾아오시는 길", desc:"평택역 SK VIEW의<br>위치를 안내합니다.", pages:[["contact","찾아오시는 길"]]},
+    resident:{title:"입주민 전용", desc:"입주민 인증 후<br>이용할 수 있는 공간입니다.", pages:[["notice","공지사항"],["member","로그인·회원가입"]]}
   };
   var PAGE_GROUP = {};
   Object.keys(GROUPS).forEach(function(g){ GROUPS[g].pages.forEach(function(p){ PAGE_GROUP[p[0]] = g; }); });
@@ -1446,6 +1662,8 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
       }).join("");
       document.querySelector('[data-view="sub"]').classList.toggle("wide", page === "overview");
       if (page === "units") renderUnits();
+      if (page === "notice") loadNotices();
+      if (page === "member") renderMember();
     }
     if (!initial) window.scrollTo(0,0);
   }
@@ -1856,6 +2074,207 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
         .then(function(){ btn.disabled=false; btn.textContent="예약 조회"; });
     });
   })();
+
+  /* ═════ 입주민 전용: 회원가입 · 로그인 · 공지사항 ═════ */
+  var TOKEN_KEY = "skview_resident_token", memToken = null, me = null, noticesCache = null;
+  try { memToken = localStorage.getItem(TOKEN_KEY); } catch(e){}
+  function saveToken(tk){ memToken = tk; try { if (tk) localStorage.setItem(TOKEN_KEY, tk); else localStorage.removeItem(TOKEN_KEY); } catch(e){} }
+  var M_NET = "연결하지 못했어요. 인터넷 연결을 확인한 뒤 다시 시도해 주세요.";
+  var M_MSG = {
+    INVALID:"입력 내용을 다시 확인해 주세요.", DUP_PHONE:"이미 가입된 휴대폰 번호입니다. 로그인해 주세요.",
+    BAD_UNIT:"단지에 없는 동·호수입니다. 다시 선택해 주세요.", WEAK_PW:"비밀번호는 영문과 숫자를 포함해 8자 이상이어야 합니다.",
+    BAD_CODE:"세대코드가 맞지 않습니다. 관리사무소에서 받은 코드를 확인하거나, 비워 두고 승인 요청으로 가입해 주세요.",
+    LIMIT:"시도 횟수가 너무 많습니다. 10분 뒤에 다시 시도해 주세요.", BAD_LOGIN:"휴대폰 번호 또는 비밀번호가 맞지 않습니다.",
+    PENDING:"관리사무소 승인 대기 중입니다. 승인되면 로그인할 수 있어요.", SUSPENDED:"이용이 정지된 계정입니다. 관리사무소로 문의해 주세요.",
+    AUTH:"로그인이 필요합니다.", BAD_PW:"현재 비밀번호가 맞지 않습니다."
+  };
+  function mMsg(res){ return (res && M_MSG[res.code]) || (res && !res.code ? "지금은 이용할 수 없어요. 잠시 후 다시 시도해 주세요. (접수 서버 업데이트 필요)" : "일시적인 오류가 발생했어요. 잠시 후 다시 시도해 주세요."); }
+  function mApi(params){
+    if (!FORM_ENDPOINT) return Promise.reject(new Error("no endpoint"));
+    return fetch(FORM_ENDPOINT, { method:"POST", body:new URLSearchParams(params) })
+      .then(function(r){ if(!r.ok) throw new Error("http "+r.status); return r.json(); });
+  }
+  function busy(btn, on, label){ btn.disabled = on; if (label) btn.textContent = label; }
+  function authLost(res){ if (res && (res.code==="AUTH"||res.code==="SUSPENDED"||res.code==="PENDING")){ saveToken(null); me=null; noticesCache=null; syncMemberMenu(); return true; } return false; }
+  function syncMemberMenu(){
+    GROUPS.resident.pages[1][1] = me ? "내 정보" : "로그인·회원가입";
+    var cur = location.hash.slice(1);
+    if (PAGE_GROUP[cur] === "resident") {
+      $("#lnb-list").innerHTML = GROUPS.resident.pages.map(function(p){ return '<li><a href="#'+p[0]+'"'+(p[0]===cur?' aria-current="page"':'')+'>'+p[1]+'</a></li>'; }).join("");
+    }
+  }
+  function setMe(m){ me = m; syncMemberMenu(); }
+
+  // 동·호 선택
+  (function(){
+    var ds=$("#s-dong"), hs=$("#s-ho");
+    ds.innerHTML = '<option value="">동 선택</option>' + Object.keys(DONGHO).map(function(d){ return '<option value="'+d+'">'+d+'동</option>'; }).join("");
+    function fillHo(){
+      var d=ds.value, list=[];
+      if (DONGHO[d]) DONGHO[d].forEach(function(runs, li){ runs.forEach(function(r){ for (var f=r[0]; f<=r[1]; f++) list.push(f*100+li+1); }); });
+      list.sort(function(a,b){ return a-b; });
+      hs.innerHTML = '<option value="">'+(d?'호 선택':'동을 먼저 선택')+'</option>' + list.map(function(h){ return '<option value="'+h+'">'+h+'호</option>'; }).join("");
+      hs.disabled = !d; nick();
+    }
+    function nick(){ $("#s-nick").textContent = ds.value && hs.value ? ds.value+"동 "+hs.value+"호" : "동·호수를 선택하세요"; }
+    ds.addEventListener("change", fillHo); hs.addEventListener("change", nick); fillHo();
+  })();
+  ["#l-phone","#s-phone"].forEach(function(s){ $(s).addEventListener("input", phoneInput); });
+  $("#s-code").addEventListener("input", function(){
+    var v=this.value.toUpperCase().replace(/[^A-Z0-9]/g,"").slice(0,8);
+    this.value = v.length>4 ? v.slice(0,4)+"-"+v.slice(4) : v;
+  });
+
+  // 로그인 / 회원가입 탭
+  function setMTab(tab){
+    $("#mt-login").setAttribute("aria-selected", tab==="login"); $("#mt-signup").setAttribute("aria-selected", tab==="signup");
+    $("#login-form").hidden = tab!=="login"; $("#signup-form").hidden = tab!=="signup"; $("#signup-done").hidden = true;
+  }
+  document.addEventListener("click", function(e){
+    var b = e.target.closest("[data-mtab]"); if (!b) return;
+    setMTab(b.dataset.mtab);
+    if (b.tagName==="BUTTON") (b.dataset.mtab==="login" ? $("#l-phone") : $("#s-phone")).focus();
+  });
+
+  function renderMember(){
+    var guest = !me;
+    $("#mb-guest").hidden = !guest; $("#mb-user").hidden = guest;
+    $("#mb-title").textContent = guest ? "로그인·회원가입" : "내 정보";
+    $("#mb-desc").textContent = guest ? "입주민 전용 공간은 회원가입과 입주민 인증을 마친 뒤 이용할 수 있어요." : "회원 정보 확인, 비밀번호 변경, 로그아웃을 할 수 있어요.";
+    if (me){ $("#me-nick").textContent = me.nickname; $("#me-name").textContent = me.name; $("#me-phone").textContent = me.phone; }
+  }
+
+  function loadNotices(){
+    setErr("notice");
+    var lock=$("#nt-lock"), area=$("#nt-area");
+    if (!memToken){ lock.hidden=false; area.hidden=true; $("#nt-lock-msg").textContent="로그인하면 공지사항을 볼 수 있어요. 아직 회원이 아니라면 회원가입 후 이용해 주세요."; return; }
+    lock.hidden=true; area.hidden=false;
+    if (me) $("#nt-nick").textContent = me.nickname;
+    if (noticesCache) { drawNotices(noticesCache); }
+    else { $("#nt-loading").hidden=false; $("#nt-list").innerHTML=""; $("#nt-empty").hidden=true; }
+    mApi({action:"m_notices", token:memToken}).then(function(res){
+      $("#nt-loading").hidden=true;
+      if (!res || !res.ok){
+        if (authLost(res)){ lock.hidden=false; area.hidden=true; $("#nt-lock-msg").textContent = res.code==="AUTH" ? "로그인 시간이 지났어요. 다시 로그인해 주세요." : M_MSG[res.code]; return; }
+        setErr("notice", mMsg(res)); return;
+      }
+      setMe(res.me); $("#nt-nick").textContent = res.me.nickname;
+      noticesCache = res.notices; drawNotices(res.notices);
+    }).catch(function(){ $("#nt-loading").hidden=true; setErr("notice", M_NET); });
+  }
+  function drawNotices(list){
+    var ul=$("#nt-list"); ul.innerHTML="";
+    $("#nt-empty").hidden = list.length>0; $("#nt-loading").hidden = true;
+    list.forEach(function(n, i){
+      var li=document.createElement("li"); li.className="nt-item";
+      var btn=document.createElement("button"); btn.type="button"; btn.className="nt-head"; btn.setAttribute("aria-expanded","false"); btn.setAttribute("aria-controls","nt-b"+i);
+      var pin=document.createElement("span"); pin.className="nt-pin"+(n.pinned?"":" no"); pin.textContent="공지";
+      var ti=document.createElement("span"); ti.className="nt-title"; ti.textContent=n.title;
+      var dt=document.createElement("span"); dt.className="nt-date num"; dt.textContent=n.date;
+      var ch=document.createElement("i"); ch.className="nt-chev"; ch.setAttribute("aria-hidden","true");
+      btn.appendChild(pin); btn.appendChild(ti); btn.appendChild(dt); btn.appendChild(ch);
+      var body=document.createElement("div"); body.className="nt-body"; body.id="nt-b"+i; body.hidden=true; body.textContent=n.body||"(내용 없음)";
+      btn.addEventListener("click", function(){ var open=btn.getAttribute("aria-expanded")==="true"; btn.setAttribute("aria-expanded", !open); body.hidden=open; });
+      li.appendChild(btn); li.appendChild(body); ul.appendChild(li);
+    });
+  }
+
+  $("#login-form").addEventListener("submit", function(e){
+    e.preventDefault(); setErr("login");
+    var phone=$("#l-phone").value.trim(), pw=$("#l-pw").value;
+    if (!/^01[016789]-\d{3,4}-\d{4}$/.test(phone)){ setErr("login","휴대폰 번호를 010-1234-5678 형식으로 입력하세요."); $("#l-phone").focus(); return; }
+    if (!pw){ setErr("login","비밀번호를 입력하세요."); $("#l-pw").focus(); return; }
+    var btn=$("#l-submit"); busy(btn,true,"로그인 중…");
+    mApi({action:"m_login", phone:phone, password:pw}).then(function(res){
+      if (!res || !res.ok){ setErr("login", mMsg(res)); return; }
+      saveToken(res.token); noticesCache=null; setMe(res.me); $("#l-pw").value="";
+      location.hash="notice";
+    }).catch(function(){ setErr("login", M_NET); }).then(function(){ busy(btn,false,"로그인"); });
+  });
+
+  (function(){
+    var map={"s-phone":"s-phone","s-name":"s-name","s-pw":"s-pw","s-pw2":"s-pw2","s-dong":"s-unit","s-ho":"s-unit","s-code":"s-code","s-agree-y":"s-agree","s-agree-n":"s-agree"};
+    function clear(e){ var k=map[e.target.id]; if (k) setErr(k); }
+    $("#signup-form").addEventListener("input", clear); $("#signup-form").addEventListener("change", clear);
+    $("#login-form").addEventListener("input", function(){ setErr("login"); });
+  })();
+  $("#signup-form").addEventListener("submit", function(e){
+    e.preventDefault();
+    ["s-phone","s-name","s-pw","s-pw2","s-unit","s-code","s-agree","signup"].forEach(function(k){ setErr(k); });
+    var phone=$("#s-phone").value.trim(), name=$("#s-name").value.trim(), pw=$("#s-pw").value, pw2=$("#s-pw2").value;
+    var dong=$("#s-dong").value, ho=$("#s-ho").value, code=$("#s-code").value.trim(), ag=document.querySelector('input[name="s_agree"]:checked');
+    var first=null; function fail(k,msg,el){ setErr(k,msg); first=first||el; }
+    if (!/^01[016789]-\d{3,4}-\d{4}$/.test(phone)) fail("s-phone","휴대폰 번호를 010-1234-5678 형식으로 입력하세요.",$("#s-phone"));
+    if (name.replace(/\s/g,"").length<2) fail("s-name","이름을 2자 이상 입력하세요.",$("#s-name"));
+    if (!(pw.length>=8 && /[A-Za-z]/.test(pw) && /\d/.test(pw))) fail("s-pw","영문과 숫자를 포함해 8자 이상 입력하세요.",$("#s-pw"));
+    else if (pw!==pw2) fail("s-pw2","비밀번호가 서로 다릅니다.",$("#s-pw2"));
+    if (!dong||!ho) fail("s-unit","동과 호수를 선택하세요.",$(!dong?"#s-dong":"#s-ho"));
+    if (code && !/^[A-Z0-9]{4}-[A-Z0-9]{4}$/.test(code)) fail("s-code","세대코드 8자리를 확인해 주세요. 없으면 비워 두세요.",$("#s-code"));
+    if (!ag || ag.value!=="Y") fail("s-agree","개인정보 수집·이용에 ‘동의함’을 선택해야 가입할 수 있습니다.",$("#s-agree-y"));
+    if (first){ first.focus(); return; }
+    var btn=$("#s-submit"); busy(btn,true,"가입 처리 중…");
+    mApi({action:"m_signup", phone:phone, name:name, password:pw, dong:dong, ho:ho, code:code, agree:"Y", website:$("#s-website").value})
+      .then(function(res){
+        if (!res || !res.ok){
+          var m=mMsg(res);
+          if (res && res.code==="BAD_CODE") { setErr("s-code", m); $("#s-code").focus(); }
+          else if (res && res.code==="BAD_UNIT") { setErr("s-unit", m); }
+          else setErr("signup", m);
+          return;
+        }
+        $("#signup-form").reset(); $("#s-dong").dispatchEvent(new Event("change"));
+        if (res.token){
+          saveToken(res.token); noticesCache=null;
+          mApi({action:"m_me", token:res.token}).then(function(r2){ if (r2 && r2.ok) setMe(r2.me); location.hash="notice"; })
+            .catch(function(){ location.hash="notice"; });
+        } else {
+          $("#signup-form").hidden=true; $("#login-form").hidden=true; $("#signup-done").hidden=false; $("#signup-done-title").focus();
+        }
+      })
+      .catch(function(){ setErr("signup", M_NET); })
+      .then(function(){ busy(btn,false,"회원가입"); });
+  });
+
+  function doLogout(){
+    var tk=memToken; saveToken(null); me=null; noticesCache=null; syncMemberMenu();
+    if (tk) mApi({action:"m_logout", token:tk}).catch(function(){});
+    setMTab("login");
+    if (location.hash==="#member") renderMember(); else location.hash="member";
+  }
+  $("#nt-logout").addEventListener("click", doLogout);
+  $("#me-logout").addEventListener("click", doLogout);
+
+  $("#pw-form").addEventListener("submit", function(e){
+    e.preventDefault(); setErr("pw"); $("#ok-pw").hidden=true;
+    var o=$("#p-old").value, n=$("#p-new").value, n2=$("#p-new2").value;
+    if (!o){ setErr("pw","현재 비밀번호를 입력하세요."); return; }
+    if (!(n.length>=8 && /[A-Za-z]/.test(n) && /\d/.test(n))){ setErr("pw","새 비밀번호는 영문과 숫자를 포함해 8자 이상이어야 합니다."); return; }
+    if (n!==n2){ setErr("pw","새 비밀번호가 서로 다릅니다."); return; }
+    var btn=$("#p-submit"); busy(btn,true,"변경 중…");
+    mApi({action:"m_passwd", token:memToken, password:o, newPassword:n}).then(function(res){
+      if (!res || !res.ok){ if (authLost(res)) { location.hash="member"; renderMember(); } setErr("pw", mMsg(res)); return; }
+      $("#pw-form").reset(); $("#ok-pw").hidden=false;
+    }).catch(function(){ setErr("pw", M_NET); }).then(function(){ busy(btn,false,"비밀번호 변경"); });
+  });
+
+  $("#wd-form").addEventListener("submit", function(e){
+    e.preventDefault(); setErr("wd");
+    var pw=$("#w-pw").value; if (!pw){ setErr("wd","현재 비밀번호를 입력하세요."); return; }
+    var btn=$("#w-submit"); busy(btn,true,"처리 중…");
+    mApi({action:"m_withdraw", token:memToken, password:pw}).then(function(res){
+      if (!res || !res.ok){ setErr("wd", mMsg(res)); return; }
+      $("#wd-form").reset(); saveToken(null); me=null; noticesCache=null; syncMemberMenu(); renderMember(); setMTab("login");
+      setErr("login","회원 탈퇴가 완료되었습니다. 그동안 이용해 주셔서 감사합니다.");
+    }).catch(function(){ setErr("wd", M_NET); }).then(function(){ busy(btn,false,"회원 탈퇴"); });
+  });
+
+  // 처음 열 때 로그인 상태 확인
+  if (memToken){
+    mApi({action:"m_me", token:memToken}).then(function(res){
+      if (res && res.ok){ setMe(res.me); var c=location.hash.slice(1); if (c==="member") renderMember(); if (c==="notice") $("#nt-nick").textContent=res.me.nickname; }
+      else if (authLost(res)) { var c2=location.hash.slice(1); if (c2==="notice") loadNotices(); if (c2==="member") renderMember(); }
+    }).catch(function(){});
+  }
 
   $("#biz-img").src = document.querySelector(".banner-photo").src;
   renderType(); renderUnits();
