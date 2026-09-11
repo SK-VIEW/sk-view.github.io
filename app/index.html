@@ -6,7 +6,11 @@
 <title>SK VIEW 입주민</title>
 <meta name="description" content="평택역 SK VIEW 입주민 앱 — 공지사항, 하자접수, 게스트하우스 예약">
 <meta name="theme-color" content="#FFFFFF">
-<link rel="manifest" href="manifest.webmanifest">
+<script>
+  // 삼성 인터넷은 앱 설치 파일을 옛 방식으로 만들어 'Play 프로텍트: 안전하지 않은 앱'으로 막힘
+  // → 삼성 인터넷에는 앱 설치 정보를 주지 않아 '홈 화면 바로가기'로만 추가되게 함 (크롬·사파리는 그대로 설치)
+  if (!/SamsungBrowser/i.test(navigator.userAgent)) { var m=document.createElement("link"); m.rel="manifest"; m.href="manifest.webmanifest"; document.head.appendChild(m); }
+</script>
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -874,6 +878,7 @@ body{background:#F4F5F7;overscroll-behavior-y:none}
 .install-steps .ico{display:inline-flex;vertical-align:-4px;color:var(--skblue)}
 .install-btns{display:flex;gap:8px}
 .install-btns .btn{flex:1;height:44px}
+.install-links{display:flex;justify-content:center;gap:18px}
 .install-later{border:0;background:none;font:inherit;font-size:13px;color:var(--gray);text-decoration:underline;cursor:pointer;align-self:center;padding:4px}
 @media (min-width: 641px){ .app-main{padding-top:24px} }
 @media (prefers-reduced-motion: reduce){ .app-icon-btn.spin svg{animation:none} }
@@ -893,7 +898,7 @@ body{background:#F4F5F7;overscroll-behavior-y:none}
     <div class="install-top"><img src="icon-192.png" alt=""><div><b>홈 화면에 앱으로 추가하세요</b><span id="install-sub">다음부터 아이콘을 눌러 바로 열 수 있어요</span></div></div>
     <ol class="install-steps" id="install-steps"></ol>
     <div class="install-btns" id="install-btns"></div>
-    <button type="button" class="install-later" id="install-later">나중에 할게요</button>
+    <div class="install-links"><button type="button" class="install-later" id="install-done">이미 추가했어요</button><button type="button" class="install-later" id="install-later">나중에 할게요</button></div>
   </div>
 </div>
 
@@ -1887,8 +1892,10 @@ body{background:#F4F5F7;overscroll-behavior-y:none}
         }
       } else if (isSamsung){
         // 갤럭시 기본 브라우저(삼성 인터넷)로 설치하면 안드로이드 14 이상에서 '안전하지 않은 앱'으로 막힘 → 크롬으로 설치
-        sub.textContent = "지금은 삼성 인터넷으로 열려 있어요. 여기서 설치하면 '안전하지 않은 앱'으로 막힐 수 있어요";
-        item("아래 <b>크롬으로 열기</b>를 누르세요. (주소창의 설치 아이콘은 누르지 마세요)"); item("크롬에서 다시 나오는 <b>앱 설치</b>를 누르면 끝이에요.");
+        sub.textContent = "지금은 삼성 인터넷으로 열려 있어요. 아래 두 방법 중 하나로 추가하세요";
+        item("<b>추천</b> · 아래 <b>크롬으로 열기</b> → 크롬에서 <b class='nw'>앱 설치</b>");
+        item("<b>삼성 인터넷에서 바로</b> · 오른쪽 아래 <b>≡</b> → <b>현재 페이지 추가</b> → <b>홈 화면</b> → <b>추가</b>");
+        item("'안전하지 않은 앱 차단됨' 창이 떴다면 <b>확인</b>을 눌러 닫고 위 방법으로 다시 하세요.");
         var sa=el("a","btn btn-blue","크롬으로 열기",btns); sa.href="intent://"+location.host+location.pathname+"#Intent;scheme=https;package=com.android.chrome;end";
       } else if (isIOS){
         item("화면 아래의 공유 버튼 " + SHARE + " 을 누르세요."); item("목록을 올려 <b>홈 화면에 추가</b>를 누르세요."); item("오른쪽 위 <b>추가</b>를 누르면 끝이에요.");
@@ -1909,7 +1916,9 @@ body{background:#F4F5F7;overscroll-behavior-y:none}
     if (standalone) return;
     window.addEventListener("beforeinstallprompt", function(e){ e.preventDefault(); deferred=e; if (!later()) render(); });
     window.addEventListener("appinstalled", function(){ box.hidden=true; });
-    $("#install-later").addEventListener("click", function(){ box.hidden=true; try { localStorage.setItem("skview_install_later", String(Date.now()+7*86400000)); } catch(e){} });
+    function hideFor(days){ box.hidden=true; try { localStorage.setItem("skview_install_later", String(Date.now()+days*86400000)); } catch(e){} }
+    $("#install-later").addEventListener("click", function(){ hideFor(7); });
+    $("#install-done").addEventListener("click", function(){ hideFor(365); });
     if (!later()) render();
   })();
 
