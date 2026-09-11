@@ -1389,13 +1389,15 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
   // 입주대기예약 주택형별 접수 여부 — open:false 이면 "대기 불가"로 표시되고 선택할 수 없습니다.
   var WAITLIST = [
     {code:"59A1", type:"59㎡A", sup:"sp", label:"특별-신혼부부", open:false},
-    {code:"59A2", type:"59㎡A", sup:"sp", label:"특별-청년",     open:true},
-    {code:"59B",  type:"59㎡B", sup:"sp", label:"특별-청년",     open:true},
+    {code:"59Y",  type:"59㎡A·B", sup:"sp", label:"특별-청년",   open:true},   // 59㎡A 청년 + 59㎡B 청년 통합 대기
     {code:"72A",  type:"72㎡A", sup:"sp", label:"특별-청년",     open:true},
     {code:"72B",  type:"72㎡B", sup:"gn", label:"일반",          open:true},
     {code:"84",   type:"84㎡",  sup:"gn", label:"일반",          open:true}
   ];
   var FORM_TYPES = {}; WAITLIST.forEach(function(w){ FORM_TYPES[w.code] = "전용 "+w.type+" ("+w.label+")"; });
+  // 임대조건표 카드용 세부 유형 이름
+  var CODE_INFO = {"59A1":{type:"59㎡A",sup:"sp",label:"특별-신혼부부"},"59A2":{type:"59㎡A",sup:"sp",label:"특별-청년"},"59B":{type:"59㎡B",sup:"sp",label:"특별-청년"},
+                   "72A":{type:"72㎡A",sup:"sp",label:"특별-청년"},"72B":{type:"72㎡B",sup:"gn",label:"일반"},"84":{type:"84㎡",sup:"gn",label:"일반"}};
   var FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbwAYmCPdy9dhtMpNhWdMQ9MBQ-r6A_VXS1zjqn0nI6hRST_VOBun30JrSrd7JbE7rXo/exec";
   var PLAN_SIZE = {"59A":[769,504],"59B":[835,440],"72":[846,421],"84":[839,436]};
   var ORDER = ["84","72","59A","59B"];
@@ -1524,7 +1526,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
   lb.addEventListener("click", function(e){ if (e.target === lb || e.target.classList.contains("close")) closeLb(); });
   document.addEventListener("keydown", function(e){ if (e.key === "Escape" && !lb.hidden) closeLb(); });
   $("#type-tabs").addEventListener("click", function(e){ var b=e.target.closest("button"); if(!b) return; state.type=b.dataset.type; renderType(); });
-  $("#tp-apply").addEventListener("click", function(){ var r=document.getElementById("f-type-"+state.type); if(r && !r.disabled) r.checked=true; });
+  $("#tp-apply").addEventListener("click", function(){ var pick={"84":"84","59A":"59Y","59B":"59Y"}[state.type]; var r=pick && document.getElementById("f-type-"+pick); if(r && !r.disabled) r.checked=true; });
 
   /* site plan hotspots */
   (function(){
@@ -1634,7 +1636,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
     var cards='', codes=[];
     RENT.forEach(function(r){ if(codes.indexOf(r[2])<0) codes.push(r[2]); });
     codes.forEach(function(code){
-      var rows=RENT.filter(function(r){ return r[2]===code; }), w=WAITLIST.filter(function(x){ return x.code===code; })[0];
+      var rows=RENT.filter(function(r){ return r[2]===code; }), w=CODE_INFO[code];
       cards+='<div class="rcard'+(rows[0][0]==="일반공급"?' gen':'')+'"><div class="rcard-head"><strong>전용 '+(w?w.type:code)+'</strong>'+(w?'<span class="sup '+w.sup+'">'+w.label+'</span>':'')+'<small>'+code+'</small></div>'+
         '<div class="rcard-row hd"><span class="sel">선택타입</span><span>임대보증금</span><span>월 임대료</span></div>'+
         rows.map(function(r){ return '<div class="rcard-row'+(r[3]==="표준형"?' std':'')+'"><span class="sel">'+r[3]+'</span><span class="num">'+fmt(r[4])+'원</span><span class="num rv">'+fmt(r[5])+'원</span></div>'; }).join("")+'</div>';
