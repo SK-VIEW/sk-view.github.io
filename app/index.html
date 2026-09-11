@@ -18,7 +18,9 @@
 <meta name="apple-mobile-web-app-title" content="SK VIEW 입주민">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="format-detection" content="telephone=no">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://script.google.com" crossorigin>
+<link rel="preconnect" href="https://script.googleusercontent.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" media="print" onload="this.media='all'">
 <style>
 
 :root{color-scheme:light;--red:#EA002C;--red-dark:#C4001F;--red-soft:#FFF0F2;--red-line:#FFC9D3;--view-brown:#4A201D;--orange:#F47725;--orange-soft:#FFF4EC;--yellow:#FBBC05;--green:#B3CF0A;--teal:#009A93;--skblue:#0072C6;--navy:#0E306D;--purple:#68127A;--ink:#111111;--gray:#707782;--gray-2:#4A4F57;--line:#E6E6E6;--line-2:#D4D4D4;--soft:#F8F8F8;--white:#FFFFFF;--tile-teal:#DFF3F2;--tile-yellow:#FFF4D2;--tile-purple:#F3E6F5;--t84:#EA002C;--t72:#F47725;--t59a:#009A93;--t59b:#0072C6;--c84:#FDE1E7;--c72:#FDE9DC;--c59a:#D9F0EE;--c59b:#DCEBF7;--danger:#EA002C;--font:"Pretendard Variable","Pretendard","Noto Sans KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif}
@@ -1330,11 +1332,6 @@ body{background:#F4F5F7;overscroll-behavior-y:none}
   var GROUPS = { resident:{ pages:[["notice","공지사항"],["defect","하자접수"],["guest","게스트하우스"],["member","로그인·회원가입"]] } };
   var PAGE_GROUP = { notice:"resident", defect:"resident", guest:"resident", member:"resident" };
   var $ = function(s){ return document.querySelector(s); };
-  function api(params){
-    if (!FORM_ENDPOINT) return Promise.reject(new Error("no endpoint"));
-    return fetch(FORM_ENDPOINT, { method:"POST", body:new URLSearchParams(params) })
-      .then(function(r){ if(!r.ok) throw new Error("http "+r.status); return r.json(); });
-  }
   function el(tag, cls, text, parent){ var n=document.createElement(tag); if(cls) n.className=cls; if(text!=null) n.textContent=text; if(parent) parent.appendChild(n); return n; }
   function busy(btn, on, label){ btn.disabled = on; if (label) btn.textContent = label; }
   function accordion(btn, body, onFirstOpen){
@@ -1373,11 +1370,63 @@ body{background:#F4F5F7;overscroll-behavior-y:none}
     e.preventDefault(); var n=document.getElementById(a.dataset.jump); if(n) n.scrollIntoView({behavior:"smooth",block:"start"});
   });
 
+  /* ═════ 접수 서버 연결 (느리거나 끊겨도 자동 재시도) ═════ */
+  var lastNetErr = null;
+  function newRid(){
+    var a = new Uint8Array(12);
+    try { crypto.getRandomValues(a); } catch(e){ for (var i=0;i<a.length;i++) a[i]=Math.floor(Math.random()*256); }
+    return Array.prototype.map.call(a, function(b){ return ("0"+b.toString(16)).slice(-2); }).join("");
+  }
+  // 조회는 15초, 저장은 30초까지 기다리고, 안 되면 최대 3번 더 자동으로 다시 보냄 (같은 rid라 서버는 한 번만 처리)
+  function api(params){
+    if (!FORM_ENDPOINT) return Promise.reject(new Error("no endpoint"));
+    var body = {}; for (var k in params) if (params[k] != null) body[k] = params[k];
+    body.rid = newRid();
+    var read = /^(m_me|m_notices|m_defects|m_gh|m_img|check)$/.test(body.action||""), tries = 0;
+    function once(){
+      if (navigator.onLine === false){ var off = new Error("offline"); off.offline = true; return Promise.reject(off); }
+      var ctl = window.AbortController ? new AbortController() : null;
+      var timer = setTimeout(function(){ if (ctl) ctl.abort(); }, read ? 15000 : 30000);
+      return fetch(FORM_ENDPOINT, { method:"POST", body:new URLSearchParams(body), signal: ctl ? ctl.signal : undefined })
+        .then(function(r){ if (!r.ok) throw new Error("http "+r.status); return r.json(); })
+        .then(function(res){ clearTimeout(timer); if (res && res.code === "BUSY"){ var b = new Error("busy"); b.busy = true; throw b; } return res; },
+              function(err){ clearTimeout(timer); throw err; });
+    }
+    function attempt(){
+      return once().catch(function(err){
+        tries++;
+        if (err.offline || tries > 3){ lastNetErr = err; throw err; }
+        return new Promise(function(ok){ setTimeout(ok, [700, 2000, 4000][tries-1]); }).then(attempt);
+      });
+    }
+    return attempt();
+  }
+  function netMsg(){
+    if ((lastNetErr && lastNetErr.offline) || navigator.onLine === false) return "휴대폰이 인터넷에 연결되어 있지 않아요. 와이파이나 데이터를 켠 뒤 다시 시도해 주세요.";
+    if (lastNetErr && lastNetErr.busy) return "지금 이용하는 분이 많아 처리하지 못했어요. 1~2분 뒤에 다시 시도해 주세요.";
+    return "접수 서버 응답이 늦어 연결하지 못했어요. 잠시 후 다시 시도해 주세요.";
+  }
+  // 접수 서버 미리 깨우기 (한동안 안 쓰면 첫 응답이 느림) — 5분에 한 번만
+  function warmServer(){
+    if (!FORM_ENDPOINT) return;
+    try { var w = +sessionStorage.getItem("skview_warm") || 0; if (Date.now() - w < 300000) return; sessionStorage.setItem("skview_warm", String(Date.now())); } catch(e){}
+    fetch(FORM_ENDPOINT, { method:"GET", mode:"no-cors", cache:"no-store" }).catch(function(){});
+  }
+  // 로그인 상태에서 '내 정보'를 열 때만 회원 정보 받기 (목록 화면은 목록과 함께 받음)
+  function loadMember(){
+    renderMember();
+    if (memToken && !me){
+      $("#mb-guest").hidden = true; $("#mb-user").hidden = true;
+      api({action:"m_me", token:memToken}).then(function(res){
+        if (res && res.ok) setMe(res.me); else authLost(res);
+      }).catch(function(){}).then(function(){ if (location.hash === "#member") renderMember(); });
+    }
+  }
+
   /* ═════ 입주민 전용: 회원가입 · 로그인 · 공지사항 ═════ */
   var TOKEN_KEY = "skview_resident_token", memToken = null, me = null, listCache = {}, imgCache = {};
   try { memToken = localStorage.getItem(TOKEN_KEY); } catch(e){}
   function saveToken(tk){ memToken = tk; try { if (tk) localStorage.setItem(TOKEN_KEY, tk); else localStorage.removeItem(TOKEN_KEY); } catch(e){} }
-  var M_NET = "연결하지 못했어요. 인터넷 연결을 확인한 뒤 다시 시도해 주세요.";
   var M_MSG = {
     INVALID:"입력 내용을 다시 확인해 주세요.", DUP_PHONE:"이미 가입된 휴대폰 번호입니다. 로그인해 주세요.",
     BAD_UNIT:"단지에 없는 동·호수입니다. 다시 선택해 주세요.", WEAK_PW:"비밀번호는 영문과 숫자를 포함해 8자 이상이어야 합니다.",
@@ -1389,7 +1438,7 @@ body{background:#F4F5F7;overscroll-behavior-y:none}
   };
   function mMsg(res){ return (res && M_MSG[res.code]) || (res && !res.code ? "지금은 이용할 수 없어요. 잠시 후 다시 시도해 주세요. (접수 서버 업데이트 필요)" : "일시적인 오류가 발생했어요. 잠시 후 다시 시도해 주세요."); }
   function signIn(token, m){ saveToken(token); listCache={}; imgCache={}; if (m) setMe(m); }
-  function signOut(){ saveToken(null); me=null; listCache={}; imgCache={}; syncMemberMenu(); }
+  function signOut(){ saveToken(null); me=null; listCache={}; imgCache={}; try { localStorage.removeItem("skview_notice_cache"); } catch(e){} syncMemberMenu(); }
   function authLost(res){ if (res && (res.code==="AUTH"||res.code==="SUSPENDED"||res.code==="PENDING")){ signOut(); return true; } return false; }
   function syncMemberMenu(){
     GROUPS.resident.pages.forEach(function(p){ if (p[0]==="member") p[1] = me ? "내 정보" : "로그인·회원가입"; });
@@ -1449,6 +1498,7 @@ body{background:#F4F5F7;overscroll-behavior-y:none}
     if (!memToken) return locked(LOCK_MSG[key]);
     lock.hidden=true; area.hidden=false;
     if (me) $("#"+key+"-nick").textContent = me.nickname;
+    if (!listCache[key] && key === "nt"){ try { var saved = JSON.parse(localStorage.getItem("skview_notice_cache") || "null"); if (saved) listCache.nt = saved; } catch(e){} }
     if (listCache[key]) draw(listCache[key]); else { loading.hidden=false; $("#"+key+"-list").innerHTML=""; $("#"+key+"-empty").hidden=true; }
     api({action:action, token:memToken}).then(function(res){
       loading.hidden=true;
@@ -1458,7 +1508,8 @@ body{background:#F4F5F7;overscroll-behavior-y:none}
       }
       setMe(res.me); $("#"+key+"-nick").textContent = res.me.nickname;
       draw(listCache[key] = field ? res[field] : res);
-    }).catch(function(){ loading.hidden=true; setErr(page, M_NET); });
+      if (key === "nt"){ try { localStorage.setItem("skview_notice_cache", JSON.stringify(res[field])); } catch(e){} }
+    }).catch(function(){ loading.hidden=true; setErr(page, netMsg()); });
   }
   function loadNotices(){ residentList("nt", "m_notices", "notices", drawNotices); }
   function loadDefects(){ residentList("df", "m_defects", "defects", drawDefects); }
@@ -1570,7 +1621,7 @@ body{background:#F4F5F7;overscroll-behavior-y:none}
         var ok=$("#df-ok"); ok.textContent="하자가 접수되었습니다. (접수번호 "+res.no+") 임대관리센터에서 확인 후 답변해 드릴게요."; ok.hidden=false;
         delete listCache.df; loadDefects();
       })
-      .catch(function(){ setErr("df", M_NET); })
+      .catch(function(){ setErr("df", netMsg()); })
       .then(function(){ busy(btn,false,"접수하기"); });
   });
 
@@ -1702,7 +1753,7 @@ body{background:#F4F5F7;overscroll-behavior-y:none}
         var ok=$("#gh-ok"); ok.textContent=msg; ok.hidden=false;
         delete listCache.gh; loadGuest();
       })
-      .catch(function(){ setErr("gh", M_NET); })
+      .catch(function(){ setErr("gh", netMsg()); })
       .then(function(){ busy(btn,false,"예약 신청하기"); });
   });
   var GH_STATUS_CLASS = {"승인대기":"s0","확정":"s2","반려":"s3","취소":"s3","취소(본인)":"s3"};
@@ -1730,7 +1781,7 @@ body{background:#F4F5F7;overscroll-behavior-y:none}
             if (!res || !res.ok){ if (authLost(res)) { loadGuest(); return; } busy(cb,false,"예약 취소"); cb.dataset.confirm=""; setErr("guest", GH_MSG[res && res.code] || mMsg(res)); return; }
             var ok=$("#gh-ok"); ok.textContent="예약을 취소했어요. ("+x.no+")"; ok.hidden=false;
             delete listCache.gh; loadGuest();
-          }).catch(function(){ busy(cb,false,"예약 취소"); cb.dataset.confirm=""; setErr("guest", M_NET); });
+          }).catch(function(){ busy(cb,false,"예약 취소"); cb.dataset.confirm=""; setErr("guest", netMsg()); });
         });
       }
       accordion(btn, body, null);
@@ -1747,7 +1798,7 @@ body{background:#F4F5F7;overscroll-behavior-y:none}
       if (!res || !res.ok){ setErr("login", mMsg(res)); return; }
       signIn(res.token, res.me); $("#l-pw").value="";
       location.hash="notice";
-    }).catch(function(){ setErr("login", M_NET); }).then(function(){ busy(btn,false,"로그인"); });
+    }).catch(function(){ setErr("login", netMsg()); }).then(function(){ busy(btn,false,"로그인"); });
   });
 
   (function(){
@@ -1789,7 +1840,7 @@ body{background:#F4F5F7;overscroll-behavior-y:none}
           $("#signup-form").hidden=true; $("#login-form").hidden=true; $("#signup-done").hidden=false; $("#signup-done-title").focus();
         }
       })
-      .catch(function(){ setErr("signup", M_NET); })
+      .catch(function(){ setErr("signup", netMsg()); })
       .then(function(){ busy(btn,false,"회원가입"); });
   });
 
@@ -1812,7 +1863,7 @@ body{background:#F4F5F7;overscroll-behavior-y:none}
     api({action:"m_passwd", token:memToken, password:o, newPassword:n}).then(function(res){
       if (!res || !res.ok){ if (authLost(res)) { location.hash="member"; renderMember(); } setErr("pw", mMsg(res)); return; }
       $("#pw-form").reset(); $("#ok-pw").hidden=false;
-    }).catch(function(){ setErr("pw", M_NET); }).then(function(){ busy(btn,false,"비밀번호 변경"); });
+    }).catch(function(){ setErr("pw", netMsg()); }).then(function(){ busy(btn,false,"비밀번호 변경"); });
   });
 
   $("#wd-form").addEventListener("submit", function(e){
@@ -1823,16 +1874,9 @@ body{background:#F4F5F7;overscroll-behavior-y:none}
       if (!res || !res.ok){ setErr("wd", mMsg(res)); return; }
       $("#wd-form").reset(); signOut(); renderMember(); setMTab("login");
       setErr("login","회원 탈퇴가 완료되었습니다. 그동안 이용해 주셔서 감사합니다.");
-    }).catch(function(){ setErr("wd", M_NET); }).then(function(){ busy(btn,false,"회원 탈퇴"); });
+    }).catch(function(){ setErr("wd", netMsg()); }).then(function(){ busy(btn,false,"회원 탈퇴"); });
   });
 
-  // 처음 열 때 로그인 상태 확인
-  if (memToken){
-    api({action:"m_me", token:memToken}).then(function(res){
-      if (res && res.ok){ setMe(res.me); var c=location.hash.slice(1); if (c==="member") renderMember(); if (c==="notice") $("#nt-nick").textContent=res.me.nickname; if (c==="defect") $("#df-nick").textContent=res.me.nickname; }
-      else if (authLost(res)) { var c2=location.hash.slice(1); if (c2==="notice") loadNotices(); if (c2==="defect") loadDefects(); if (c2==="member") renderMember(); }
-    }).catch(function(){});
-  }
 
 
 
@@ -1845,7 +1889,7 @@ body{background:#F4F5F7;overscroll-behavior-y:none}
     if (page === "notice") loadNotices();
     if (page === "defect") loadDefects();
     if (page === "guest") loadGuest();
-    if (page === "member") renderMember();
+    if (page === "member") loadMember();
   }
   function show(page){
     if (page === "privacy"){ openPrivacy(); return; }
@@ -1861,7 +1905,6 @@ body{background:#F4F5F7;overscroll-behavior-y:none}
     var b=this; b.classList.add("spin"); setTimeout(function(){ b.classList.remove("spin"); }, 900);
     var key = {notice:"nt", defect:"df", guest:"gh"}[current];
     if (key) delete listCache[key];
-    if (memToken) api({action:"m_me", token:memToken}).then(function(res){ if (res && res.ok) setMe(res.me); else authLost(res); }).catch(function(){});
     loadPage(current);
   });
   // 앱을 다시 켰을 때(다른 앱에 갔다가 돌아옴) 1분 넘었으면 새로 불러오기
@@ -1923,6 +1966,7 @@ body{background:#F4F5F7;overscroll-behavior-y:none}
   })();
 
   if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost")) navigator.serviceWorker.register("sw.js").catch(function(){});
+  warmServer();
   show(location.hash.slice(1));
 })();
 </script>
