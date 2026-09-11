@@ -39,22 +39,23 @@ button{font-family:inherit}
 .header-top{height:108px;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
 .logo{gap:14px}
+/* 이미지 저장·복사 방지 */
+img{-webkit-user-drag:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+.img-toast{position:fixed;left:50%;bottom:32px;transform:translateX(-50%);z-index:100;max-width:calc(100% - 32px);background:rgba(17,20,24,.88);color:#FFFFFF;font-size:14px;font-weight:500;padding:11px 18px;border-radius:999px;pointer-events:none;opacity:0;transition:opacity .2s;white-space:nowrap}
+.img-toast.on{opacity:1}
 .logo-img{display:block;height:56px;width:auto}
 .logo-text{display:flex;flex-direction:column;align-items:flex-start;gap:4px;white-space:nowrap}
 .logo-name{font-size:34px;font-weight:800;line-height:1.05;letter-spacing:-.025em;color:var(--red)}
 .logo-sub{font-size:22px;font-weight:700;line-height:1.15;letter-spacing:-.02em;color:var(--view-brown);white-space:nowrap}
-.util-col{display:flex;flex-direction:column;align-items:flex-end;gap:7px}
-.util{display:flex;align-items:center;gap:22px;font-size:15px;line-height:1.3;padding-right:2px}
-.dday{display:flex;flex-direction:column;gap:3px;min-width:236px;padding:6px 12px 7px;border:1px solid var(--red-line);background:var(--red-soft);border-radius:10px}
-.dday-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;line-height:1.25}
-.dday-label{font-size:12.5px;font-weight:600;color:var(--gray-2);white-space:nowrap}
-.dday-num{font-size:17px;font-weight:800;color:var(--red);letter-spacing:-.01em}
-.dday-foot{display:flex;align-items:center;gap:8px}
-.dday-bar{display:block;flex:1;min-width:40px;height:4px;border-radius:2px;background:rgba(234,0,44,.15);overflow:hidden}
-.dday-bar i{display:block;height:100%;width:0;background:var(--red);border-radius:2px}
-.dday-range{font-size:10.5px;line-height:1.2;color:var(--gray);white-space:nowrap}
-.util a{text-decoration:none;color:var(--ink)}
-.util a:hover{color:var(--red)}
+.util-col{display:flex;align-items:center}
+.dday{display:flex;flex-direction:column;gap:7px;min-width:310px;padding:12px 18px 13px;border:1px solid var(--red-line);background:var(--red-soft);border-radius:12px}
+.dday-top{display:flex;align-items:baseline;justify-content:space-between;gap:18px;line-height:1.2}
+.dday-label{font-size:16px;font-weight:700;color:var(--gray-2);white-space:nowrap}
+.dday-num{font-size:26px;font-weight:800;color:var(--red);letter-spacing:-.01em}
+.dday-foot{display:flex;align-items:center;gap:10px}
+.dday-bar{display:block;flex:1;min-width:40px;height:6px;border-radius:3px;background:rgba(234,0,44,.15);overflow:hidden}
+.dday-bar i{display:block;height:100%;width:0;background:var(--red);border-radius:3px}
+.dday-range{font-size:12.5px;line-height:1.2;color:var(--gray);white-space:nowrap}
 .gnb{height:64px;display:flex;align-items:center;gap:56px}
 .gnb a{font-size:18px;font-weight:700;text-decoration:none;color:var(--ink);white-space:nowrap}
 .gnb a:hover,.gnb a[aria-current="true"]{color:var(--red)}
@@ -551,10 +552,10 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
   .logo-img{height:38px}
   .logo-name{font-size:23px}
   .logo-sub{font-size:15px}
-  .util .hide-m{display:none}
-  .util-col{gap:4px}
-  .dday{min-width:200px;padding:5px 10px 6px}
-  .dday-num{font-size:15px}
+  .dday{min-width:230px;padding:8px 12px 9px;gap:4px;border-radius:10px}
+  .dday-label{font-size:13px}
+  .dday-num{font-size:19px}
+  .dday-range{font-size:11px}
   .gnb{height:52px;gap:24px;overflow-x:auto}
   .gnb a{font-size:16px}
   .home{padding-block:20px 0}
@@ -643,11 +644,10 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
   .contact-list strong,.contact-list .tel{font-size:17px}
 }
 @media (max-width: 480px){
-  .util{display:none}
-  .dday{min-width:0;padding:5px 9px;gap:2px}
-  .dday-label{font-size:10.5px}
+  .dday{min-width:0;padding:6px 10px;gap:2px}
+  .dday-label{font-size:11.5px}
   .dday-more{display:none}
-  .dday-num{font-size:14px}
+  .dday-num{font-size:17px}
   .dday-foot{display:none}
   .dday-top{flex-direction:column;align-items:flex-end;gap:0}
   .steps{grid-template-columns:minmax(0,1fr)}
@@ -668,10 +668,6 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
       <span class="logo-text"><span class="logo-name">평택역 SK VIEW</span><span class="logo-sub">공공지원민간임대주택</span></span>
     </a>
     <div class="util-col">
-      <nav class="util" aria-label="바로가기">
-        <a href="#contact" class="hide-m">찾아오시는 길</a>
-        <a href="#apply" style="color:var(--red);font-weight:600">입주대기예약</a>
-      </nav>
       <div class="dday" id="dday" aria-live="polite">
         <div class="dday-top"><span class="dday-label">의무임대기간<span class="dday-more"> 종료까지</span></span><strong class="dday-num num" id="dday-num">D-</strong></div>
         <div class="dday-foot"><span class="dday-bar" aria-hidden="true"><i id="dday-fill"></i></span><span class="dday-range num">2021.11.22 ~ 2029.11.21</span></div>
@@ -683,7 +679,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
     <a href="#types" data-group="guide">단지안내</a>
     <a href="#eligibility" data-group="move">입주안내</a>
     <a href="#rent" data-group="lease">임대조건</a>
-    <a href="#apply" data-group="reserve">입주예약</a>
+    <a href="#apply" data-group="reserve">입주대기예약</a>
     <a href="#contact" data-group="cs">찾아오시는 길</a>
   </nav>
 </header>
@@ -1050,7 +1046,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
             </ul>
             <h4>6. 정보주체의 권리</h4>
             <ul>
-              <li>언제든지 본인의 개인정보 열람·정정·삭제 및 입주대기예약 취소를 요청할 수 있으며, 홈페이지 ‘입주예약 &gt; 예약 확인·취소’ 메뉴에서 직접 취소하거나 임대관리센터에 요청할 수 있습니다.</li>
+              <li>언제든지 본인의 개인정보 열람·정정·삭제 및 입주대기예약 취소를 요청할 수 있으며, 홈페이지 ‘입주대기예약 &gt; 예약 확인·취소’ 메뉴에서 직접 취소하거나 임대관리센터에 요청할 수 있습니다.</li>
             </ul>
           </div>
           <fieldset class="consent-q">
@@ -1085,7 +1081,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
       <div class="done" id="apply-done" hidden>
         <span class="ok"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#EA002C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
         <h2 tabindex="-1" id="done-title">입주대기예약이 접수되었습니다</h2>
-        <p>공실이 생기면 등록 순서대로 연락드립니다. 접수 내역은 <b>입주예약 &gt; 예약 확인·취소</b>에서 성명과 휴대폰 번호로 언제든 확인하거나 취소할 수 있습니다.</p>
+        <p>공실이 생기면 등록 순서대로 연락드립니다. 접수 내역은 <b>입주대기예약 &gt; 예약 확인·취소</b>에서 성명과 휴대폰 번호로 언제든 확인하거나 취소할 수 있습니다.</p>
         <dl class="facts" id="done-list"></dl>
         <div class="done-btns"><a class="btn btn-blue" href="#mybook">예약 확인하기</a><button type="button" class="btn btn-line" id="apply-again">새로 작성</button></div>
       </div>
@@ -1230,7 +1226,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
         <h2 id="pv7">7. 정보주체와 법정대리인의 권리·의무 및 행사방법</h2>
         <ul class="policy-ul">
           <li>이용자(정보주체) 및 법정대리인은 언제든지 등록된 개인정보의 열람, 정정, 삭제 및 처리정지(입주대기예약 취소)를 요구할 수 있습니다.</li>
-          <li>입주대기예약 확인 및 취소는 홈페이지 ‘입주예약 &gt; 예약 확인·취소’ 메뉴에서 성명과 휴대폰 번호로 직접 할 수 있으며, 취소 시 성명·휴대폰 번호는 즉시 가림 처리되고 문의 사항은 삭제됩니다.</li>
+          <li>입주대기예약 확인 및 취소는 홈페이지 ‘입주대기예약 &gt; 예약 확인·취소’ 메뉴에서 성명과 휴대폰 번호로 직접 할 수 있으며, 취소 시 성명·휴대폰 번호는 즉시 가림 처리되고 문의 사항은 삭제됩니다.</li>
           <li>그 밖의 권리 행사는 아래 개인정보 보호책임자에게 서면, 전화 또는 이메일로 연락하시면 지체 없이 조치하겠습니다.</li>
           <li>개인정보의 오류에 대한 정정을 요청한 경우에는 정정을 완료하기 전까지 해당 개인정보를 이용하지 않습니다.</li>
           <li>삭제 또는 처리정지를 요청하여 파기된 개인정보는 “5. 개인정보의 보유 및 이용기간”에 따라 처리하며, 그 외의 용도로 열람하거나 이용할 수 없도록 처리합니다.</li>
@@ -1343,7 +1339,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
     guide:{title:"단지안내", desc:"주택형과 단지 배치를<br>안내합니다.", pages:[["types","주택형 안내"],["siteplan","단지배치도"],["units","동호수표"]]},
     move: {title:"입주안내", desc:"신청자격과<br>계약 절차를 안내합니다.", pages:[["eligibility","신청자격"],["docs","계약 필요서류"],["process","예비임차인 모집 절차"]]},
     lease:{title:"임대조건", desc:"우리 아파트의<br>현재 임대조건입니다.", pages:[["rent","주택 임대조건"]]},
-    reserve:{title:"입주예약", desc:"입주대기예약 신청과<br>예약 확인·취소를 할 수 있습니다.", pages:[["apply","입주대기예약"],["mybook","예약 확인·취소"]]},
+    reserve:{title:"입주대기예약", desc:"입주대기예약 신청과<br>예약 확인·취소를 할 수 있습니다.", pages:[["apply","입주대기예약"],["mybook","예약 확인·취소"]]},
     cs:   {title:"찾아오시는 길", desc:"평택역 SK VIEW의<br>위치를 안내합니다.", pages:[["contact","찾아오시는 길"]]}
   };
   var PAGE_GROUP = {};
@@ -1376,6 +1372,17 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
     if (!initial) window.scrollTo(0,0);
   }
   window.addEventListener("hashchange", function(){ show(location.hash.slice(1)); });
+  /* 이미지 저장·복사 방지: 우클릭(휴대폰 길게 누르기)·끌어다 놓기 막기 */
+  (function(){
+    var toast=null, timer=null;
+    function notice(){
+      if (!toast){ toast=document.createElement("div"); toast.className="img-toast"; toast.setAttribute("role","status"); toast.textContent="이미지는 저장하거나 복사할 수 없습니다."; document.body.appendChild(toast); }
+      toast.classList.add("on"); clearTimeout(timer); timer=setTimeout(function(){ toast.classList.remove("on"); },1600);
+    }
+    function onImage(e){ var el=e.target; return el && el.closest && el.closest("img,.plan-stage,.biz-photo"); }
+    document.addEventListener("contextmenu", function(e){ if (onImage(e)){ e.preventDefault(); notice(); } });
+    document.addEventListener("dragstart", function(e){ if (e.target && e.target.tagName==="IMG") e.preventDefault(); });
+  })();
   /* 의무임대기간 D-day (2021.11.22 ~ 2029.11.21, 한국 시간 기준) */
   function updateDday(){
     var today;
