@@ -411,14 +411,21 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
 .itable td{text-align:right;padding-right:24px}
 .itable td.c120{background:var(--red-soft);font-weight:700;color:var(--red)}
 .itable td.c150{background:#FFFFFF}
-.policy{max-width:960px}
+.modal{position:fixed;inset:0;z-index:120;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:24px}
+.modal-panel{background:#FFFFFF;border-radius:18px;width:min(920px,100%);max-height:min(88vh,1000px);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.25)}
+.modal-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:20px 28px;border-bottom:2px solid var(--navy)}
+.modal-head h2{font-size:22px;font-weight:800;color:var(--ink)}
+.modal-close{width:40px;height:40px;border-radius:50%;border:1px solid var(--line-2);background:#FFFFFF;font-size:24px;line-height:1;cursor:pointer;color:var(--ink)}
+.modal-close:hover{border-color:var(--red);color:var(--red)}
+.modal-body{overflow-y:auto;padding:24px 28px 32px;overscroll-behavior:contain}
+.policy{max-width:none}
 .policy-toc{background:var(--soft);border:1px solid var(--line);border-radius:15px;padding:22px 26px}
 .policy-toc ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 28px}
 .policy-toc a{font-size:14.5px;color:var(--gray-2);text-decoration:none}
 .policy-toc a:hover{color:var(--red);text-decoration:underline}
 .policy-intro{margin-top:28px;display:flex;flex-direction:column;gap:6px;font-size:15px;color:var(--gray-2);line-height:1.8}
-.policy-sec{margin-top:40px;display:flex;flex-direction:column;gap:10px;font-size:15px;line-height:1.8;color:var(--gray-2);scroll-margin-top:200px}
-.policy-sec h2{font-size:19px;font-weight:700;color:var(--ink);padding-bottom:10px;border-bottom:1px solid var(--line);scroll-margin-top:200px}
+.policy-sec{margin-top:36px;display:flex;flex-direction:column;gap:10px;font-size:15px;line-height:1.8;color:var(--gray-2)}
+.policy-sec h2{font-size:19px;font-weight:700;color:var(--ink);padding-bottom:10px;border-bottom:1px solid var(--line);scroll-margin-top:12px}
 .policy-sec b{color:var(--ink)}
 .policy-dl{margin:0;display:grid;grid-template-columns:110px minmax(0,1fr);gap:6px 16px}
 .policy-dl dt{font-weight:700;color:var(--navy)}
@@ -436,6 +443,8 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
 .contact-list strong{font-size:20px;font-weight:700}
 .contact-list small{grid-column:1;font-size:14px;color:var(--gray)}
 .contact-list .tel{grid-column:2;grid-row:1/span 2;font-size:20px;font-weight:500;color:var(--gray);display:flex;align-items:center;gap:8px;white-space:nowrap}
+.map-box{margin-top:16px;border:1px solid var(--line);border-radius:15px;overflow:hidden;aspect-ratio:16/9;max-width:100%;background:var(--soft)}
+.map-box iframe{display:block;width:100%;height:100%;border:0}
 .addr{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;background:var(--soft);border-radius:15px;padding:24px 28px}
 .addr strong{display:block;font-size:18px}
 .addr span{font-size:14px;color:var(--gray)}
@@ -445,7 +454,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
 .footer .wrap{padding-block:20px 40px}
 .f-links{display:flex;gap:40px;padding-bottom:18px;border-bottom:1px solid var(--line)}
 .f-links a{font-size:12px;font-weight:500;color:var(--gray);text-decoration:none}
-.f-links a:nth-child(2){font-weight:700}
+.f-links a:first-child{font-weight:700}
 .f-name{font-size:16px;font-weight:700;color:var(--gray);margin-top:28px}
 .f-info{font-size:12px;font-weight:500;color:var(--gray);margin-top:14px;line-height:1.7}
 
@@ -506,7 +515,12 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
   .page-title{font-size:24px}
   .terms,.place,.fac-list{grid-template-columns:minmax(0,1fr)}
   .swipe-hint{display:block}
+  .map-box{aspect-ratio:4/5}
   .policy-toc ol{grid-template-columns:minmax(0,1fr)}
+  .modal{padding:0;align-items:stretch}
+  .modal-panel{border-radius:0;max-height:none;height:100%}
+  .modal-head{padding:14px 18px}
+  .modal-body{padding:18px 18px 28px}
   .policy-dl{grid-template-columns:minmax(0,1fr);gap:0}
   .policy-dl dd{margin-bottom:8px}
   .policy-table tbody th{width:96px}
@@ -980,10 +994,30 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
       </ul>
     </section>
 
-    <!-- 개인정보처리방침 -->
-    <section class="page policy" data-page="privacy" hidden>
-      <div class="page-head"><h1 class="page-title">개인정보처리방침</h1><p class="page-desc">평택역 SK VIEW 공공지원민간임대주택 홈페이지의 개인정보 처리 기준을 안내합니다.</p></div>
+    <!-- 주요 연락처 -->
+    <section class="page" data-page="contact" hidden>
+      <div class="page-head"><h1 class="page-title">찾아오시는 길</h1><p class="page-desc">평택역 SK VIEW의 위치를 안내합니다.</p></div>
+      <div class="block">
+        <div class="addr">
+          <div><strong>경기도 평택시 고평로 50</strong><span>평택역 SK VIEW · 지하철 1호선 평택역 도보권</span></div>
+          <a class="btn btn-line" href="https://map.naver.com/p/search/%ED%8F%89%ED%83%9D%EC%97%AD%20SK%20VIEW" target="_blank" rel="noopener">지도에서 보기</a>
+        </div>
+        <div class="map-box">
+          <iframe title="평택역 SK VIEW 위치 지도" src="https://maps.google.com/maps?q=%EA%B2%BD%EA%B8%B0%EB%8F%84%20%ED%8F%89%ED%83%9D%EC%8B%9C%20%EA%B3%A0%ED%8F%89%EB%A1%9C%2050&amp;hl=ko&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+</main>
 
+<div class="modal" id="privacy-modal" hidden>
+  <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="pv-title">
+    <div class="modal-head">
+      <h2 id="pv-title">개인정보처리방침</h2>
+      <button type="button" class="modal-close" aria-label="닫기">×</button>
+    </div>
+    <div class="modal-body policy" id="privacy-body">
       <nav class="policy-toc" aria-label="개인정보처리방침 목차"><ol><li><a href="#privacy" data-jump="pv1">1. 수집하는 개인정보 항목 및 수집방법</a></li><li><a href="#privacy" data-jump="pv2">2. 개인정보의 수집 및 이용목적</a></li><li><a href="#privacy" data-jump="pv3">3. 개인정보의 제3자 제공</a></li><li><a href="#privacy" data-jump="pv4">4. 개인정보 처리업무의 위탁</a></li><li><a href="#privacy" data-jump="pv5">5. 개인정보의 보유 및 이용기간</a></li><li><a href="#privacy" data-jump="pv6">6. 개인정보의 파기 절차 및 방법</a></li><li><a href="#privacy" data-jump="pv7">7. 정보주체와 법정대리인의 권리·의무 및 행사방법</a></li><li><a href="#privacy" data-jump="pv8">8. 개인정보 자동수집장치의 설치·운영 및 거부</a></li><li><a href="#privacy" data-jump="pv9">9. 개인정보의 안전성 확보조치</a></li><li><a href="#privacy" data-jump="pv10">10. 개인정보 보호책임자</a></li><li><a href="#privacy" data-jump="pv11">11. 권익침해 구제방법</a></li><li><a href="#privacy" data-jump="pv12">12. 개인정보처리방침의 변경</a></li></ol></nav>
 
       <div class="policy-intro">
@@ -1102,25 +1136,13 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
           <dt>시행일자</dt><dd class="num">2026년 9월 11일</dd>
         </dl>
       </div>
-    </section>
-
-    <!-- 주요 연락처 -->
-    <section class="page" data-page="contact" hidden>
-      <div class="page-head"><h1 class="page-title">찾아오시는 길</h1><p class="page-desc">평택역 SK VIEW의 위치를 안내합니다.</p></div>
-      <div class="block">
-        <div class="addr">
-          <div><strong>경기도 평택시 고평로 50</strong><span>평택역 SK VIEW · 지하철 1호선 평택역 도보권</span></div>
-          <a class="btn btn-line" href="https://map.naver.com/p/search/%ED%8F%89%ED%83%9D%EC%97%AD%20SK%20VIEW" target="_blank" rel="noopener">지도에서 보기</a>
-        </div>
-      </div>
-    </section>
+    </div>
   </div>
 </div>
-</main>
 
 <footer class="footer">
   <div class="wrap">
-    <nav class="f-links" aria-label="하단 메뉴"><a href="#home">이용약관</a><a href="#privacy">개인정보처리방침</a><a href="#contact">찾아오시는 길</a></nav>
+    <nav class="f-links" aria-label="하단 메뉴"><a href="#privacy" id="open-privacy">개인정보처리방침</a><a href="#contact">찾아오시는 길</a></nav>
     <p class="f-name">평택역 SK VIEW</p>
     <p class="f-info num">경기도 평택시 고평로 50 (평택역 SK VIEW)</p>
   </div>
@@ -1172,7 +1194,6 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
     guide:{title:"단지안내", desc:"주택형과 단지 배치를<br>안내합니다.", pages:[["types","주택형 안내"],["siteplan","단지배치도"],["units","동호수표"]]},
     move: {title:"입주안내", desc:"입주 절차와<br>신청 방법을 안내합니다.", pages:[["eligibility","신청자격"],["process","예비임차인 모집 절차"],["apply","입주대기예약"]]},
     lease:{title:"임대조건", desc:"우리 아파트의<br>현재 임대조건입니다.", pages:[["rent","주택 임대조건"]]},
-    policy:{title:"개인정보처리방침", desc:"", pages:[["privacy","개인정보처리방침"]]},
     cs:   {title:"찾아오시는 길", desc:"평택역 SK VIEW의<br>위치를 안내합니다.", pages:[["contact","찾아오시는 길"]]}
   };
   var PAGE_GROUP = {};
@@ -1184,6 +1205,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
 
   /* router */
   function show(page, initial){
+    if (page==="privacy"){ if(pvModal && pvModal.hidden) openPrivacy(); return; }
     var isHome = !PAGE_GROUP[page];
     document.querySelector('[data-view="home"]').hidden = !isHome;
     document.querySelector('[data-view="sub"]').hidden = isHome;
@@ -1198,12 +1220,19 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
       $("#lnb-list").innerHTML = GROUPS[group].pages.map(function(p){
         return '<li><a href="#'+p[0]+'"'+(p[0]===page?' aria-current="page"':'')+'>'+p[1]+'</a></li>';
       }).join("");
-      document.querySelector('[data-view="sub"]').classList.toggle("wide", page === "overview" || page === "privacy");
+      document.querySelector('[data-view="sub"]').classList.toggle("wide", page === "overview");
       if (page === "units") renderUnits();
     }
     if (!initial) window.scrollTo(0,0);
   }
   window.addEventListener("hashchange", function(){ show(location.hash.slice(1)); });
+  /* privacy modal */
+  var pvModal=$("#privacy-modal"), pvReturn=null;
+  function openPrivacy(from){ pvReturn=from||null; pvModal.hidden=false; document.body.style.overflow="hidden"; $("#privacy-body").scrollTop=0; pvModal.querySelector(".modal-close").focus(); }
+  function closePrivacy(){ pvModal.hidden=true; document.body.style.overflow=""; if(pvReturn) pvReturn.focus(); }
+  $("#open-privacy").addEventListener("click", function(e){ e.preventDefault(); openPrivacy(this); });
+  pvModal.addEventListener("click", function(e){ if(e.target===pvModal || e.target.closest(".modal-close")) closePrivacy(); });
+  document.addEventListener("keydown", function(e){ if(e.key==="Escape" && !pvModal.hidden) closePrivacy(); });
   document.addEventListener("click", function(e){
     var a=e.target.closest("[data-jump]"); if(!a) return;
     e.preventDefault(); var el=document.getElementById(a.dataset.jump); if(el) el.scrollIntoView({behavior:"smooth",block:"start"});
@@ -1416,7 +1445,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
 
   $("#biz-img").src = document.querySelector(".banner-photo").src;
   renderType(); renderUnits();
-  show(location.hash.slice(1), true);
+  if (location.hash==="#privacy"){ show("home", true); openPrivacy(); } else show(location.hash.slice(1), true);
 })();
 </script>
 
