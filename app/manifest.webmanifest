@@ -1,0 +1,34 @@
+{
+  "name": "평택역 SK VIEW 입주민",
+  "short_name": "SK VIEW 입주민",
+  "description": "공지사항, 하자접수, 게스트하우스 예약",
+  "lang": "ko",
+  "dir": "ltr",
+  "start_url": "./#notice",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F4F5F7",
+  "theme_color": "#FFFFFF",
+  "id": "./",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -415,6 +415,13 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--red);box-sh
 .df-reply.none{border-left-color:var(--line-2);background:var(--soft)}
 .df-reply.none p{color:var(--gray)}
 .gh-rule{font-size:13.5px;color:var(--gray-2)}
+.app-link{display:flex;align-items:center;gap:12px;margin:-14px 0 24px;padding:14px 18px;border:1px solid var(--line);border-radius:14px;background:#FFFFFF;text-decoration:none;color:var(--ink);max-width:760px}
+.app-link svg{flex-shrink:0;color:var(--red)}
+.app-link span{flex:1;min-width:0;font-size:15px}
+.app-link b{color:var(--red)}
+.app-link small{display:block;font-size:13px;color:var(--gray);margin-top:2px}
+.app-link i{font-style:normal;font-size:22px;color:var(--gray)}
+.app-link:hover{border-color:var(--red)}
 .gh-wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:24px;align-items:start;margin-bottom:36px}
 .gh-cal{border:1px solid var(--line);border-radius:16px;padding:18px 16px 14px;background:#FFFFFF}
 .gh-cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
@@ -1450,6 +1457,7 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--red);box-sh
     <!-- 입주민 전용: 로그인·회원가입·내 정보 -->
     <section class="page" data-page="member" hidden>
       <div class="page-head"><h1 class="page-title" id="mb-title">로그인·회원가입</h1><p class="page-desc" id="mb-desc">입주민 전용 공간은 회원가입과 입주민 인증을 마친 뒤 이용할 수 있어요.</p></div>
+      <a class="app-link" href="app/"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="2.4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10.5 18.5h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>휴대폰 홈 화면에 <b>입주민 앱</b> 설치하기<small>공지·하자접수·게스트하우스를 앱처럼 바로 열 수 있어요</small></span><i aria-hidden="true">›</i></a>
       <div id="mb-guest">
         <div class="seg mb-tabs" role="tablist" aria-label="로그인 또는 회원가입">
           <button type="button" role="tab" id="mt-login" data-mtab="login" aria-selected="true" aria-controls="login-form">로그인</button>
@@ -1609,7 +1617,7 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--red);box-sh
           <dt>입주민 회원</dt><dd>필수: 휴대폰 번호(아이디), 비밀번호(암호화 저장), 이름, 동·호수 / 선택: 세대코드 / 자동 기록: 가입 일시, 최근 로그인 일시</dd>
           <dt>하자접수</dt><dd>필수: 구분, 위치·증상, 내용 / 선택: 방문 가능 시간, 사진 / 자동 기록: 접수 일시, 접수한 회원의 동·호수·이름·휴대폰 번호</dd>
           <dt>게스트하우스 예약</dt><dd>필수: 이용일(체크인·체크아웃), 이용 인원 / 선택: 요청사항 / 자동 기록: 신청 일시, 예약한 회원의 동·호수·이름·휴대폰 번호</dd>
-          <dt>수집 방법</dt><dd>홈페이지 입주대기예약 신청, 입주민 회원가입, 입주민 전용 하자접수·게스트하우스 예약</dd>
+          <dt>수집 방법</dt><dd>홈페이지 입주대기예약 신청, 입주민 회원가입, 입주민 전용 하자접수·게스트하우스 예약(입주민 앱 포함)</dd>
         </dl>
         <p>홈페이지는 개인정보 수집·이용에 대해 「동의함」 또는 「동의하지 않음」을 선택할 수 있는 절차를 마련하고 있으며, 「동의함」을 선택한 경우 개인정보 수집에 동의한 것으로 봅니다.</p>
       </div>
@@ -1673,6 +1681,7 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--red);box-sh
       <div class="policy-sec">
         <h2 id="pv8">8. 개인정보 자동수집장치의 설치·운영 및 거부</h2>
         <p>홈페이지는 이용자의 정보를 저장하고 수시로 불러오는 쿠키(cookie)를 사용하지 않습니다. 다만, 입주민 회원의 로그인 상태 유지를 위해 이용자 브라우저의 저장공간(localStorage)에 무작위로 만든 로그인 확인값만 저장하며, 로그아웃하면 삭제됩니다. 이용자는 웹 브라우저 설정에서 사이트 데이터를 삭제할 수 있습니다.</p>
+        <p>입주민 앱(홈 화면 앱)은 빠르게 열리도록 화면 파일(글꼴·아이콘·화면 구성)만 기기에 저장하며, 개인정보는 저장하지 않습니다.</p>
       </div>
 
       <div class="policy-sec">
