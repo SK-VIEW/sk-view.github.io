@@ -412,7 +412,13 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
 
 .rent-top{display:flex;justify-content:space-between;align-items:center;gap:10px 16px;flex-wrap:wrap;margin-bottom:14px}
 .period{display:inline-flex;align-items:center;gap:8px;background:var(--red-soft);color:var(--ink);border:1px solid var(--red-line);border-radius:999px;padding:7px 16px;font-size:14px}
-.period b{color:var(--red);font-weight:700}
+.period b{color:var(--red);font-weight:700;white-space:nowrap}
+.rcards{display:none}
+.ho-info{font-size:14px;color:var(--gray-2);background:var(--soft);border-radius:10px;padding:10px 14px;margin:0 0 10px}
+.ho-info b{color:var(--red)}
+.ho .u:not(.none){cursor:pointer}
+.ho .u.on{outline:2px solid var(--red);outline-offset:1px}
+.to-top{position:fixed;right:16px;bottom:20px;z-index:40;width:46px;height:46px;border-radius:50%;border:1px solid var(--line-2);background:#FFFFFF;color:var(--ink);display:none;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,.14);cursor:pointer}
 .rtable-wrap{overflow-x:auto;border-top:2px solid var(--navy)}
 .rtable{width:100%;border-collapse:collapse;font-size:15px;min-width:660px}
 .rtable th{background:var(--navy);color:#FFFFFF;font-weight:700;padding:12px 10px;border:1px solid rgba(255,255,255,.22);white-space:nowrap}
@@ -557,6 +563,8 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
   .dday-num{font-size:19px}
   .dday-range{font-size:11px}
   .gnb{height:52px;gap:24px;overflow-x:auto}
+  input[type="text"],input[type="tel"],select,textarea{font-size:16px}
+  .ho-wrap{max-height:none}
   .gnb a{font-size:16px}
   .home{padding-block:20px 0}
   .banner{height:280px}
@@ -643,7 +651,42 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
   .contact-list{padding:4px 20px}
   .contact-list strong,.contact-list .tel{font-size:17px}
 }
+@media (max-width: 640px){
+  html{scroll-padding-top:12px}
+  .header{position:relative}
+  .gnb{height:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;overflow:visible;padding-inline:0;border-top:1px solid var(--line)}
+  .gnb a{display:flex;align-items:center;justify-content:center;height:46px;font-size:15px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .gnb a:nth-child(3n){border-right:0}
+  .gnb a:nth-last-child(-n+3){border-bottom:0}
+  .gnb a[aria-current="true"]{background:var(--red-soft)}
+  .to-top{display:flex}
+  .img-toast{bottom:80px}
+  .rent-wrap,.rent-hint{display:none}
+  .rcards{display:flex;flex-direction:column;gap:12px}
+  .rcard{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#FFFFFF}
+  .rcard.gen{border-color:var(--red-line)}
+  .rcard-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:12px 14px;background:var(--soft);border-bottom:1px solid var(--line)}
+  .rcard.gen .rcard-head{background:var(--red-soft)}
+  .rcard-head strong{font-size:17px;font-weight:700}
+  .rcard-head .sup{font-size:12px}
+  .rcard-head small{margin-left:auto;font-size:12px;color:var(--gray)}
+  .rcard-row{display:grid;grid-template-columns:62px minmax(0,1fr) minmax(0,.8fr);gap:8px;align-items:center;padding:10px 14px;border-top:1px solid var(--line);font-size:14px}
+  .rcard-row.hd{border-top:0}
+  .rcard-row.hd{font-size:12px;color:var(--gray);padding-block:8px;background:#FFFFFF}
+  .rcard-row span{text-align:right}
+  .rcard-row .sel{text-align:left;color:var(--gray-2)}
+  .rcard-row.std .sel{color:var(--ink);font-weight:600}
+  .rcard-row .rv{color:var(--red);font-weight:700}
+  .rcard-row.hd span{text-align:right}
+  .rcard-row.hd .sel{text-align:left}
+  .qtable-gen thead{display:none}
+  .qtable-gen,.qtable-gen tbody,.qtable-gen tr,.qtable-gen td{display:block;width:100%}
+  .qtable-gen td.q-l{width:auto;background:var(--navy);color:#FFFFFF;text-align:left;padding:10px 14px;border-right:0}
+  .period{border-radius:14px;flex-wrap:wrap;row-gap:2px}
+}
 @media (max-width: 480px){
+  .mix-bar div{padding-inline:7px;font-size:12px}
+  .ho .u{min-width:54px;font-size:13px}
   .dday{min-width:0;padding:6px 10px;gap:2px}
   .dday-label{font-size:11.5px}
   .dday-more{display:none}
@@ -656,6 +699,16 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
   .life strong{font-size:16px}
   .life span{font-size:13px}
   .mix-legend{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width: 400px){
+  .header-top{gap:8px}
+  .logo{gap:7px}
+  .logo-img{height:31px}
+  .logo-name{font-size:20px}
+  .logo-sub{font-size:13px}
+  .dday{padding:5px 8px}
+  .dday-label{font-size:11px}
+  .dday-num{font-size:16px}
 }
 </style>
 </head>
@@ -685,6 +738,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
 </header>
 
 <main>
+<button type="button" class="to-top" id="to-top" aria-label="맨 위로" hidden><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 14l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 <!-- ═════════ HOME ═════════ -->
 <div class="view" data-view="home">
   <div class="wrap home">
@@ -807,7 +861,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
             <dt>주차대수</dt><dd class="num">1,707대</dd>
             <dt>의무임대기간</dt><dd>8년</dd>
             <dt>입주</dt><dd class="num">2021년 11월</dd>
-            <dt>시행 / 시공</dt><dd>㈜대한제22호평택고평위탁관리부동산투자회사<br>SK건설㈜ (현 SK에코플랜트)</dd>
+            <dt>시행 / 시공</dt><dd><span style="white-space:nowrap">㈜대한제22호평택고평</span><wbr>위탁관리부동산투자회사<br>SK건설㈜ (현 SK에코플랜트)</dd>
           </dl>
           <div class="biz-table-wrap">
             <table class="biz-table num">
@@ -868,8 +922,9 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
       <div class="block" style="margin-top:32px">
         <div class="dong-head"><h2 id="dong-title">101동</h2><span id="dong-meta" class="num"></span></div>
         <div class="legend" id="dong-legend"></div>
+        <p class="ho-info" id="ho-info" aria-live="polite">호수를 누르면 주택형과 공급유형이 여기에 표시됩니다.</p>
         <div class="ho-wrap"><table class="ho" id="ho-table"></table></div>
-        <p class="note">※ 세대별 계약 현황(동호배치도) 기준입니다. 호수에 마우스를 올리면 세부 유형이 보여요.</p>
+        <p class="note">※ 세대별 계약 현황(동호배치도) 기준입니다. 호수를 누르면 세부 유형이 보여요.</p>
       </div>
     </section>
 
@@ -902,7 +957,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
 
       <div class="block">
         <h2>일반공급 신청자격</h2>
-        <div class="rtable-wrap"><table class="qtable">
+        <div class="rtable-wrap"><table class="qtable qtable-gen">
           <thead><tr><th class="q-l">구분</th><th>내용</th></tr></thead>
           <tbody><tr><td class="q-l">일반공급</td><td>
             <ul class="qlist">
@@ -1130,8 +1185,9 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
         <span class="period">적용기간 <b class="num">2025.11.22. ~ 2027.11.21.</b></span>
         <span class="legend"><span><i class="dot" style="background:#FFFFFF;border:1px solid var(--line-2)"></i>특별공급</span><span><i class="dot" style="background:var(--red-soft);border:1px solid var(--red-line)"></i>일반공급</span></span>
       </div>
-      <p class="swipe-hint">← 표를 좌우로 밀어서 볼 수 있어요 →</p>
-      <div class="rtable-wrap"><table class="rtable num" id="rent-table"></table></div>
+      <p class="swipe-hint rent-hint">← 표를 좌우로 밀어서 볼 수 있어요 →</p>
+      <div class="rtable-wrap rent-wrap"><table class="rtable num" id="rent-table"></table></div>
+      <div class="rcards" id="rent-cards"></div>
       <ul class="notes">
         <li>표준형·선택형은 같은 주택형 안에서 임대보증금과 월 임대료의 비중을 달리한 조건입니다.</li>
         <li>계약 조건과 세부 사항은 임대관리센터로 문의하세요.</li>
@@ -1511,7 +1567,23 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
       h+='</tr>';
     }
     $("#ho-table").innerHTML = h+'</tbody>';
+    $("#ho-info").textContent = "호수를 누르면 주택형과 공급유형이 여기에 표시됩니다.";
   }
+
+  $("#ho-table").addEventListener("click", function(e){
+    var u=e.target.closest(".u"); if(!u || u.classList.contains("none")) return;
+    document.querySelectorAll("#ho-table .u.on").forEach(function(x){ x.classList.remove("on"); });
+    u.classList.add("on");
+    var parts=u.getAttribute("aria-label").split(" · ");
+    $("#ho-info").innerHTML = '<b>'+parts[0]+'</b> · '+parts.slice(1).join(" · ");
+  });
+  /* 맨 위로 버튼(휴대폰) */
+  (function(){
+    var tt=$("#to-top");
+    function onScroll(){ tt.hidden = window.scrollY < 600; }
+    window.addEventListener("scroll", onScroll, {passive:true}); onScroll();
+    tt.addEventListener("click", function(){ window.scrollTo({top:0, behavior:"smooth"}); });
+  })();
 
   /* lease tables (임대조건표) */
   var RENT = [
@@ -1538,6 +1610,16 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
       h+='<td class="sel">'+r[3]+'</td><td class="money">'+fmt(r[4])+'</td><td class="rentv">'+fmt(r[5])+'</td></tr>';
     });
     $("#rent-table").innerHTML=h+'</tbody>';
+    // 휴대폰용 카드형 임대조건
+    var cards='', codes=[];
+    RENT.forEach(function(r){ if(codes.indexOf(r[2])<0) codes.push(r[2]); });
+    codes.forEach(function(code){
+      var rows=RENT.filter(function(r){ return r[2]===code; }), w=WAITLIST.filter(function(x){ return x.code===code; })[0];
+      cards+='<div class="rcard'+(rows[0][0]==="일반공급"?' gen':'')+'"><div class="rcard-head"><strong>전용 '+(w?w.type:code)+'</strong>'+(w?'<span class="sup '+w.sup+'">'+w.label+'</span>':'')+'<small>'+code+'</small></div>'+
+        '<div class="rcard-row hd"><span class="sel">선택타입</span><span>임대보증금</span><span>월 임대료</span></div>'+
+        rows.map(function(r){ return '<div class="rcard-row'+(r[3]==="표준형"?' std':'')+'"><span class="sel">'+r[3]+'</span><span class="num">'+fmt(r[4])+'원</span><span class="num rv">'+fmt(r[5])+'원</span></div>'; }).join("")+'</div>';
+    });
+    $("#rent-cards").innerHTML=cards;
   })();
 
   /* 계약 필요서류 */
@@ -1646,6 +1728,8 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
   (function(){
     var lkForm=$("#lookup-form"), who=null;
     var NET = "연결하지 못했어요. 인터넷 연결을 확인한 뒤 다시 시도하거나 임대관리센터로 문의해 주세요.";
+    var OLD = "지금은 예약 조회를 이용할 수 없어요. 잠시 후 다시 시도하거나 임대관리센터로 문의해 주세요. (접수 서버 업데이트 필요)";
+    var FAIL = "일시적인 오류로 처리하지 못했어요. 잠시 후 다시 시도해 주세요.";
     var MSG = {
       LIMIT:"조회 요청이 너무 많습니다. 10분 뒤에 다시 시도해 주세요.",
       INVALID:"성명과 휴대폰 번호를 다시 확인해 주세요.",
@@ -1686,7 +1770,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
         yes.disabled=true; no.disabled=true; yes.textContent="취소하는 중…"; cerr.textContent="";
         api({action:"cancel", name:who.name, phone:who.phone, id:it.id})
           .then(function(res){
-            if (!res || !res.ok){ cerr.textContent=MSG[res&&res.code]||NET; return false; }
+            if (!res || !res.ok){ cerr.textContent=MSG[res&&res.code]||(res&&!res.code?OLD:FAIL); return false; }
             li.classList.add("is-off"); badge.className="lk-st off"; badge.textContent="취소 완료";
             desc.textContent="입주대기예약이 취소되었습니다. 입력하신 성명·휴대폰 번호는 가림 처리되었습니다.";
             cf.remove(); act.remove(); desc.setAttribute("tabindex","-1"); desc.focus(); return true;
@@ -1715,7 +1799,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
       var btn=$("#lk-submit"); btn.disabled=true; btn.textContent="조회하는 중…"; $("#lk-result").hidden=true;
       api({action:"check", name:name, phone:phone})
         .then(function(res){
-          if (!res || !res.ok){ setErr("lookup", MSG[res&&res.code]||NET); return; }
+          if (!res || !res.ok){ setErr("lookup", MSG[res&&res.code]||(res&&!res.code?OLD:FAIL)); return; }
           who={name:name, phone:phone}; render(res.items||[]);
         })
         .catch(function(){ setErr("lookup", NET); })
