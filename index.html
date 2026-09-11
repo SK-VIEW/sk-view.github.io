@@ -411,7 +411,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
 .nt-title{flex:1;min-width:0;font-size:16.5px;font-weight:600}
 .nt-date{flex-shrink:0;font-size:14px;color:var(--gray)}
 .nt-chev{flex-shrink:0;width:10px;height:10px;border-right:2px solid var(--gray);border-bottom:2px solid var(--gray);transform:rotate(45deg);margin:0 6px 4px}
-.nt-head[aria-expanded="true"] .nt-chev{transform:rotate(-135deg);margin-bottom:-4px}
+.nt-head[aria-expanded="true"] .nt-chev,.df-head[aria-expanded="true"] .nt-chev{transform:rotate(-135deg);margin-bottom:-4px}
 .nt-body{padding:4px 6px 24px;font-size:15px;line-height:1.8;color:var(--gray-2);white-space:pre-line}
 .mb-tabs{margin-bottom:18px}
 .mb-form{max-width:760px}
@@ -434,6 +434,57 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
 .withdraw summary{cursor:pointer;color:var(--gray);font-weight:600}
 .wd-form{display:flex;flex-direction:column;gap:12px;margin-top:12px}
 .wd-btn{color:var(--danger);border-color:var(--red-line)}
+.nt-imgs,.df-imgs{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.img-thumb{width:120px;height:120px;border-radius:10px;border:1px solid var(--line);background:var(--soft);padding:0;overflow:hidden;cursor:zoom-in;display:flex;align-items:center;justify-content:center;color:var(--gray);font-size:12px}
+.img-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.nt-imgs .img-thumb{width:auto;height:auto;max-width:100%;border:0;background:none;padding:0}
+.nt-imgs .img-thumb img{width:auto;max-width:min(100%,720px);height:auto;border-radius:10px;border:1px solid var(--line)}
+.nt-imgs .img-thumb.loading{width:220px;height:140px;background:var(--soft);border:1px solid var(--line)}
+.df-hello{align-items:center}
+.df-new-btn{height:40px;padding-inline:16px}
+.df-form{margin-bottom:22px}
+.flabel{font-size:15px;font-weight:600}
+.df-cats{display:flex;flex-wrap:wrap;gap:8px}
+.df-cat{position:relative;cursor:pointer}
+.df-cat input{position:absolute;opacity:0;pointer-events:none}
+.df-cat span{display:inline-flex;align-items:center;height:40px;padding:0 14px;border:1px solid var(--line-2);border-radius:999px;font-size:14.5px;font-weight:600;color:var(--gray-2);background:#FFFFFF}
+.df-cat input:checked + span{background:var(--red);border-color:var(--red);color:#FFFFFF}
+.df-cat input:focus-visible + span{outline:2px solid var(--red);outline-offset:2px}
+.df-photos{display:flex;flex-wrap:wrap;gap:8px}
+.df-add{width:96px;height:96px;border:1.5px dashed var(--line-2);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:var(--gray);font-size:13px;cursor:pointer;background:#FFFFFF}
+.df-add:hover{border-color:var(--red);color:var(--red)}
+.df-file{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.df-pv{position:relative;width:96px;height:96px;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+.df-pv img{width:100%;height:100%;object-fit:cover;display:block}
+.df-pv button{position:absolute;top:4px;right:4px;width:26px;height:26px;border-radius:50%;border:0;background:rgba(17,20,24,.72);color:#FFFFFF;font-size:15px;line-height:1;cursor:pointer}
+.df-consent{display:flex;flex-direction:column;gap:6px;padding:16px 18px;background:var(--soft);border-radius:12px}
+.df-consent .agree-check{font-size:14.5px;align-items:flex-start}
+.df-foot{gap:8px}
+.df-ok{padding:12px 16px;border-radius:10px;background:#E9F6EE;margin-bottom:14px}
+.df-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.df-list:empty{display:none}
+.df-item{border-bottom:1px solid var(--line)}
+.df-head{width:100%;display:flex;align-items:center;gap:12px;padding:16px 6px;border:0;background:none;font:inherit;text-align:left;cursor:pointer;color:var(--ink)}
+.df-head:hover .df-title{color:var(--red)}
+.df-st{flex-shrink:0;min-width:64px;text-align:center;font-size:12.5px;font-weight:700;border-radius:999px;padding:4px 10px}
+.df-st.s0{background:rgba(244,119,37,.14);color:#B24E0B}
+.df-st.s1{background:rgba(14,48,109,.08);color:var(--navy)}
+.df-st.s2{background:#E3F4EA;color:#0A7F42}
+.df-st.s3{background:#E4E7EC;color:var(--gray-2)}
+.df-main{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+.df-title{font-size:16px;font-weight:600}
+.df-title em{font-style:normal;color:var(--gray);font-weight:500;margin-right:4px}
+.df-meta{font-size:13px;color:var(--gray)}
+.df-meta b{color:var(--red);font-weight:600}
+.df-body{padding:2px 6px 22px}
+.df-text{font-size:15px;line-height:1.8;color:var(--ink);white-space:pre-line}
+.df-visit{font-size:14px;color:var(--gray-2);margin-top:6px}
+.df-reply{margin-top:16px;border-left:3px solid var(--red);background:var(--red-soft);border-radius:0 10px 10px 0;padding:12px 16px}
+.df-reply strong{font-size:14.5px;color:var(--red)}
+.df-reply small{margin-left:8px;color:var(--gray);font-size:12.5px}
+.df-reply p{margin-top:4px;font-size:15px;line-height:1.7;white-space:pre-line;color:var(--ink)}
+.df-reply.none{border-left-color:var(--line-2);background:var(--soft)}
+.df-reply.none p{color:var(--gray)}
 .lk-guide{margin:-8px 0 0;padding-left:18px;font-size:13.5px;color:var(--gray);line-height:1.7}
 .lk-result{margin-top:32px;display:flex;flex-direction:column;gap:14px}
 .lk-head{display:flex;align-items:baseline;justify-content:space-between;gap:6px 16px;flex-wrap:wrap;padding-bottom:14px;border-bottom:1px solid var(--ink)}
@@ -727,6 +778,13 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
   .nt-date{order:4;flex-basis:100%;font-size:13px}
   .nt-chev{order:3}
   .me-card{padding:22px 18px}
+  .df-hello .df-new-btn{width:100%}
+  .df-head{flex-wrap:wrap;gap:6px 10px;padding:14px 2px}
+  .df-main{flex-basis:calc(100% - 40px);order:3}
+  .df-st{order:1}
+  .df-head .nt-chev{order:2;margin-left:auto}
+  .img-thumb{width:96px;height:96px}
+  .df-foot .btn{flex:1;width:auto}
   .me-nick{font-size:22px}
   .to-top{display:flex}
   .img-toast{bottom:80px}
@@ -1304,6 +1362,61 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
       <p class="err" id="e-notice" role="alert"></p>
     </section>
 
+    <!-- 입주민 전용: 하자접수 -->
+    <section class="page" data-page="defect" hidden>
+      <div class="page-head"><h1 class="page-title">하자접수</h1><p class="page-desc">세대 안의 하자를 사진과 함께 접수하면 관리사무소에서 확인한 뒤 답변해 드립니다.</p></div>
+      <div class="lock-box" id="df-lock">
+        <span class="lock-ico"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8.5 10.5V7.8a3.5 3.5 0 0 1 7 0v2.7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+        <strong>입주민 전용 공간입니다</strong>
+        <p id="df-lock-msg">로그인하면 하자를 접수하고 처리 답변을 확인할 수 있어요.</p>
+        <div class="lock-btns"><a class="btn btn-blue" href="#member" data-mtab="login">로그인</a><a class="btn btn-line" href="#member" data-mtab="signup">회원가입</a></div>
+      </div>
+      <div id="df-area" hidden>
+        <div class="nt-hello df-hello"><span><b id="df-nick"></b> 세대 접수 내역</span><button type="button" class="btn btn-blue df-new-btn" id="df-new-btn">+ 하자 접수하기</button></div>
+        <form class="form df-form" id="df-form" hidden novalidate>
+          <h2 class="me-h">새 하자 접수</h2>
+          <fieldset class="field">
+            <legend>구분<span class="req" aria-hidden="true">*</span></legend>
+            <div class="df-cats" id="df-cats"></div>
+            <span class="err" id="e-df-cat" aria-live="polite"></span>
+          </fieldset>
+          <div class="field">
+            <label for="df-title">위치·증상<span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="df-title" maxlength="60" placeholder="예) 안방 욕실 세면대 아래 누수">
+            <span class="err" id="e-df-title" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="df-body">내용<span class="req" aria-hidden="true">*</span></label>
+            <textarea id="df-body" maxlength="2000" placeholder="언제부터 어떤 증상이 있는지 자세히 적어 주세요."></textarea>
+            <span class="err" id="e-df-body" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="df-visit">방문 가능 시간 <small class="opt">(선택)</small></label>
+            <input type="text" id="df-visit" maxlength="60" placeholder="예) 평일 오후 2시 이후">
+          </div>
+          <div class="field">
+            <span class="flabel">사진 <small class="opt">(선택, 최대 3장)</small></span>
+            <div class="df-photos" id="df-photos"><label class="df-add" for="df-file" id="df-add"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8.5h3l1.6-2.2h6.8L17 8.5h3a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="13.3" r="3.3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span>사진 추가</span></label></div>
+            <input type="file" id="df-file" accept="image/*" multiple class="df-file">
+            <span class="note">사진은 자동으로 줄여서 올려요. 하자 부위가 잘 보이게 찍어 주세요.</span>
+            <span class="err" id="e-df-photo" aria-live="polite"></span>
+          </div>
+          <div class="df-consent">
+            <label class="agree-check" for="df-agree"><input type="checkbox" id="df-agree"> [필수] 접수 내용과 사진을 하자 확인·처리 목적으로 이용하는 데 동의합니다.</label>
+            <p class="note">접수 내용과 사진은 하자 확인·처리와 처리 이력 관리를 위해 처리 완료 후 1년간 보관한 뒤 파기합니다.</p>
+            <span class="err" id="e-df-agree" aria-live="polite"></span>
+          </div>
+          <p class="err" id="e-df" role="alert"></p>
+          <div class="form-foot df-foot"><button type="button" class="btn btn-line" id="df-cancel">취소</button><button type="submit" class="btn btn-blue" id="df-submit">접수하기</button></div>
+        </form>
+        <p class="ok-msg df-ok" id="df-ok" role="status" hidden></p>
+        <p class="nt-loading" id="df-loading">접수 내역을 불러오는 중…</p>
+        <ul class="df-list" id="df-list"></ul>
+        <p class="nt-empty" id="df-empty" hidden>아직 접수한 하자가 없습니다.</p>
+      </div>
+      <p class="err" id="e-defect" role="alert"></p>
+    </section>
+
     <!-- 입주민 전용: 로그인·회원가입·내 정보 -->
     <section class="page" data-page="member" hidden>
       <div class="page-head"><h1 class="page-title" id="mb-title">로그인·회원가입</h1><p class="page-desc" id="mb-desc">입주민 전용 공간은 회원가입과 입주민 인증을 마친 뒤 이용할 수 있어요.</p></div>
@@ -1356,7 +1469,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
           <fieldset class="field">
             <legend>동·호수<span class="req" aria-hidden="true">*</span></legend>
             <div class="ym"><select id="s-dong" aria-label="동"></select><select id="s-ho" aria-label="호"></select></div>
-            <p class="nick-preview">닉네임 <b id="s-nick">동·호수를 선택하세요</b> <small>(동·호수로 자동 설정되며 바꿀 수 없어요)</small></p>
+            <p class="nick-preview">닉네임 <b id="s-nick">동·호수를 선택하세요</b> <small>(동·호수로 자동 설정되며, 호수는 가려서 표시돼요)</small></p>
             <span class="err" id="e-s-unit" aria-live="polite"></span>
           </fieldset>
           <div class="field">
@@ -1378,7 +1491,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
               <h4>2. 수집 및 이용 목적</h4>
               <ul>
                 <li>입주민 여부 확인(세대코드 또는 관리사무소 확인) 및 회원 관리</li>
-                <li>입주민 전용 공지사항 제공</li>
+                <li>입주민 전용 공지사항 제공 및 하자 접수·처리 답변</li>
               </ul>
               <h4>3. 보유 및 이용 기간</h4>
               <ul>
@@ -1464,7 +1577,8 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
         <dl class="policy-dl">
           <dt>입주대기예약</dt><dd>필수: 성명, 휴대폰 번호, 희망 주택형, 희망 입주 시기 / 선택: 문의 사항 / 자동 기록: 접수 일시</dd>
           <dt>입주민 회원</dt><dd>필수: 휴대폰 번호(아이디), 비밀번호(암호화 저장), 이름, 동·호수 / 선택: 세대코드 / 자동 기록: 가입 일시, 최근 로그인 일시</dd>
-          <dt>수집 방법</dt><dd>홈페이지 입주대기예약 신청, 입주민 회원가입</dd>
+          <dt>하자접수</dt><dd>필수: 구분, 위치·증상, 내용 / 선택: 방문 가능 시간, 사진 / 자동 기록: 접수 일시, 접수한 회원의 동·호수·이름·휴대폰 번호</dd>
+          <dt>수집 방법</dt><dd>홈페이지 입주대기예약 신청, 입주민 회원가입, 입주민 전용 하자접수</dd>
         </dl>
         <p>홈페이지는 개인정보 수집·이용에 대해 「동의함」 또는 「동의하지 않음」을 선택할 수 있는 절차를 마련하고 있으며, 「동의함」을 선택한 경우 개인정보 수집에 동의한 것으로 봅니다.</p>
       </div>
@@ -1476,6 +1590,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
           <li>희망 주택형에 입주 가능한 세대가 생긴 경우 입주 안내 연락(전화·문자)</li>
           <li>입주 상담, 신청자격 확인 안내 및 문의 사항에 대한 답변</li>
           <li>입주민 여부 확인(세대코드 또는 관리사무소 확인), 회원 관리 및 입주민 전용 공지사항 제공</li>
+          <li>하자 접수 내용 확인, 현장 방문 일정 협의, 처리 및 답변</li>
         </ul>
         <p>수집한 개인정보는 위 목적 외의 용도로 이용하지 않으며, 이용 목적이 바뀌는 경우에는 미리 동의를 받겠습니다.</p>
       </div>
@@ -1494,13 +1609,13 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
         <p>홈페이지는 원활한 입주대기예약 접수를 위하여 다음과 같이 개인정보 처리업무를 위탁하고 있습니다. 위탁계약 시 개인정보가 안전하게 관리될 수 있도록 필요한 사항을 규정하고 있으며, 위탁 업무의 내용이나 수탁자가 변경될 경우에는 본 개인정보처리방침을 통하여 알려 드리겠습니다.</p>
         <div class="rtable-wrap"><table class="qtable policy-table">
           <thead><tr><th>수탁업체</th><th>위탁업무</th></tr></thead>
-          <tbody><tr><td>Google LLC</td><td>입주대기예약 접수 내용 및 입주민 회원 정보의 저장·보관 (클라우드 스프레드시트 서비스)</td></tr></tbody>
+          <tbody><tr><td>Google LLC</td><td>입주대기예약 접수 내용, 입주민 회원 정보 및 하자접수 내용·사진의 저장·보관 (클라우드 스프레드시트·드라이브 서비스)</td></tr></tbody>
         </table></div>
       </div>
 
       <div class="policy-sec">
         <h2 id="pv5">5. 개인정보의 보유 및 이용기간</h2>
-        <p>입주대기예약 정보는 <b>입주(임대차계약 체결) 또는 입주대기예약 취소 요청 시까지</b>, 입주민 회원 정보는 <b>회원 탈퇴 또는 퇴거(임대차계약 종료) 확인 시까지</b> 보유·이용하며, 목적이 달성되면 지체 없이 파기합니다. 다만, 관계 법령에 따라 보존해야 하는 경우에는 해당 법령에서 정한 기간 동안 보관합니다.</p>
+        <p>입주대기예약 정보는 <b>입주(임대차계약 체결) 또는 입주대기예약 취소 요청 시까지</b>, 입주민 회원 정보는 <b>회원 탈퇴 또는 퇴거(임대차계약 종료) 확인 시까지</b>, 하자접수 내용·사진은 <b>하자 처리 완료 후 1년까지</b> 보유·이용하며, 목적이 달성되면 지체 없이 파기합니다. 다만, 관계 법령에 따라 보존해야 하는 경우에는 해당 법령에서 정한 기간 동안 보관합니다.</p>
       </div>
 
       <div class="policy-sec">
@@ -1568,7 +1683,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
         <h2 id="pv12">12. 개인정보처리방침의 변경</h2>
         <p>법령·정책 또는 보안기술의 변경에 따라 내용의 추가, 삭제 및 수정이 있을 경우에는 변경되는 개인정보처리방침을 시행하기 최소 7일 전에 홈페이지를 통해 변경 이유 및 내용 등을 공지하겠습니다.</p>
         <dl class="policy-dl">
-          <dt>버전</dt><dd>v1.1 (입주민 회원 항목 추가)</dd>
+          <dt>버전</dt><dd>v1.2 (입주민 회원·하자접수 항목 추가)</dd>
           <dt>시행일자</dt><dd class="num">2026년 9월 11일</dd>
         </dl>
       </div>
@@ -1634,7 +1749,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
     lease:{title:"임대조건", desc:"우리 아파트의<br>현재 임대조건입니다.", pages:[["rent","주택 임대조건"]]},
     reserve:{title:"입주대기예약", desc:"입주대기예약 신청과<br>예약 확인·취소를 할 수 있습니다.", pages:[["apply","입주대기예약"],["mybook","예약 확인·취소"]]},
     cs:   {title:"찾아오시는 길", desc:"평택역 SK VIEW의<br>위치를 안내합니다.", pages:[["contact","찾아오시는 길"]]},
-    resident:{title:"입주민 전용", desc:"입주민 인증 후<br>이용할 수 있는 공간입니다.", pages:[["notice","공지사항"],["member","로그인·회원가입"]]}
+    resident:{title:"입주민 전용", desc:"입주민 인증 후<br>이용할 수 있는 공간입니다.", pages:[["notice","공지사항"],["defect","하자접수"],["member","로그인·회원가입"]]}
   };
   var PAGE_GROUP = {};
   Object.keys(GROUPS).forEach(function(g){ GROUPS[g].pages.forEach(function(p){ PAGE_GROUP[p[0]] = g; }); });
@@ -1663,6 +1778,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
       document.querySelector('[data-view="sub"]').classList.toggle("wide", page === "overview");
       if (page === "units") renderUnits();
       if (page === "notice") loadNotices();
+      if (page === "defect") loadDefects();
       if (page === "member") renderMember();
     }
     if (!initial) window.scrollTo(0,0);
@@ -2085,7 +2201,8 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
     BAD_UNIT:"단지에 없는 동·호수입니다. 다시 선택해 주세요.", WEAK_PW:"비밀번호는 영문과 숫자를 포함해 8자 이상이어야 합니다.",
     BAD_CODE:"세대코드가 맞지 않습니다. 관리사무소에서 받은 코드를 확인하거나, 비워 두고 승인 요청으로 가입해 주세요.",
     LIMIT:"시도 횟수가 너무 많습니다. 10분 뒤에 다시 시도해 주세요.", BAD_LOGIN:"휴대폰 번호 또는 비밀번호가 맞지 않습니다.",
-    PENDING:"관리사무소 승인 대기 중입니다. 승인되면 로그인할 수 있어요.", SUSPENDED:"이용이 정지된 계정입니다. 관리사무소로 문의해 주세요.",
+    PENDING:"관리사무소 승인 대기 중입니다. 승인되면 로그인할 수 있어요.", BAD_PHOTO:"사진을 올리지 못했어요. 다른 사진으로 다시 시도해 주세요.",
+    FORBIDDEN:"볼 수 없는 사진입니다.", NOT_FOUND:"사진을 찾을 수 없습니다.", SUSPENDED:"이용이 정지된 계정입니다. 관리사무소로 문의해 주세요.",
     AUTH:"로그인이 필요합니다.", BAD_PW:"현재 비밀번호가 맞지 않습니다."
   };
   function mMsg(res){ return (res && M_MSG[res.code]) || (res && !res.code ? "지금은 이용할 수 없어요. 잠시 후 다시 시도해 주세요. (접수 서버 업데이트 필요)" : "일시적인 오류가 발생했어요. 잠시 후 다시 시도해 주세요."); }
@@ -2095,9 +2212,9 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
       .then(function(r){ if(!r.ok) throw new Error("http "+r.status); return r.json(); });
   }
   function busy(btn, on, label){ btn.disabled = on; if (label) btn.textContent = label; }
-  function authLost(res){ if (res && (res.code==="AUTH"||res.code==="SUSPENDED"||res.code==="PENDING")){ saveToken(null); me=null; noticesCache=null; syncMemberMenu(); return true; } return false; }
+  function authLost(res){ if (res && (res.code==="AUTH"||res.code==="SUSPENDED"||res.code==="PENDING")){ saveToken(null); me=null; noticesCache=null; defectsCache=null; imgCache={}; syncMemberMenu(); return true; } return false; }
   function syncMemberMenu(){
-    GROUPS.resident.pages[1][1] = me ? "내 정보" : "로그인·회원가입";
+    GROUPS.resident.pages.forEach(function(p){ if (p[0]==="member") p[1] = me ? "내 정보" : "로그인·회원가입"; });
     var cur = location.hash.slice(1);
     if (PAGE_GROUP[cur] === "resident") {
       $("#lnb-list").innerHTML = GROUPS.resident.pages.map(function(p){ return '<li><a href="#'+p[0]+'"'+(p[0]===cur?' aria-current="page"':'')+'>'+p[1]+'</a></li>'; }).join("");
@@ -2116,7 +2233,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
       hs.innerHTML = '<option value="">'+(d?'호 선택':'동을 먼저 선택')+'</option>' + list.map(function(h){ return '<option value="'+h+'">'+h+'호</option>'; }).join("");
       hs.disabled = !d; nick();
     }
-    function nick(){ $("#s-nick").textContent = ds.value && hs.value ? ds.value+"동 "+hs.value+"호" : "동·호수를 선택하세요"; }
+    function nick(){ $("#s-nick").textContent = ds.value && hs.value ? ds.value+"동 "+new Array(hs.value.length+1).join("*")+"호" : "동·호수를 선택하세요"; }
     ds.addEventListener("change", fillHo); hs.addEventListener("change", nick); fillHo();
   })();
   ["#l-phone","#s-phone"].forEach(function(s){ $(s).addEventListener("input", phoneInput); });
@@ -2174,7 +2291,161 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
       var ch=document.createElement("i"); ch.className="nt-chev"; ch.setAttribute("aria-hidden","true");
       btn.appendChild(pin); btn.appendChild(ti); btn.appendChild(dt); btn.appendChild(ch);
       var body=document.createElement("div"); body.className="nt-body"; body.id="nt-b"+i; body.hidden=true; body.textContent=n.body||"(내용 없음)";
-      btn.addEventListener("click", function(){ var open=btn.getAttribute("aria-expanded")==="true"; btn.setAttribute("aria-expanded", !open); body.hidden=open; });
+      var imgBox=null;
+      btn.addEventListener("click", function(){
+        var open=btn.getAttribute("aria-expanded")==="true"; btn.setAttribute("aria-expanded", !open); body.hidden=open;
+        if (!open && n.images && n.images.length && !imgBox){ imgBox=document.createElement("div"); imgBox.className="nt-imgs"; body.appendChild(imgBox); fillImages(imgBox, "notice", n.images, n.title); }
+      });
+      li.appendChild(btn); li.appendChild(body); ul.appendChild(li);
+    });
+  }
+
+  // 사진 불러오기(로그인 확인 후 서버에서 받아옴) — 한 번 받은 사진은 기억
+  var imgCache = {};
+  function loadImage(kind, id){
+    if (imgCache[id]) return Promise.resolve(imgCache[id]);
+    return mApi({action:"m_img", token:memToken, kind:kind, id:id}).then(function(res){
+      if (!res || !res.ok) throw new Error((res && res.code) || "fail");
+      imgCache[id] = "data:"+res.mime+";base64,"+res.data; return imgCache[id];
+    });
+  }
+  function fillImages(box, kind, ids, alt){
+    ids.forEach(function(id, i){
+      var b=document.createElement("button"); b.type="button"; b.className="img-thumb loading"; b.textContent="불러오는 중…"; b.setAttribute("aria-label", alt+" 사진 "+(i+1)+" 크게 보기");
+      box.appendChild(b);
+      loadImage(kind, id).then(function(src){
+        b.textContent=""; b.classList.remove("loading");
+        var im=document.createElement("img"); im.src=src; im.alt=alt+" 사진 "+(i+1); b.appendChild(im);
+        b.addEventListener("click", function(){ openLb(src, im.alt, b); });
+      }).catch(function(){ b.classList.remove("loading"); b.textContent="사진을 불러오지 못했어요"; b.disabled=true; });
+    });
+  }
+
+  /* 하자접수 */
+  var DEFECT_CATS = ["욕실","주방","거실·방","발코니·창호","현관·출입문","전기·조명","설비(배관·보일러)","기타"];
+  var dfPhotos = [], defectsCache = null;
+  $("#df-cats").innerHTML = DEFECT_CATS.map(function(c, i){ return '<label class="df-cat" for="df-cat-'+i+'"><input type="radio" name="df_cat" id="df-cat-'+i+'" value="'+c+'"><span>'+c+'</span></label>'; }).join("");
+  function shrinkImage(file, max, q){
+    return new Promise(function(resolve, reject){
+      var fr=new FileReader();
+      fr.onerror=reject;
+      fr.onload=function(){
+        var im=new Image();
+        im.onerror=reject;
+        im.onload=function(){
+          var s=Math.min(1, max/Math.max(im.width, im.height)), c=document.createElement("canvas");
+          c.width=Math.max(1,Math.round(im.width*s)); c.height=Math.max(1,Math.round(im.height*s));
+          var ctx=c.getContext("2d"); ctx.fillStyle="#FFFFFF"; ctx.fillRect(0,0,c.width,c.height); ctx.drawImage(im,0,0,c.width,c.height);
+          resolve(c.toDataURL("image/jpeg", q));
+        };
+        im.src=fr.result;
+      };
+      fr.readAsDataURL(file);
+    });
+  }
+  function drawPhotoPicks(){
+    var box=$("#df-photos"), add=$("#df-add");
+    box.querySelectorAll(".df-pv").forEach(function(x){ x.remove(); });
+    dfPhotos.forEach(function(p, i){
+      var d=document.createElement("div"); d.className="df-pv";
+      var im=document.createElement("img"); im.src=p.url; im.alt="첨부 사진 "+(i+1);
+      var x=document.createElement("button"); x.type="button"; x.textContent="×"; x.setAttribute("aria-label","사진 "+(i+1)+" 빼기");
+      x.addEventListener("click", function(){ dfPhotos.splice(i,1); drawPhotoPicks(); });
+      d.appendChild(im); d.appendChild(x); box.insertBefore(d, add);
+    });
+    add.hidden = dfPhotos.length>=3;
+  }
+  $("#df-file").addEventListener("change", function(){
+    setErr("df-photo");
+    var files=[].slice.call(this.files||[]), room=3-dfPhotos.length;
+    if (files.length>room) setErr("df-photo","사진은 최대 3장까지 올릴 수 있어요.");
+    files=files.slice(0, room).filter(function(f){ return /^image\//.test(f.type) || /\.(jpe?g|png|heic|webp)$/i.test(f.name); });
+    this.value="";
+    var add=$("#df-add"); add.classList.add("busy");
+    files.reduce(function(chain, f){
+      return chain.then(function(){
+        return shrinkImage(f, 1600, 0.82).then(function(url){
+          if (url.length*0.75 > 2300000) return shrinkImage(f, 1200, 0.7);
+          return url;
+        }).then(function(url){ dfPhotos.push({url:url, m:"image/jpeg", d:url.split(",")[1]}); drawPhotoPicks(); })
+          .catch(function(){ setErr("df-photo","읽을 수 없는 사진이 있어요. 다른 사진을 골라 주세요."); });
+      });
+    }, Promise.resolve()).then(function(){ add.classList.remove("busy"); });
+  });
+  function resetDefectForm(){ $("#df-form").reset(); dfPhotos=[]; drawPhotoPicks(); ["df-cat","df-title","df-body","df-photo","df-agree","df"].forEach(function(k){ setErr(k); }); }
+  $("#df-new-btn").addEventListener("click", function(){ $("#df-form").hidden=false; $("#df-ok").hidden=true; $("#df-new-btn").hidden=true; $("#df-cat-0").focus(); });
+  $("#df-cancel").addEventListener("click", function(){ resetDefectForm(); $("#df-form").hidden=true; $("#df-new-btn").hidden=false; });
+  $("#df-form").addEventListener("change", function(e){ if (e.target.name==="df_cat") setErr("df-cat"); if (e.target.id==="df-agree") setErr("df-agree"); });
+  $("#df-form").addEventListener("input", function(e){ if (e.target.id==="df-title") setErr("df-title"); if (e.target.id==="df-body") setErr("df-body"); });
+  $("#df-form").addEventListener("submit", function(e){
+    e.preventDefault();
+    ["df-cat","df-title","df-body","df-agree","df"].forEach(function(k){ setErr(k); });
+    var cat=document.querySelector('input[name="df_cat"]:checked'), title=$("#df-title").value.trim(), body=$("#df-body").value.trim(), first=null;
+    function fail(k,msg,el){ setErr(k,msg); first=first||el; }
+    if (!cat) fail("df-cat","구분을 선택하세요.",$("#df-cat-0"));
+    if (title.length<2) fail("df-title","위치·증상을 적어 주세요. 예) 안방 욕실 세면대 누수",$("#df-title"));
+    if (body.length<5) fail("df-body","내용을 5자 이상 적어 주세요.",$("#df-body"));
+    if (!$("#df-agree").checked) fail("df-agree","접수 내용·사진 이용에 동의해야 접수할 수 있어요.",$("#df-agree"));
+    if ($("#df-add").classList.contains("busy")) fail("df-photo","사진을 준비하는 중이에요. 잠시 후 다시 눌러 주세요.",$("#df-add"));
+    if (first){ first.focus(); return; }
+    var btn=$("#df-submit"); busy(btn,true, dfPhotos.length ? "사진 올리는 중…" : "접수 중…");
+    mApi({action:"m_defect_new", token:memToken, category:cat.value, title:title, body:body, visit:$("#df-visit").value.trim(), agree:"Y",
+          photos:JSON.stringify(dfPhotos.map(function(p){ return {m:p.m, d:p.d}; }))})
+      .then(function(res){
+        if (!res || !res.ok){ if (authLost(res)) { loadDefects(); return; } setErr("df", res && res.code==="LIMIT" ? "오늘 접수할 수 있는 건수(10건)를 넘었어요. 내일 다시 접수하거나 관리사무소로 문의해 주세요." : mMsg(res)); return; }
+        resetDefectForm(); $("#df-form").hidden=true; $("#df-new-btn").hidden=false;
+        var ok=$("#df-ok"); ok.textContent="하자가 접수되었습니다. (접수번호 "+res.no+") 관리사무소에서 확인 후 답변해 드릴게요."; ok.hidden=false;
+        defectsCache=null; loadDefects();
+      })
+      .catch(function(){ setErr("df", M_NET); })
+      .then(function(){ busy(btn,false,"접수하기"); });
+  });
+
+  var DF_STATUS_CLASS = {"접수":"s0","확인중":"s1","처리중":"s1","처리완료":"s2","보류":"s3"};
+  function loadDefects(){
+    setErr("defect");
+    var lock=$("#df-lock"), area=$("#df-area");
+    if (!memToken){ lock.hidden=false; area.hidden=true; $("#df-lock-msg").textContent="로그인하면 하자를 접수하고 처리 답변을 확인할 수 있어요."; return; }
+    lock.hidden=true; area.hidden=false;
+    if (me) $("#df-nick").textContent = me.nickname;
+    if (defectsCache) drawDefects(defectsCache); else { $("#df-loading").hidden=false; $("#df-list").innerHTML=""; $("#df-empty").hidden=true; }
+    mApi({action:"m_defects", token:memToken}).then(function(res){
+      $("#df-loading").hidden=true;
+      if (!res || !res.ok){
+        if (authLost(res)){ lock.hidden=false; area.hidden=true; $("#df-lock-msg").textContent = res.code==="AUTH" ? "로그인 시간이 지났어요. 다시 로그인해 주세요." : M_MSG[res.code]; return; }
+        setErr("defect", mMsg(res)); return;
+      }
+      setMe(res.me); $("#df-nick").textContent=res.me.nickname;
+      defectsCache=res.defects; drawDefects(res.defects);
+    }).catch(function(){ $("#df-loading").hidden=true; setErr("defect", M_NET); });
+  }
+  function drawDefects(list){
+    var ul=$("#df-list"); ul.innerHTML="";
+    $("#df-empty").hidden = list.length>0; $("#df-loading").hidden=true;
+    list.forEach(function(d, i){
+      var li=document.createElement("li"); li.className="df-item";
+      var btn=document.createElement("button"); btn.type="button"; btn.className="df-head"; btn.setAttribute("aria-expanded","false"); btn.setAttribute("aria-controls","df-b"+i);
+      var st=document.createElement("span"); st.className="df-st "+(DF_STATUS_CLASS[d.status]||"s1"); st.textContent=d.status;
+      var main=document.createElement("span"); main.className="df-main";
+      var ti=document.createElement("span"); ti.className="df-title"; var em=document.createElement("em"); em.textContent="["+d.category+"]"; ti.appendChild(em); ti.appendChild(document.createTextNode(d.title));
+      var meta=document.createElement("span"); meta.className="df-meta num"; meta.textContent=d.no+" · "+d.date+(d.photos.length?" · 사진 "+d.photos.length+"장":"");
+      if (d.reply){ var rb=document.createElement("b"); rb.textContent=" · 답변 도착"; meta.appendChild(rb); }
+      main.appendChild(ti); main.appendChild(meta);
+      var ch=document.createElement("i"); ch.className="nt-chev"; ch.setAttribute("aria-hidden","true");
+      btn.appendChild(st); btn.appendChild(main); btn.appendChild(ch);
+      var body=document.createElement("div"); body.className="df-body"; body.id="df-b"+i; body.hidden=true;
+      var tx=document.createElement("p"); tx.className="df-text"; tx.textContent=d.body; body.appendChild(tx);
+      if (d.visit){ var vi=document.createElement("p"); vi.className="df-visit"; vi.textContent="방문 가능 시간: "+d.visit; body.appendChild(vi); }
+      var imgs=null;
+      var rp=document.createElement("div"); rp.className="df-reply"+(d.reply?"":" none");
+      var rs=document.createElement("strong"); rs.textContent="관리사무소 답변"; rp.appendChild(rs);
+      if (d.reply && d.replyDate){ var rd=document.createElement("small"); rd.className="num"; rd.textContent=d.replyDate; rp.appendChild(rd); }
+      var rpp=document.createElement("p"); rpp.textContent = d.reply || "아직 답변이 없습니다. 확인한 뒤 답변해 드릴게요."; rp.appendChild(rpp);
+      body.appendChild(rp);
+      btn.addEventListener("click", function(){
+        var open=btn.getAttribute("aria-expanded")==="true"; btn.setAttribute("aria-expanded", !open); body.hidden=open;
+        if (!open && d.photos.length && !imgs){ imgs=document.createElement("div"); imgs.className="df-imgs"; body.insertBefore(imgs, rp); fillImages(imgs, "defect", d.photos, d.title); }
+      });
       li.appendChild(btn); li.appendChild(body); ul.appendChild(li);
     });
   }
@@ -2187,7 +2458,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
     var btn=$("#l-submit"); busy(btn,true,"로그인 중…");
     mApi({action:"m_login", phone:phone, password:pw}).then(function(res){
       if (!res || !res.ok){ setErr("login", mMsg(res)); return; }
-      saveToken(res.token); noticesCache=null; setMe(res.me); $("#l-pw").value="";
+      saveToken(res.token); noticesCache=null; defectsCache=null; imgCache={}; setMe(res.me); $("#l-pw").value="";
       location.hash="notice";
     }).catch(function(){ setErr("login", M_NET); }).then(function(){ busy(btn,false,"로그인"); });
   });
@@ -2236,7 +2507,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
   });
 
   function doLogout(){
-    var tk=memToken; saveToken(null); me=null; noticesCache=null; syncMemberMenu();
+    var tk=memToken; saveToken(null); me=null; noticesCache=null; defectsCache=null; imgCache={}; syncMemberMenu();
     if (tk) mApi({action:"m_logout", token:tk}).catch(function(){});
     setMTab("login");
     if (location.hash==="#member") renderMember(); else location.hash="member";
@@ -2271,8 +2542,8 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
   // 처음 열 때 로그인 상태 확인
   if (memToken){
     mApi({action:"m_me", token:memToken}).then(function(res){
-      if (res && res.ok){ setMe(res.me); var c=location.hash.slice(1); if (c==="member") renderMember(); if (c==="notice") $("#nt-nick").textContent=res.me.nickname; }
-      else if (authLost(res)) { var c2=location.hash.slice(1); if (c2==="notice") loadNotices(); if (c2==="member") renderMember(); }
+      if (res && res.ok){ setMe(res.me); var c=location.hash.slice(1); if (c==="member") renderMember(); if (c==="notice") $("#nt-nick").textContent=res.me.nickname; if (c==="defect") $("#df-nick").textContent=res.me.nickname; }
+      else if (authLost(res)) { var c2=location.hash.slice(1); if (c2==="notice") loadNotices(); if (c2==="defect") loadDefects(); if (c2==="member") renderMember(); }
     }).catch(function(){});
   }
 
