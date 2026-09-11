@@ -387,6 +387,12 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
 .dup-btns{display:flex;justify-content:flex-end;margin-top:6px}
 .lk-again{display:flex;justify-content:flex-end}
 .gnb-res{display:inline-flex;align-items:center;gap:6px}
+.gnb a.gnb-res{margin-left:auto;height:42px;padding:0 20px;border-radius:999px;background:var(--view-brown);color:#FFFFFF}
+.gnb a.gnb-res .gnb-lock,.gnb a.gnb-res[aria-current="true"] .gnb-lock{color:#FFFFFF}
+.gnb a.gnb-res:hover{background:#6B3430;color:#FFFFFF}
+@media (max-width: 1180px){ .gnb{gap:40px} }
+@media (max-width: 1024px){ .gnb{gap:24px} .gnb a.gnb-res{padding:0 16px} }
+.gnb a.gnb-res[aria-current="true"]{background:var(--red);color:#FFFFFF}
 .gnb-lock{flex-shrink:0;color:var(--view-brown)}
 .gnb a[aria-current="true"] .gnb-lock{color:var(--red)}
 .lock-box{border:1px solid var(--line);border-radius:20px;padding:44px 24px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;background:var(--soft)}
@@ -672,7 +678,8 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
   .dday-label{font-size:13px}
   .dday-num{font-size:19px}
   .dday-range{font-size:11px}
-  .gnb{height:52px;gap:24px;overflow-x:auto}
+  .gnb{height:52px;gap:18px;overflow-x:auto}
+  .gnb a.gnb-res{padding:0 12px;height:36px;gap:4px}
   input[type="text"],input[type="tel"],input[type="password"],select,textarea{font-size:16px}
   .ho-wrap{max-height:none}
   .gnb a{font-size:16px}
@@ -762,7 +769,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
   .contact-list{padding:4px 20px}
   .contact-list strong,.contact-list .tel{font-size:17px}
 }
-@media (max-width: 640px){
+@media (max-width: 720px){
   html{scroll-padding-top:12px}
   .header{position:relative}
   .gnb{height:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;overflow:visible;padding-inline:0;border-top:1px solid var(--line)}
@@ -771,6 +778,10 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
   .gnb a:last-child{grid-column:1/-1;border-right:0;border-bottom:0;background:var(--soft)}
   .gnb a.gnb-res{justify-content:center}
   .gnb a[aria-current="true"],.gnb a:last-child[aria-current="true"]{background:var(--red-soft)}
+  .gnb a.gnb-res{margin-left:0;height:46px;padding:0;border-radius:0;background:var(--view-brown);color:#FFFFFF}
+  .gnb a.gnb-res[aria-current="true"]{background:var(--red);color:#FFFFFF}
+}
+@media (max-width: 640px){
   .lock-box{padding:32px 18px}
   .lock-btns .btn{flex:1;min-width:0}
   .nt-head{flex-wrap:wrap;row-gap:4px;padding:14px 2px}
@@ -811,15 +822,17 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
   .qtable-gen td.q-l{width:auto;background:var(--navy);color:#FFFFFF;text-align:left;padding:10px 14px;border-right:0}
   .period{border-radius:14px;flex-wrap:wrap;row-gap:2px}
 }
-@media (max-width: 480px){
-  .mix-bar div{padding-inline:7px;font-size:12px}
-  .ho .u{min-width:54px;font-size:13px}
+@media (max-width: 560px){
   .dday{min-width:0;padding:6px 10px;gap:2px}
   .dday-label{font-size:11.5px}
   .dday-more{display:none}
   .dday-num{font-size:17px}
   .dday-foot{display:none}
   .dday-top{flex-direction:column;align-items:flex-end;gap:0}
+}
+@media (max-width: 480px){
+  .mix-bar div{padding-inline:7px;font-size:12px}
+  .ho .u{min-width:54px;font-size:13px}
   .steps{grid-template-columns:minmax(0,1fr)}
   .life{gap:10px}
   .life div{min-height:0;padding:20px 16px;border-radius:20px}
@@ -836,6 +849,17 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
   .dday{padding:5px 8px}
   .dday-label{font-size:11px}
   .dday-num{font-size:16px}
+}
+@media (max-width: 350px){
+  .wrap{padding-inline:12px}
+  .lnb{margin-inline:-12px;padding-inline:12px}
+  .logo{gap:5px}
+  .logo-img{height:26px}
+  .logo-name{font-size:18px}
+  .logo-sub{font-size:11.5px}
+  .dday{padding:4px 7px}
+  .dday-label{font-size:10.5px}
+  .dday-num{font-size:15px}
 }
 </style>
 </head>
@@ -1475,7 +1499,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
           <div class="field">
             <label for="s-code">세대코드 <small class="opt">(선택)</small></label>
             <input type="text" id="s-code" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="예) ABCD-2345" maxlength="9">
-            <span class="note">임대관리센터에서 받은 코드입니다. 없으면 비워 두세요.</span>
+            <span class="note">관리사무소에서 받은 코드입니다. 없으면 비워 두세요.</span>
             <span class="err" id="e-s-code" aria-live="polite"></span>
           </div>
           <div class="consent-box">
@@ -1519,7 +1543,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
         <div class="done" id="signup-done" hidden>
           <span class="ok"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#EA002C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
           <h2 tabindex="-1" id="signup-done-title">가입 신청이 접수되었습니다</h2>
-          <p id="signup-done-msg">임대관리센터에서 입주민 여부를 확인한 뒤 승인해 드립니다. 승인되면 로그인해서 이용할 수 있어요.</p>
+          <p id="signup-done-msg">관리사무소에서 입주민 여부를 확인한 뒤 승인해 드립니다. 승인되면 로그인해서 이용할 수 있어요.</p>
           <div class="done-btns"><button type="button" class="btn btn-line" data-mtab="login">로그인 화면으로</button></div>
         </div>
       </div>
