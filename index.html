@@ -414,6 +414,52 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--red);box-sh
 .df-reply p{margin-top:4px;font-size:15px;line-height:1.7;white-space:pre-line;color:var(--ink)}
 .df-reply.none{border-left-color:var(--line-2);background:var(--soft)}
 .df-reply.none p{color:var(--gray)}
+.gh-rule{font-size:13.5px;color:var(--gray-2)}
+.gh-wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:24px;align-items:start;margin-bottom:36px}
+.gh-cal{border:1px solid var(--line);border-radius:16px;padding:18px 16px 14px;background:#FFFFFF}
+.gh-cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.gh-cal-head strong{font-size:18px}
+.gh-nav{width:40px;height:40px;border-radius:50%;border:1px solid var(--line-2);background:#FFFFFF;font-size:22px;line-height:1;color:var(--ink);cursor:pointer}
+.gh-nav:disabled{opacity:.35;cursor:default}
+.gh-week,.gh-days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.gh-week span{text-align:center;font-size:13px;color:var(--gray);padding:4px 0}
+.gh-week .sun{color:var(--red)}.gh-week .sat{color:var(--skblue)}
+.gh-d{position:relative;aspect-ratio:1/1;min-height:40px;border:0;border-radius:10px;background:var(--soft);font:inherit;color:var(--ink);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;padding:0}
+.gh-d b{font-size:15px;font-weight:600;font-variant-numeric:tabular-nums}
+.gh-d small{font-size:10.5px;line-height:1.1;color:var(--gray);white-space:nowrap}
+.gh-d.blank{visibility:hidden}
+.gh-d.sun b{color:var(--red)}.gh-d.sat b{color:var(--skblue)}
+.gh-d.free{background:#FFFFFF;border:1px solid var(--line-2)}
+.gh-d.free:hover,.gh-d.can:hover{border-color:var(--red)}
+.gh-d.off{background:transparent;color:#B8BCC4;cursor:default}
+.gh-d.off b{color:#B8BCC4 !important;font-weight:400}
+.gh-d.full{background:#ECEDEF;cursor:default}
+.gh-d.full b{color:#9AA0A9 !important;text-decoration:line-through}
+.gh-d.mine{background:var(--orange-soft);border:1px solid #F9C9A6;cursor:default}
+.gh-d.mine small{color:#B24E0B;font-weight:600}
+.gh-d.in{background:var(--red-soft);border:1px solid var(--red-line)}
+.gh-d.ci,.gh-d.co{background:var(--red);border:1px solid var(--red)}
+.gh-d.ci b,.gh-d.co b,.gh-d.ci small,.gh-d.co small{color:#FFFFFF !important;text-decoration:none}
+.gh-d.can{cursor:pointer}
+.gh-d:disabled{cursor:default}
+.gh-d:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.gh-legend{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12.5px;color:var(--gray-2)}
+.gh-legend li{display:flex;align-items:center;gap:5px}
+.gh-legend .lg{width:12px;height:12px;border-radius:3px;display:inline-block}
+.lg.free{background:#FFFFFF;border:1px solid var(--line-2)}.lg.full{background:#ECEDEF}.lg.mine{background:var(--orange-soft);border:1px solid #F9C9A6}.lg.pick{background:var(--red)}
+.gh-side{display:flex;flex-direction:column;gap:16px}
+.gh-guide{border-radius:14px;background:var(--soft);padding:18px 20px;display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.gh-step{font-size:16.5px}
+.gh-sum{font-size:15px;color:var(--gray-2)}
+.gh-sum:empty{display:none}
+.gh-sum em{font-style:normal;color:var(--red);font-weight:700}
+.gh-block{border:1px solid #F9C9A6;background:var(--orange-soft);color:#8A3B06;border-radius:12px;padding:14px 16px;font-size:14.5px}
+.gh-form{display:flex;flex-direction:column;gap:18px}
+.gh-form textarea{min-height:80px}
+.gh-submit{width:100%}
+.gh-list-h{margin-bottom:10px}
+.gh-when{font-size:16px;font-weight:600}
+.gh-cancel{margin-top:12px}
 .lk-guide{margin:-8px 0 0;padding-left:18px;font-size:13.5px;color:var(--gray);line-height:1.7}
 .lk-result{margin-top:32px;display:flex;flex-direction:column;gap:14px}
 .lk-head{display:flex;align-items:baseline;justify-content:space-between;gap:6px 16px;flex-wrap:wrap;padding-bottom:14px;border-bottom:1px solid var(--ink)}
@@ -691,6 +737,11 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--red);box-sh
   .nt-chev{order:3}
   .me-card{padding:22px 18px}
   .df-hello .df-new-btn{width:100%}
+  .gh-wrap{grid-template-columns:minmax(0,1fr);gap:16px}
+  .gh-cal{padding:14px 10px 12px}
+  .gh-d{min-height:0;border-radius:8px}
+  .gh-d b{font-size:14px}
+  .gh-d small{font-size:9.5px}
   .df-head{flex-wrap:wrap;gap:6px 10px;padding:14px 2px}
   .df-main{flex-basis:calc(100% - 40px);order:3}
   .df-st{order:1}
@@ -1338,6 +1389,64 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--red);box-sh
       <p class="err" id="e-defect" role="alert"></p>
     </section>
 
+    <!-- 입주민 전용: 게스트하우스 예약 -->
+    <section class="page" data-page="guest" hidden>
+      <div class="page-head"><h1 class="page-title">게스트하우스 예약</h1><p class="page-desc">달력에서 체크인·체크아웃 날짜를 골라 신청하면 임대관리센터에서 확인한 뒤 확정해 드립니다.</p></div>
+      <div class="lock-box" id="gh-lock">
+        <span class="lock-ico"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8.5 10.5V7.8a3.5 3.5 0 0 1 7 0v2.7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+        <strong>입주민 전용 공간입니다</strong>
+        <p id="gh-lock-msg">로그인하면 게스트하우스 예약을 신청하고 예약 현황을 확인할 수 있어요.</p>
+        <div class="lock-btns"><a class="btn btn-blue" href="#member" data-mtab="login">로그인</a><a class="btn btn-line" href="#member" data-mtab="signup">회원가입</a></div>
+      </div>
+      <div id="gh-area" hidden>
+        <div class="nt-hello"><span><b id="gh-nick"></b> 세대 예약</span><span class="gh-rule">세대당 진행 중인 예약은 1건 · 체크인 전날까지 직접 취소</span></div>
+        <div class="gh-wrap">
+          <div class="gh-cal" id="gh-cal">
+            <div class="gh-cal-head">
+              <button type="button" class="gh-nav" id="gh-prev" aria-label="이전 달">‹</button>
+              <strong id="gh-month" class="num" aria-live="polite"></strong>
+              <button type="button" class="gh-nav" id="gh-next" aria-label="다음 달">›</button>
+            </div>
+            <div class="gh-week" aria-hidden="true"><span class="sun">일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span class="sat">토</span></div>
+            <div class="gh-days" id="gh-days"></div>
+            <ul class="gh-legend"><li><i class="lg free"></i>예약 가능</li><li><i class="lg full"></i>예약 마감</li><li><i class="lg mine"></i>우리 세대 예약</li><li><i class="lg pick"></i>선택한 기간</li></ul>
+          </div>
+          <div class="gh-side">
+            <div class="gh-guide" id="gh-guide" aria-live="polite">
+              <b class="gh-step" id="gh-step">① 체크인 날짜를 누르세요</b>
+              <p id="gh-sum" class="gh-sum num"></p>
+              <button type="button" class="link-btn" id="gh-reset" hidden>날짜 다시 고르기</button>
+            </div>
+            <p class="gh-block" id="gh-active" hidden>진행 중인 예약이 있어 새로 신청할 수 없어요. 기존 예약을 이용하거나 취소한 뒤 다시 신청해 주세요.</p>
+            <form class="gh-form" id="gh-form" hidden novalidate>
+              <div class="field">
+                <label for="gh-people">이용 인원<span class="req" aria-hidden="true">*</span></label>
+                <select id="gh-people"></select>
+                <span class="err" id="e-gh-people" aria-live="polite"></span>
+              </div>
+              <div class="field">
+                <label for="gh-memo">요청사항 <small class="opt">(선택)</small></label>
+                <textarea id="gh-memo" maxlength="200" placeholder="예) 도착 예정 시간, 문의 사항"></textarea>
+              </div>
+              <div class="df-consent">
+                <label class="agree-check" for="gh-agree"><input type="checkbox" id="gh-agree"> [필수] 예약 확인·이용 관리를 위해 <span class="nw">동·호수</span>, 이름, 휴대폰 번호, 이용일, 인원을 이용하는 데 동의합니다.</label>
+                <p class="note">예약 정보는 이용일로부터 1년간 보관한 뒤 파기합니다.</p>
+                <span class="err" id="e-gh-agree" aria-live="polite"></span>
+              </div>
+              <p class="err" id="e-gh" role="alert"></p>
+              <button type="submit" class="btn btn-blue gh-submit" id="gh-submit">예약 신청하기</button>
+            </form>
+            <p class="ok-msg df-ok" id="gh-ok" role="status" hidden></p>
+          </div>
+        </div>
+        <h2 class="me-h gh-list-h">우리 세대 예약 내역</h2>
+        <p class="nt-loading" id="gh-loading">예약 현황을 불러오는 중…</p>
+        <ul class="df-list" id="gh-list"></ul>
+        <p class="nt-empty" id="gh-empty" hidden>예약 내역이 없습니다.</p>
+      </div>
+      <p class="err" id="e-guest" role="alert"></p>
+    </section>
+
     <!-- 입주민 전용: 로그인·회원가입·내 정보 -->
     <section class="page" data-page="member" hidden>
       <div class="page-head"><h1 class="page-title" id="mb-title">로그인·회원가입</h1><p class="page-desc" id="mb-desc">입주민 전용 공간은 회원가입과 입주민 인증을 마친 뒤 이용할 수 있어요.</p></div>
@@ -1412,7 +1521,7 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--red);box-sh
               <h4>2. 수집 및 이용 목적</h4>
               <ul>
                 <li>입주민 여부 확인(세대코드 또는 임대관리센터 확인) 및 회원 관리</li>
-                <li>입주민 전용 공지사항 제공 및 하자 접수·처리 답변</li>
+                <li>입주민 전용 공지사항 제공, 하자 접수·처리 답변 및 게스트하우스 예약 관리</li>
               </ul>
               <h4>3. 보유 및 이용 기간</h4>
               <ul>
@@ -1499,7 +1608,8 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--red);box-sh
           <dt>입주대기예약</dt><dd>필수: 성명, 휴대폰 번호, 희망 주택형, 희망 입주 시기 / 선택: 문의 사항 / 자동 기록: 접수 일시</dd>
           <dt>입주민 회원</dt><dd>필수: 휴대폰 번호(아이디), 비밀번호(암호화 저장), 이름, 동·호수 / 선택: 세대코드 / 자동 기록: 가입 일시, 최근 로그인 일시</dd>
           <dt>하자접수</dt><dd>필수: 구분, 위치·증상, 내용 / 선택: 방문 가능 시간, 사진 / 자동 기록: 접수 일시, 접수한 회원의 동·호수·이름·휴대폰 번호</dd>
-          <dt>수집 방법</dt><dd>홈페이지 입주대기예약 신청, 입주민 회원가입, 입주민 전용 하자접수</dd>
+          <dt>게스트하우스 예약</dt><dd>필수: 이용일(체크인·체크아웃), 이용 인원 / 선택: 요청사항 / 자동 기록: 신청 일시, 예약한 회원의 동·호수·이름·휴대폰 번호</dd>
+          <dt>수집 방법</dt><dd>홈페이지 입주대기예약 신청, 입주민 회원가입, 입주민 전용 하자접수·게스트하우스 예약</dd>
         </dl>
         <p>홈페이지는 개인정보 수집·이용에 대해 「동의함」 또는 「동의하지 않음」을 선택할 수 있는 절차를 마련하고 있으며, 「동의함」을 선택한 경우 개인정보 수집에 동의한 것으로 봅니다.</p>
       </div>
@@ -1512,6 +1622,7 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--red);box-sh
           <li>입주 상담, 신청자격 확인 안내 및 문의 사항에 대한 답변</li>
           <li>입주민 여부 확인(세대코드 또는 임대관리센터 확인), 회원 관리 및 입주민 전용 공지사항 제공</li>
           <li>하자 접수 내용 확인, 현장 방문 일정 협의, 처리 및 답변</li>
+          <li>게스트하우스 예약 접수·확정, 이용 안내 및 이용 관리</li>
         </ul>
         <p>수집한 개인정보는 위 목적 외의 용도로 이용하지 않으며, 이용 목적이 바뀌는 경우에는 미리 동의를 받겠습니다.</p>
       </div>
@@ -1530,13 +1641,13 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--red);box-sh
         <p>홈페이지는 원활한 입주대기예약 접수를 위하여 다음과 같이 개인정보 처리업무를 위탁하고 있습니다. 위탁계약 시 개인정보가 안전하게 관리될 수 있도록 필요한 사항을 규정하고 있으며, 위탁 업무의 내용이나 수탁자가 변경될 경우에는 본 개인정보처리방침을 통하여 알려 드리겠습니다.</p>
         <div class="rtable-wrap"><table class="qtable policy-table">
           <thead><tr><th>수탁업체</th><th>위탁업무</th></tr></thead>
-          <tbody><tr><td>Google LLC</td><td>입주대기예약 접수 내용, 입주민 회원 정보 및 하자접수 내용·사진의 저장·보관 (클라우드 스프레드시트·드라이브 서비스)</td></tr></tbody>
+          <tbody><tr><td>Google LLC</td><td>입주대기예약 접수 내용, 입주민 회원 정보, 하자접수 내용·사진 및 게스트하우스 예약 내용의 저장·보관 (클라우드 스프레드시트·드라이브 서비스)</td></tr></tbody>
         </table></div>
       </div>
 
       <div class="policy-sec">
         <h2 id="pv5">5. 개인정보의 보유 및 이용기간</h2>
-        <p>입주대기예약 정보는 <b>입주(임대차계약 체결) 또는 입주대기예약 취소 요청 시까지</b>, 입주민 회원 정보는 <b>회원 탈퇴 또는 퇴거(임대차계약 종료) 확인 시까지</b>, 하자접수 내용·사진은 <b>하자 처리 완료 후 1년까지</b> 보유·이용하며, 목적이 달성되면 지체 없이 파기합니다. 다만, 관계 법령에 따라 보존해야 하는 경우에는 해당 법령에서 정한 기간 동안 보관합니다.</p>
+        <p>입주대기예약 정보는 <b>입주(임대차계약 체결) 또는 입주대기예약 취소 요청 시까지</b>, 입주민 회원 정보는 <b>회원 탈퇴 또는 퇴거(임대차계약 종료) 확인 시까지</b>, 하자접수 내용·사진은 <b>하자 처리 완료 후 1년까지</b>, 게스트하우스 예약 정보는 <b>이용일로부터 1년까지</b> 보유·이용하며, 목적이 달성되면 지체 없이 파기합니다. 다만, 관계 법령에 따라 보존해야 하는 경우에는 해당 법령에서 정한 기간 동안 보관합니다.</p>
       </div>
 
       <div class="policy-sec">
@@ -1604,8 +1715,8 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--red);box-sh
         <h2 id="pv12">12. 개인정보처리방침의 변경</h2>
         <p>법령·정책 또는 보안기술의 변경에 따라 내용의 추가, 삭제 및 수정이 있을 경우에는 변경되는 개인정보처리방침을 시행하기 최소 7일 전에 홈페이지를 통해 변경 이유 및 내용 등을 공지하겠습니다.</p>
         <dl class="policy-dl">
-          <dt>버전</dt><dd>v1.2 (입주민 회원·하자접수 항목 추가)</dd>
-          <dt>시행일자</dt><dd class="num">2026년 9월 11일</dd>
+          <dt>버전</dt><dd>v1.3 (게스트하우스 예약 항목 추가)</dd>
+          <dt>시행일자</dt><dd class="num">2026년 9월 18일</dd>
         </dl>
       </div>
     </div>
@@ -1669,7 +1780,7 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--red);box-sh
     lease:{title:"임대조건", desc:"우리 아파트의<br>현재 임대조건입니다.", pages:[["rent","주택 임대조건"]]},
     reserve:{title:"입주대기예약", desc:"입주대기예약 신청과<br>예약 확인·취소를 할 수 있습니다.", pages:[["apply","입주대기예약"],["mybook","예약 확인·취소"]]},
     cs:   {title:"찾아오시는 길", desc:"평택역 SK VIEW의<br>위치를 안내합니다.", pages:[["contact","찾아오시는 길"]]},
-    resident:{title:"입주민 전용", desc:"입주민 인증 후<br>이용할 수 있는 공간입니다.", pages:[["notice","공지사항"],["defect","하자접수"],["member","로그인·회원가입"]]}
+    resident:{title:"입주민 전용", desc:"입주민 인증 후<br>이용할 수 있는 공간입니다.", pages:[["notice","공지사항"],["defect","하자접수"],["guest","게스트하우스"],["member","로그인·회원가입"]]}
   };
   var PAGE_GROUP = {};
   Object.keys(GROUPS).forEach(function(g){ GROUPS[g].pages.forEach(function(p){ PAGE_GROUP[p[0]] = g; }); });
@@ -1715,6 +1826,7 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--red);box-sh
       if (page === "units") renderUnits();
       if (page === "notice") loadNotices();
       if (page === "defect") loadDefects();
+      if (page === "guest") loadGuest();
       if (page === "member") renderMember();
     }
     if (!initial) window.scrollTo(0,0);
@@ -2186,10 +2298,11 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--red);box-sh
     if (me){ $("#me-nick").textContent = me.nickname; $("#me-name").textContent = me.name; $("#me-phone").textContent = me.phone; }
   }
 
-  // 입주민 전용 목록 공통: 로그인 확인 → 불러오기 → 그리기 (key: nt=공지, df=하자접수)
-  var LOCK_MSG = { nt:"로그인하면 공지사항을 볼 수 있어요. 아직 회원이 아니라면 회원가입 후 이용해 주세요.", df:"로그인하면 하자를 접수하고 처리 답변을 확인할 수 있어요." };
+  // 입주민 전용 목록 공통: 로그인 확인 → 불러오기 → 그리기 (key: nt=공지, df=하자접수, gh=게스트하우스)
+  var LOCK_MSG = { nt:"로그인하면 공지사항을 볼 수 있어요. 아직 회원이 아니라면 회원가입 후 이용해 주세요.", df:"로그인하면 하자를 접수하고 처리 답변을 확인할 수 있어요.", gh:"로그인하면 게스트하우스 예약을 신청하고 예약 현황을 확인할 수 있어요." };
+  var LIST_PAGE = { nt:"notice", df:"defect", gh:"guest" };
   function residentList(key, action, field, draw){
-    var page = key==="nt" ? "notice" : "defect", lock=$("#"+key+"-lock"), area=$("#"+key+"-area"), loading=$("#"+key+"-loading");
+    var page = LIST_PAGE[key], lock=$("#"+key+"-lock"), area=$("#"+key+"-area"), loading=$("#"+key+"-loading");
     function locked(msg){ lock.hidden=false; area.hidden=true; $("#"+key+"-lock-msg").textContent=msg; }
     setErr(page);
     if (!memToken) return locked(LOCK_MSG[key]);
@@ -2203,11 +2316,12 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--red);box-sh
         return setErr(page, mMsg(res));
       }
       setMe(res.me); $("#"+key+"-nick").textContent = res.me.nickname;
-      draw(listCache[key] = res[field]);
+      draw(listCache[key] = field ? res[field] : res);
     }).catch(function(){ loading.hidden=true; setErr(page, M_NET); });
   }
   function loadNotices(){ residentList("nt", "m_notices", "notices", drawNotices); }
   function loadDefects(){ residentList("df", "m_defects", "defects", drawDefects); }
+  function loadGuest(){ residentList("gh", "m_gh", null, drawGuest); }
   function listStart(key, list){ var ul=$("#"+key+"-list"); ul.innerHTML=""; $("#"+key+"-empty").hidden=list.length>0; $("#"+key+"-loading").hidden=true; return ul; }
 
   function drawNotices(list){
@@ -2337,6 +2451,148 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--red);box-sh
       if (d.reply && d.replyDate) el("small","num",d.replyDate,rp);
       el("p",null,d.reply||"아직 답변이 없습니다. 확인한 뒤 답변해 드릴게요.",rp);
       accordion(btn, body, d.photos.length ? function(){ var box=el("div","df-imgs"); body.insertBefore(box, rp); fillImages(box, "defect", d.photos, d.title); } : null);
+    });
+  }
+
+  /* 게스트하우스 예약 (1실 · 1박 단위 · 담당자 승인 후 확정) */
+  var gh = { data:null, month:null, ci:null, co:null };
+  var DOW = ["일","월","화","수","목","금","토"];
+  function ymdParts(s){ var p=s.split("-"); return [+p[0], +p[1], +p[2]]; }
+  function ymdAdd(s, n){ var p=ymdParts(s); return new Date(Date.UTC(p[0], p[1]-1, p[2]+n)).toISOString().slice(0,10); }
+  function ymdDow(s){ var p=ymdParts(s); return new Date(Date.UTC(p[0], p[1]-1, p[2])).getUTCDay(); }
+  function ymdLabel(s){ var p=ymdParts(s); return p[1]+"월 "+p[2]+"일("+DOW[ymdDow(s)]+")"; }
+  function nightsBetween(a, b){ return Math.round((Date.parse(b+"T00:00:00Z")-Date.parse(a+"T00:00:00Z"))/86400000); }
+  function nightFree(d){ var D=gh.data; return d>=D.from && d<=D.lastNight && !D.nights[d]; }
+  // 체크인 다음 날부터: 사이의 밤이 모두 비어 있는 날까지 체크아웃으로 고를 수 있음
+  function canCheckout(d){
+    var D=gh.data;
+    if (!gh.ci || d<=gh.ci || ymdAdd(d,-1)>D.lastNight) return false;
+    if (D.maxNights && nightsBetween(gh.ci, d)>D.maxNights) return false;
+    for (var x=gh.ci; x<d; x=ymdAdd(x,1)) if (D.nights[x]) return false;
+    return true;
+  }
+  function drawGuest(D){
+    gh.data = D;
+    var first = D.from.slice(0,7);
+    if (!gh.month || gh.month < D.today.slice(0,7) || gh.month > D.lastNight.slice(0,7)) gh.month = first;
+    if (gh.ci && !nightFree(gh.ci)) { gh.ci=null; gh.co=null; }
+    if (gh.co && !canCheckout(gh.co)) gh.co=null;
+    var sel=$("#gh-people"); if (!sel.options.length){ for (var i=1;i<=D.maxPeople;i++) el("option",null,i+"명",sel).value=i; sel.value="2"; }
+    $("#gh-active").hidden = !D.active;
+    drawCalendar(); drawGuide(); drawGuestList(D.list);
+  }
+  function drawCalendar(){
+    var D=gh.data, box=$("#gh-days"), y=+gh.month.slice(0,4), m=+gh.month.slice(5,7);
+    $("#gh-month").textContent = y+"년 "+m+"월";
+    $("#gh-prev").disabled = gh.month <= D.today.slice(0,7);
+    $("#gh-next").disabled = gh.month >= ymdAdd(D.lastNight,1).slice(0,7);
+    box.innerHTML="";
+    var start=new Date(Date.UTC(y, m-1, 1)).getUTCDay(), days=new Date(Date.UTC(y, m, 0)).getUTCDate();
+    for (var b=0; b<start; b++) el("span","gh-d blank",null,box);
+    for (var dd=1; dd<=days; dd++){
+      var d=gh.month+"-"+("0"+dd).slice(-2), dow=ymdDow(d), n=D.nights[d];
+      var btn=el("button","gh-d"+(dow===0?" sun":dow===6?" sat":""),null,box), tag="", state;
+      btn.type="button"; btn.dataset.d=d; el("b",null,String(dd),btn);
+      if (gh.ci && !gh.co){
+        if (d===gh.ci){ state="ci"; tag="체크인"; }
+        else if (canCheckout(d)){ state="can"; tag=(n?"":""); }
+        else if (n==="mw"||n==="mc"){ state="mine"; tag=n==="mc"?"확정":"신청"; }
+        else if (nightFree(d)){ state="free"; }
+        else if (n){ state="full"; tag="마감"; }
+        else state="off";
+      } else if (gh.ci && gh.co && d>=gh.ci && d<=gh.co){
+        state = d===gh.ci ? "ci" : d===gh.co ? "co" : "in"; tag = d===gh.ci ? "체크인" : d===gh.co ? "체크아웃" : "";
+      } else if (n==="mw"||n==="mc"){ state="mine"; tag=n==="mc"?"확정":"신청"; }
+      else if (n){ state="full"; tag="마감"; }
+      else if (nightFree(d)) state="free";
+      else state="off";
+      btn.classList.add(state==="can"?"free":state);
+      if (state==="can") btn.classList.add("can");
+      if (tag) el("small",null,tag,btn);
+      var usable = !D.active && (state==="free" || state==="can" || state==="ci" || state==="co" || state==="in");
+      btn.disabled = !usable;
+      btn.setAttribute("aria-label", ymdLabel(d)+" "+({free:"예약 가능",can:"체크아웃으로 선택 가능",ci:"체크인",co:"체크아웃",in:"선택한 기간",full:"예약 마감",mine:"우리 세대 예약",off:"선택할 수 없음"}[state]));
+    }
+  }
+  function drawGuide(){
+    var D=gh.data, step=$("#gh-step"), sum=$("#gh-sum");
+    $("#gh-reset").hidden = !gh.ci;
+    $("#gh-form").hidden = !(gh.ci && gh.co) || D.active;
+    sum.innerHTML="";
+    $("#gh-guide").hidden = !!D.active;
+    if (D.active) return;
+    if (!gh.ci){ step.textContent="① 체크인 날짜를 누르세요"; el("span",null,"예약 가능 기간: "+ymdLabel(D.from)+" ~ "+ymdLabel(D.lastNight)+" 밤",sum); return; }
+    if (!gh.co){ step.textContent="② 체크아웃 날짜를 누르세요"; el("span",null,"체크인 "+ymdLabel(gh.ci),sum); return; }
+    step.textContent="③ 인원을 고르고 신청하세요";
+    el("span",null,ymdLabel(gh.ci)+" 체크인 → "+ymdLabel(gh.co)+" 체크아웃 · ",sum); el("em",null,nightsBetween(gh.ci,gh.co)+"박",sum);
+  }
+  $("#gh-days").addEventListener("click", function(e){
+    var b=e.target.closest(".gh-d"); if (!b || b.disabled || !gh.data) return;
+    var d=b.dataset.d; setErr("gh"); $("#gh-ok").hidden=true;
+    if (!gh.ci || gh.co){ gh.ci = nightFree(d) ? d : null; gh.co=null; }
+    else if (d===gh.ci){ gh.ci=null; }
+    else if (canCheckout(d)){ gh.co=d; }
+    else if (nightFree(d)){ gh.ci=d; }
+    drawCalendar(); drawGuide();
+    if (gh.co){ var f=$("#gh-form"); if (window.innerWidth<=860) f.scrollIntoView({behavior:"smooth", block:"start"}); }
+  });
+  $("#gh-prev").addEventListener("click", function(){ var p=ymdParts(gh.month+"-01"); gh.month=new Date(Date.UTC(p[0], p[1]-2, 1)).toISOString().slice(0,7); drawCalendar(); });
+  $("#gh-next").addEventListener("click", function(){ var p=ymdParts(gh.month+"-01"); gh.month=new Date(Date.UTC(p[0], p[1], 1)).toISOString().slice(0,7); drawCalendar(); });
+  $("#gh-reset").addEventListener("click", function(){ gh.ci=null; gh.co=null; setErr("gh"); drawCalendar(); drawGuide(); });
+  $("#gh-agree").addEventListener("change", function(){ setErr("gh-agree"); });
+  var GH_MSG = { GH_TAKEN:"그 사이에 다른 세대가 먼저 신청한 날짜가 있어요. 달력을 새로 불러왔으니 다시 골라 주세요.", GH_ACTIVE:"우리 세대에 진행 중인 예약이 있어 새로 신청할 수 없어요.",
+    GH_RANGE:"예약할 수 없는 날짜예요. 달력을 새로 불러왔으니 다시 골라 주세요.", GH_NIGHTS:"한 번에 예약할 수 있는 박수를 넘었어요.", GH_LOCKED:"이미 처리됐거나 체크인 날짜가 지나 취소할 수 없어요. 임대관리센터로 문의해 주세요.",
+    NOT_FOUND:"예약을 찾지 못했어요. 새로고침 후 다시 시도해 주세요." };
+  $("#gh-form").addEventListener("submit", function(e){
+    e.preventDefault(); setErr("gh"); setErr("gh-agree");
+    if (!gh.ci || !gh.co) return;
+    if (!$("#gh-agree").checked){ setErr("gh-agree","개인정보 이용에 동의해야 신청할 수 있어요."); $("#gh-agree").focus(); return; }
+    var btn=$("#gh-submit"); busy(btn,true,"신청하는 중…");
+    api({action:"m_gh_new", token:memToken, checkin:gh.ci, checkout:gh.co, people:$("#gh-people").value, memo:$("#gh-memo").value.trim(), agree:"Y"})
+      .then(function(res){
+        if (!res || !res.ok){
+          if (authLost(res)) { loadGuest(); return; }
+          setErr("gh", GH_MSG[res && res.code] || mMsg(res));
+          if (res && /^GH_/.test(res.code)){ gh.co=null; if (res.code!=="GH_NIGHTS") gh.ci=null; delete listCache.gh; loadGuest(); }
+          return;
+        }
+        var msg="예약을 신청했어요. (예약번호 "+res.no+") "+ymdLabel(gh.ci)+" ~ "+ymdLabel(gh.co)+" · 임대관리센터에서 확인 후 확정되면 아래 내역에 '확정'으로 표시됩니다.";
+        gh.ci=null; gh.co=null; $("#gh-form").reset(); $("#gh-people").value="2";
+        var ok=$("#gh-ok"); ok.textContent=msg; ok.hidden=false;
+        delete listCache.gh; loadGuest();
+      })
+      .catch(function(){ setErr("gh", M_NET); })
+      .then(function(){ busy(btn,false,"예약 신청하기"); });
+  });
+  var GH_STATUS_CLASS = {"승인대기":"s0","확정":"s2","반려":"s3","취소":"s3","취소(본인)":"s3"};
+  function drawGuestList(list){
+    var ul=listStart("gh", list);
+    list.forEach(function(x, i){
+      var li=el("li","df-item",null,ul), btn=el("button","df-head",null,li), st=x.status;
+      el("span","df-st "+(GH_STATUS_CLASS[st] || (/^확정/.test(st)?"s2":/취소|반려/.test(st)?"s3":"s1")),st,btn);
+      var main=el("span","df-main",null,btn);
+      el("span","df-title gh-when num",ymdLabel(x.checkin)+" → "+ymdLabel(x.checkout),main);
+      var meta=el("span","df-meta num",x.nights+"박 · "+x.people+"명 · "+x.no,main);
+      if (x.reply) el("b",null," · 안내 도착",meta);
+      var body=el("div","df-body",null,li); body.id="gh-b"+i; btn.setAttribute("aria-controls",body.id);
+      el("p","df-visit","신청일시: "+x.date,body);
+      if (x.memo) el("p","df-text","요청사항: "+x.memo,body);
+      var rp=el("div","df-reply"+(x.reply?"":" none"),null,body);
+      el("strong",null,"임대관리센터 안내",rp);
+      el("p",null,x.reply || (st==="승인대기" ? "신청을 확인하고 있어요. 확정되면 상태가 '확정'으로 바뀝니다." : "별도 안내가 없습니다."),rp);
+      if (x.cancelable){
+        var cb=el("button","btn btn-line gh-cancel","예약 취소",body); cb.type="button";
+        cb.addEventListener("click", function(){
+          if (cb.dataset.confirm!=="1"){ cb.dataset.confirm="1"; cb.textContent="한 번 더 누르면 취소돼요"; return; }
+          busy(cb,true,"취소하는 중…");
+          api({action:"m_gh_cancel", token:memToken, id:x.no}).then(function(res){
+            if (!res || !res.ok){ if (authLost(res)) { loadGuest(); return; } busy(cb,false,"예약 취소"); cb.dataset.confirm=""; setErr("guest", GH_MSG[res && res.code] || mMsg(res)); return; }
+            var ok=$("#gh-ok"); ok.textContent="예약을 취소했어요. ("+x.no+")"; ok.hidden=false;
+            delete listCache.gh; loadGuest();
+          }).catch(function(){ busy(cb,false,"예약 취소"); cb.dataset.confirm=""; setErr("guest", M_NET); });
+        });
+      }
+      accordion(btn, body, null);
     });
   }
 
