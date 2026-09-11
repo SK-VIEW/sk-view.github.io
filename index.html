@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>평택역 SK VIEW 포털</title>
-<meta name="description" content="평택역 SK VIEW 단지소개, 주택형, 단지배치도, 동호수표, 입주대기예약">
+<title>평택역 SK VIEW - 공식 홈페이지</title>
+<meta name="description" content="평택역 SK VIEW 공공지원민간임대주택 공식 홈페이지. 단지안내, 입주안내, 임대조건 정보를 제공합니다.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -14,7 +14,7 @@
   color-scheme:light;
   /* SK 색상 규정: 주요 SK Red·Orange / 보조 Yellow·Green·Teal·Blue·Navy·Purple */
   --red:#EA002C; --red-dark:#C4001F; --red-soft:#FFF0F2; --red-line:#FFC9D3;
-  --orange:#F47725; --orange-soft:#FFF4EC; --yellow:#FBBC05; --green:#B3CF0A; --teal:#009A93; --skblue:#0072C6; --navy:#0E306D; --purple:#68127A;
+  --view-brown:#4A201D; --orange:#F47725; --orange-soft:#FFF4EC; --yellow:#FBBC05; --green:#B3CF0A; --teal:#009A93; --skblue:#0072C6; --navy:#0E306D; --purple:#68127A;
   --ink:#111111; --gray:#707782; --gray-2:#4A4F57; --line:#E6E6E6; --line-2:#D4D4D4; --soft:#F8F8F8; --white:#FFFFFF;
   --tile-teal:#DFF3F2; --tile-yellow:#FFF4D2; --tile-purple:#F3E6F5;
   --t84:#EA002C; --t72:#F47725; --t59a:#009A93; --t59b:#0072C6;
@@ -42,8 +42,17 @@ button{font-family:inherit}
 .logo-img{display:block;height:56px;width:auto}
 .logo-text{display:flex;flex-direction:column;align-items:flex-start;gap:4px;white-space:nowrap}
 .logo-name{font-size:34px;font-weight:800;line-height:1.05;letter-spacing:-.025em;color:var(--red)}
-.logo-sub{font-size:22px;font-weight:700;line-height:1.15;letter-spacing:-.02em;color:#000000}
-.util{display:flex;align-items:center;gap:22px;font-size:15px}
+.logo-sub{font-size:22px;font-weight:700;line-height:1.15;letter-spacing:-.02em;color:var(--view-brown);white-space:nowrap}
+.util-col{display:flex;flex-direction:column;align-items:flex-end;gap:7px}
+.util{display:flex;align-items:center;gap:22px;font-size:15px;line-height:1.3;padding-right:2px}
+.dday{display:flex;flex-direction:column;gap:3px;min-width:236px;padding:6px 12px 7px;border:1px solid var(--red-line);background:var(--red-soft);border-radius:10px}
+.dday-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;line-height:1.25}
+.dday-label{font-size:12.5px;font-weight:600;color:var(--gray-2);white-space:nowrap}
+.dday-num{font-size:17px;font-weight:800;color:var(--red);letter-spacing:-.01em}
+.dday-foot{display:flex;align-items:center;gap:8px}
+.dday-bar{display:block;flex:1;min-width:40px;height:4px;border-radius:2px;background:rgba(234,0,44,.15);overflow:hidden}
+.dday-bar i{display:block;height:100%;width:0;background:var(--red);border-radius:2px}
+.dday-range{font-size:10.5px;line-height:1.2;color:var(--gray);white-space:nowrap}
 .util a{text-decoration:none;color:var(--ink)}
 .util a:hover{color:var(--red)}
 .gnb{height:64px;display:flex;align-items:center;gap:56px}
@@ -342,6 +351,8 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--red);box-sh
 .consent-q legend{float:left;font-size:14.5px;font-weight:600;color:var(--ink);padding:0;max-width:100%}
 .consent-q legend small{display:block;font-size:13px;font-weight:400;color:var(--gray);margin-top:2px}
 .req-tag{color:var(--red);font-weight:700}
+.confirm-q{border-top:1px solid var(--line);padding-top:14px;margin-top:4px}
+.consent-q legend small a{color:var(--red);font-weight:600}
 .consent-opts{display:flex;gap:22px;margin-left:auto}
 .consent-opts label{display:inline-flex;align-items:center;gap:6px;font-size:14.5px;cursor:pointer;white-space:nowrap}
 .consent-opts input{width:18px;height:18px;margin:0;accent-color:var(--red)}
@@ -362,6 +373,41 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
 .done .ok{width:48px;height:48px;border-radius:50%;background:var(--red-soft);display:flex;align-items:center;justify-content:center}
 .done h2{font-size:24px;font-weight:700}
 .done p{color:var(--gray-2)}
+.done-btns{display:flex;gap:8px;flex-wrap:wrap}
+.lk-guide{margin:-8px 0 0;padding-left:18px;font-size:13.5px;color:var(--gray);line-height:1.7}
+.lk-result{margin-top:32px;display:flex;flex-direction:column;gap:14px}
+.lk-head{display:flex;align-items:baseline;justify-content:space-between;gap:6px 16px;flex-wrap:wrap;padding-bottom:14px;border-bottom:1px solid var(--ink)}
+.lk-title{font-size:22px;font-weight:700;outline:0}
+.lk-count{font-size:16px;font-weight:600;color:var(--red);margin-left:4px}
+.lk-who{font-size:14.5px;color:var(--gray-2)}
+.lk-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.lk-list:empty{display:none}
+.lk-item{border:1px solid var(--line);border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:12px;background:#FFFFFF}
+.lk-item.is-off{background:var(--soft)}
+.lk-top{display:flex;align-items:center;justify-content:space-between;gap:8px 12px;flex-wrap:wrap}
+.lk-st{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;border-radius:999px;padding:4px 12px}
+.lk-st.wait{background:var(--red);color:#FFFFFF}
+.lk-st.etc{background:rgba(14,48,109,.07);color:var(--navy);border:1px solid rgba(14,48,109,.2)}
+.lk-st.off{background:#E4E7EC;color:var(--gray-2)}
+.lk-date{font-size:13.5px;color:var(--gray)}
+.lk-desc{font-size:15.5px;font-weight:600;color:var(--ink)}
+.lk-item.is-off .lk-desc{color:var(--gray-2)}
+.lk-dl{margin:0;display:grid;grid-template-columns:130px minmax(0,1fr);border-top:1px solid var(--line)}
+.lk-dl dt,.lk-dl dd{margin:0;padding:11px 0;border-bottom:1px solid var(--line);font-size:15px}
+.lk-dl dt{color:var(--gray);padding-left:2px}
+.lk-dl dd{font-weight:500}
+.lk-act{display:flex;justify-content:flex-end}
+.lk-cancel{height:42px;color:var(--red);border-color:var(--red-line)}
+.lk-cancel:hover{border-color:var(--red)}
+.lk-confirm{border:1px solid var(--red-line);background:var(--red-soft);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:4px}
+.lk-cf-q{font-size:15.5px;font-weight:700;color:var(--ink)}
+.lk-cf-d{font-size:13.5px;color:var(--gray-2)}
+.lk-cf-btns{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;margin-top:8px}
+.lk-cf-btns .btn{height:42px}
+.lk-empty{border:1px dashed var(--line-2);border-radius:16px;padding:32px 24px;text-align:center;display:flex;flex-direction:column;gap:10px;align-items:center}
+.lk-empty strong{font-size:17px}
+.lk-empty p{font-size:14.5px;color:var(--gray-2)}
+.lk-empty .btn{margin-top:6px}
 
 .rent-top{display:flex;justify-content:space-between;align-items:center;gap:10px 16px;flex-wrap:wrap;margin-bottom:14px}
 .period{display:inline-flex;align-items:center;gap:8px;background:var(--red-soft);color:var(--ink);border:1px solid var(--red-line);border-radius:999px;padding:7px 16px;font-size:14px}
@@ -433,7 +479,29 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
 .policy-ul,.policy-ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
 .policy-table{font-size:15px}
 .policy-table td{text-align:center}
+.officer-wrap{max-width:460px}
+.policy-table.officer{font-size:13.5px}
+.policy-table.officer th,.policy-table.officer td{padding:8px 12px;line-height:1.5}
+.policy-table.officer thead th{font-size:13.5px}
+.policy-table.officer tbody th{width:110px}
 .policy-table tbody th{background:var(--soft);color:var(--ink);font-weight:700;width:180px;border:1px solid var(--line)}
+.docs-panel{margin-top:24px;border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.docs-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:18px 26px;background:var(--navy);color:#FFFFFF}
+.docs-head h2{font-size:19px;font-weight:700}
+.docs-head .sup{background:#FFFFFF;border-color:#FFFFFF}
+.docs-body{padding:24px 26px 26px;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:24px;align-items:start}
+.docs-label{font-size:14px;font-weight:700;color:var(--red);margin-bottom:10px}
+.doc-list{list-style:none;margin:0;padding:0;counter-reset:doc;display:flex;flex-direction:column}
+.doc-list li{counter-increment:doc;display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;align-items:start;padding:11px 0;border-bottom:1px solid var(--line);font-size:15.5px;color:var(--ink);line-height:1.55}
+.doc-list li:last-child{border-bottom:0}
+.doc-list li::before{content:counter(doc);width:26px;height:26px;border-radius:50%;background:var(--red-soft);color:var(--red);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:-1px}
+.doc-list small{display:block;font-size:13px;color:var(--gray)}
+.doc-notes{display:flex;flex-direction:column;gap:10px}
+.doc-note{background:var(--soft);border-radius:12px;padding:14px 16px;font-size:14px;line-height:1.7;color:var(--gray-2)}
+.doc-note b{display:block;color:var(--navy);margin-bottom:2px}
+.doc-note a{color:var(--red);font-weight:600}
+.doc-note.warn{background:var(--red-soft);color:var(--ink)}
+.doc-note.warn b{color:var(--red)}
 .notes{margin:16px 0 0;padding-left:18px;font-size:14px;color:var(--gray-2);display:flex;flex-direction:column;gap:4px}
 .notes a{color:var(--red);font-weight:600}
 .contact-list .where{font-size:14px;font-weight:700;color:var(--red);background:var(--red-soft);border-radius:6px;padding:4px 10px}
@@ -482,8 +550,11 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
   .logo{gap:10px}
   .logo-img{height:38px}
   .logo-name{font-size:23px}
-  .logo-sub{font-size:15px;letter-spacing:-.02em}
+  .logo-sub{font-size:15px}
   .util .hide-m{display:none}
+  .util-col{gap:4px}
+  .dday{min-width:200px;padding:5px 10px 6px}
+  .dday-num{font-size:15px}
   .gnb{height:52px;gap:24px;overflow-x:auto}
   .gnb a{font-size:16px}
   .home{padding-block:20px 0}
@@ -515,6 +586,9 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
   .page-title{font-size:24px}
   .terms,.place,.fac-list{grid-template-columns:minmax(0,1fr)}
   .swipe-hint{display:block}
+  .docs-body{grid-template-columns:minmax(0,1fr);padding:18px}
+  .docs-head{padding:14px 18px}
+  .doc-list li{font-size:14.5px}
   .map-box{aspect-ratio:4/5}
   .policy-toc ol{grid-template-columns:minmax(0,1fr)}
   .modal{padding:0;align-items:stretch}
@@ -556,6 +630,9 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
   .type-info .btn{justify-self:stretch}
   .plan-card{padding:12px}
   .facts{grid-template-columns:100px minmax(0,1fr)}
+  .lk-item{padding:18px 16px}
+  .lk-dl{grid-template-columns:96px minmax(0,1fr)}
+  .lk-dl dt,.lk-dl dd{font-size:14px}
   .row2{grid-template-columns:minmax(0,1fr)}
   .chips{grid-template-columns:repeat(2,minmax(0,1fr))}
   .ym-range{grid-template-columns:minmax(0,1fr);gap:6px}
@@ -567,6 +644,12 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
 }
 @media (max-width: 480px){
   .util{display:none}
+  .dday{min-width:0;padding:5px 9px;gap:2px}
+  .dday-label{font-size:10.5px}
+  .dday-more{display:none}
+  .dday-num{font-size:14px}
+  .dday-foot{display:none}
+  .dday-top{flex-direction:column;align-items:flex-end;gap:0}
   .steps{grid-template-columns:minmax(0,1fr)}
   .life{gap:10px}
   .life div{min-height:0;padding:20px 16px;border-radius:20px}
@@ -584,16 +667,23 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
       <img class="logo-img" src="data:image/png;base64,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" alt="SK VIEW" width="89" height="43">
       <span class="logo-text"><span class="logo-name">평택역 SK VIEW</span><span class="logo-sub">공공지원민간임대주택</span></span>
     </a>
-    <nav class="util" aria-label="바로가기">
-      <a href="#contact" class="hide-m">찾아오시는 길</a>
-      <a href="#apply" style="color:var(--red);font-weight:600">입주대기예약</a>
-    </nav>
+    <div class="util-col">
+      <nav class="util" aria-label="바로가기">
+        <a href="#contact" class="hide-m">찾아오시는 길</a>
+        <a href="#apply" style="color:var(--red);font-weight:600">입주대기예약</a>
+      </nav>
+      <div class="dday" id="dday" aria-live="polite">
+        <div class="dday-top"><span class="dday-label">의무임대기간<span class="dday-more"> 종료까지</span></span><strong class="dday-num num" id="dday-num">D-</strong></div>
+        <div class="dday-foot"><span class="dday-bar" aria-hidden="true"><i id="dday-fill"></i></span><span class="dday-range num">2021.11.22 ~ 2029.11.21</span></div>
+      </div>
+    </div>
   </div>
   <nav class="wrap gnb" aria-label="주 메뉴">
     <a href="#overview" data-group="intro">단지소개</a>
     <a href="#types" data-group="guide">단지안내</a>
     <a href="#eligibility" data-group="move">입주안내</a>
     <a href="#rent" data-group="lease">임대조건</a>
+    <a href="#apply" data-group="reserve">입주예약</a>
     <a href="#contact" data-group="cs">찾아오시는 길</a>
   </nav>
 </header>
@@ -885,9 +975,16 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
       </div>
     </section>
 
+    <!-- 계약 필요서류 -->
+    <section class="page" data-page="docs" hidden>
+      <div class="page-head"><h1 class="page-title">계약 필요서류</h1><p class="page-desc">공급유형별로 계약할 때 지참해야 하는 서류입니다. 해당하는 유형을 선택해 확인하세요.</p></div>
+      <div class="seg" role="tablist" aria-label="공급유형" id="docs-tabs"></div>
+      <div class="docs-panel" role="tabpanel" id="docs-panel" aria-live="polite"></div>
+    </section>
+
     <!-- 입주대기예약 -->
     <section class="page" data-page="apply" hidden>
-      <div class="page-head"><h1 class="page-title">입주대기예약</h1><p class="page-desc">희망 주택형에 입주 가능한 세대가 생기면 등록하신 연락처로 안내해 드립니다. 신청 전 <a href="#eligibility" style="color:var(--red);font-weight:600">신청자격</a>을 확인해 주세요.</p></div>
+      <div class="page-head"><h1 class="page-title">입주대기예약</h1><p class="page-desc">희망 주택형에 입주 가능한 세대가 생기면 등록하신 연락처로 안내해 드립니다. 신청 전 <a href="#eligibility" style="color:var(--red);font-weight:600">신청자격</a>을 확인해 주세요. 이미 신청하셨다면 <a href="#mybook" style="color:var(--red);font-weight:600">예약 확인·취소</a>에서 접수 내역을 확인할 수 있습니다.</p></div>
       <form class="form" id="apply-form" novalidate>
         <div class="row2">
           <div class="field">
@@ -953,7 +1050,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
             </ul>
             <h4>6. 정보주체의 권리</h4>
             <ul>
-              <li>언제든지 본인의 개인정보 열람·정정·삭제 및 입주대기예약 취소를 요청할 수 있으며, 요청은 임대관리센터에서 접수합니다.</li>
+              <li>언제든지 본인의 개인정보 열람·정정·삭제 및 입주대기예약 취소를 요청할 수 있으며, 홈페이지 ‘입주예약 &gt; 예약 확인·취소’ 메뉴에서 직접 취소하거나 임대관리센터에 요청할 수 있습니다.</li>
             </ul>
           </div>
           <fieldset class="consent-q">
@@ -964,6 +1061,22 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
             </div>
           </fieldset>
           <span class="err" id="e-agree" aria-live="polite"></span>
+          <fieldset class="consent-q confirm-q">
+            <legend><span class="req-tag">[필수]</span> 신청자격을 확인하셨습니까?<small>공급유형별 <a href="#eligibility">신청자격</a>을 확인한 뒤 신청해 주세요.</small></legend>
+            <div class="consent-opts">
+              <label for="f-chk-elig-y"><input type="radio" id="f-chk-elig-y" name="chk_elig" value="Y"> 예, 확인했습니다</label>
+              <label for="f-chk-elig-n"><input type="radio" id="f-chk-elig-n" name="chk_elig" value="N"> 아니오</label>
+            </div>
+          </fieldset>
+          <span class="err" id="e-elig" aria-live="polite"></span>
+          <fieldset class="consent-q confirm-q">
+            <legend><span class="req-tag">[필수]</span> 계약 필요서류를 확인하셨습니까?<small>계약 시 지참해야 할 <a href="#docs">계약 필요서류</a>를 미리 확인해 주세요.</small></legend>
+            <div class="consent-opts">
+              <label for="f-chk-docs-y"><input type="radio" id="f-chk-docs-y" name="chk_docs" value="Y"> 예, 확인했습니다</label>
+              <label for="f-chk-docs-n"><input type="radio" id="f-chk-docs-n" name="chk_docs" value="N"> 아니오</label>
+            </div>
+          </fieldset>
+          <span class="err" id="e-docs" aria-live="polite"></span>
         </div>
         <div class="hp" aria-hidden="true"><label for="f-website">웹사이트</label><input type="text" id="f-website" name="website" tabindex="-1" autocomplete="off"></div>
         <p class="err" id="e-submit" role="alert"></p>
@@ -972,11 +1085,46 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
       <div class="done" id="apply-done" hidden>
         <span class="ok"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#EA002C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
         <h2 tabindex="-1" id="done-title">입주대기예약이 접수되었습니다</h2>
-        <p>공실이 생기면 등록 순서대로 연락드립니다. 연락처가 바뀌면 관리사무소로 알려 주세요.</p>
+        <p>공실이 생기면 등록 순서대로 연락드립니다. 접수 내역은 <b>입주예약 &gt; 예약 확인·취소</b>에서 성명과 휴대폰 번호로 언제든 확인하거나 취소할 수 있습니다.</p>
         <dl class="facts" id="done-list"></dl>
-        <div><button type="button" class="btn btn-line" id="apply-again">새로 작성</button></div>
+        <div class="done-btns"><a class="btn btn-blue" href="#mybook">예약 확인하기</a><button type="button" class="btn btn-line" id="apply-again">새로 작성</button></div>
       </div>
       <div class="memo" style="margin-top:20px"><b>시안 메모</b><span>신청 내용은 구글 스프레드시트로 저장됩니다. 동의서 문구는 회사 개인정보 처리 기준과 맞는지 확인해 주세요.</span></div>
+    </section>
+
+    <!-- 예약 확인·취소 -->
+    <section class="page" data-page="mybook" hidden>
+      <div class="page-head"><h1 class="page-title">예약 확인·취소</h1><p class="page-desc">입주대기예약 때 입력한 성명과 휴대폰 번호로 접수 내역을 확인하고, 필요하면 직접 취소할 수 있습니다.</p></div>
+      <form class="form lookup" id="lookup-form" novalidate>
+        <div class="row2">
+          <div class="field">
+            <label for="lk-name">성명<span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="lk-name" autocomplete="name" placeholder="신청 시 입력한 이름" aria-describedby="e-lk-name">
+            <span class="err" id="e-lk-name" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="lk-phone">휴대폰 번호<span class="req" aria-hidden="true">*</span></label>
+            <input type="tel" id="lk-phone" autocomplete="tel" inputmode="numeric" placeholder="010-0000-0000" aria-describedby="e-lk-phone">
+            <span class="err" id="e-lk-phone" aria-live="polite"></span>
+          </div>
+        </div>
+        <ul class="lk-guide">
+          <li>신청할 때 입력한 성명·휴대폰 번호와 정확히 같아야 조회됩니다.</li>
+          <li>개인정보 보호를 위해 조회 결과의 이름과 번호는 일부를 가려서 표시합니다.</li>
+        </ul>
+        <p class="err" id="e-lookup" role="alert"></p>
+        <div class="form-foot"><button type="submit" class="btn btn-blue" id="lk-submit">예약 조회</button></div>
+      </form>
+      <div class="lk-result" id="lk-result" hidden>
+        <div class="lk-head"><h2 class="lk-title" id="lk-title" tabindex="-1">조회 결과 <span class="lk-count num" id="lk-count"></span></h2><span class="lk-who num" id="lk-who"></span></div>
+        <ul class="lk-list" id="lk-list"></ul>
+        <div class="lk-empty" id="lk-empty" hidden>
+          <strong>접수된 입주대기예약이 없습니다</strong>
+          <p>입력하신 성명과 휴대폰 번호를 다시 확인해 주세요. 신청하신 적이 없다면 새로 입주대기예약을 신청할 수 있습니다.</p>
+          <a class="btn btn-blue" href="#apply">입주대기예약 하기</a>
+        </div>
+      </div>
+      <div class="memo" style="margin-top:20px"><b>시안 메모</b><span>조회·취소는 구글 스프레드시트에 연결된 새 Apps Script(버전 업데이트) 배포 후 작동합니다.</span></div>
     </section>
 
     <!-- 주택 임대조건 -->
@@ -1082,7 +1230,8 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
         <h2 id="pv7">7. 정보주체와 법정대리인의 권리·의무 및 행사방법</h2>
         <ul class="policy-ul">
           <li>이용자(정보주체) 및 법정대리인은 언제든지 등록된 개인정보의 열람, 정정, 삭제 및 처리정지(입주대기예약 취소)를 요구할 수 있습니다.</li>
-          <li>권리 행사는 아래 개인정보 보호책임자에게 서면, 전화 또는 이메일로 연락하시면 지체 없이 조치하겠습니다.</li>
+          <li>입주대기예약 확인 및 취소는 홈페이지 ‘입주예약 &gt; 예약 확인·취소’ 메뉴에서 성명과 휴대폰 번호로 직접 할 수 있으며, 취소 시 성명·휴대폰 번호는 즉시 가림 처리되고 문의 사항은 삭제됩니다.</li>
+          <li>그 밖의 권리 행사는 아래 개인정보 보호책임자에게 서면, 전화 또는 이메일로 연락하시면 지체 없이 조치하겠습니다.</li>
           <li>개인정보의 오류에 대한 정정을 요청한 경우에는 정정을 완료하기 전까지 해당 개인정보를 이용하지 않습니다.</li>
           <li>삭제 또는 처리정지를 요청하여 파기된 개인정보는 “5. 개인정보의 보유 및 이용기간”에 따라 처리하며, 그 외의 용도로 열람하거나 이용할 수 없도록 처리합니다.</li>
         </ul>
@@ -1106,7 +1255,7 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
       <div class="policy-sec">
         <h2 id="pv10">10. 개인정보 보호책임자</h2>
         <p>홈페이지는 개인정보를 보호하고 개인정보와 관련한 불만을 처리하기 위하여 아래와 같이 개인정보 보호책임자를 지정하고 있습니다. 개인정보 관련 문의, 불만 처리, 피해 구제 등에 관한 사항은 아래로 연락해 주시면 지체 없이 답변 및 처리해 드리겠습니다.</p>
-        <div class="rtable-wrap"><table class="qtable policy-table">
+        <div class="rtable-wrap officer-wrap"><table class="qtable policy-table officer">
           <thead><tr><th colspan="2">개인정보 보호책임자 및 담당자</th></tr></thead>
           <tbody>
             <tr><th scope="row">성명</th><td>김영범</td></tr>
@@ -1192,8 +1341,9 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
   var GROUPS = {
     intro:{title:"단지소개", desc:"우리 아파트를<br>소개합니다.", pages:[["overview","단지개요"]]},
     guide:{title:"단지안내", desc:"주택형과 단지 배치를<br>안내합니다.", pages:[["types","주택형 안내"],["siteplan","단지배치도"],["units","동호수표"]]},
-    move: {title:"입주안내", desc:"입주 절차와<br>신청 방법을 안내합니다.", pages:[["eligibility","신청자격"],["process","예비임차인 모집 절차"],["apply","입주대기예약"]]},
+    move: {title:"입주안내", desc:"신청자격과<br>계약 절차를 안내합니다.", pages:[["eligibility","신청자격"],["docs","계약 필요서류"],["process","예비임차인 모집 절차"]]},
     lease:{title:"임대조건", desc:"우리 아파트의<br>현재 임대조건입니다.", pages:[["rent","주택 임대조건"]]},
+    reserve:{title:"입주예약", desc:"입주대기예약 신청과<br>예약 확인·취소를 할 수 있습니다.", pages:[["apply","입주대기예약"],["mybook","예약 확인·취소"]]},
     cs:   {title:"찾아오시는 길", desc:"평택역 SK VIEW의<br>위치를 안내합니다.", pages:[["contact","찾아오시는 길"]]}
   };
   var PAGE_GROUP = {};
@@ -1226,6 +1376,19 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
     if (!initial) window.scrollTo(0,0);
   }
   window.addEventListener("hashchange", function(){ show(location.hash.slice(1)); });
+  /* 의무임대기간 D-day (2021.11.22 ~ 2029.11.21, 한국 시간 기준) */
+  function updateDday(){
+    var today;
+    try { today = new Intl.DateTimeFormat("en-CA",{timeZone:"Asia/Seoul",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date()); }
+    catch(e){ var d=new Date(); today=d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2); }
+    var p=today.split("-"), t0=Date.UTC(+p[0],+p[1]-1,+p[2]), DAY=86400000;
+    var start=Date.UTC(2021,10,22), end=Date.UTC(2029,10,21);
+    var left=Math.round((end-t0)/DAY), total=Math.round((end-start)/DAY)+1, done=Math.min(total,Math.max(0,Math.round((t0-start)/DAY)+1));
+    $("#dday-num").textContent = left>0 ? "D-"+left.toLocaleString("ko-KR") : (left===0 ? "D-DAY" : "기간 종료");
+    $("#dday-fill").style.width = (done/total*100).toFixed(2)+"%";
+    $("#dday").title = "의무임대기간 "+done.toLocaleString("ko-KR")+"일째 · 전체 "+total.toLocaleString("ko-KR")+"일";
+  }
+  updateDday(); setInterval(updateDday, 60000);
   /* privacy modal */
   var pvModal=$("#privacy-modal"), pvReturn=null;
   function openPrivacy(from){ pvReturn=from||null; pvModal.hidden=false; document.body.style.overflow="hidden"; $("#privacy-body").scrollTop=0; pvModal.querySelector(".modal-close").focus(); }
@@ -1370,6 +1533,30 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
     $("#rent-table").innerHTML=h+'</tbody>';
   })();
 
+  /* 계약 필요서류 */
+  var HOUSE_NOTE = '<div class="doc-note"><b>무주택증명서류 발급처</b><a href="https://www.iros.go.kr" target="_blank" rel="noopener">대법원 인터넷등기소(www.iros.go.kr)</a>, <a href="https://www.applyhome.co.kr" target="_blank" rel="noopener">청약홈(www.applyhome.co.kr)</a>에서 발급할 수 있습니다.</div>'+
+                   '<div class="doc-note"><b>직계존비속 포함 시</b>주민등록등본에 직계존비속이 있으면 해당 가족의 무주택 서류도 함께 제출해야 합니다.</div>';
+  var SPECIAL_DOCS = ["신분증","인감도장 및 인감증명서","주민등록등본(상세)","혼인관계증명서(상세)","세대주, 세대원 모두의 건강보험자격득실확인서(상세)","세대주, 세대원 모두의 2025년 소득 관련서류<small>소득금액증명원 또는 근로소득원천징수영수증 중 택1</small>","무소득일 경우 무소득사실증명원","무주택증명서류"];
+  var DOCS = [
+    {key:"newlywed", tab:"특별-신혼부부", sup:"sp", title:"특별공급(신혼부부) 계약 시 필요서류", items:SPECIAL_DOCS,
+     notes:HOUSE_NOTE+'<div class="doc-note"><b>대리인 방문</b>대리인이 방문하는 경우 별도로 문의해 주시기 바랍니다.</div><div class="doc-note warn"><b>배우자와 세대가 분리된 경우</b>배우자의 주민등록등본도 함께 제출해 주시기 바랍니다.</div>'},
+    {key:"youth", tab:"특별-청년", sup:"sp", title:"특별공급(청년) 계약 시 필요서류", items:SPECIAL_DOCS,
+     notes:HOUSE_NOTE+'<div class="doc-note"><b>대리인 방문</b>대리인이 방문하는 경우 별도로 문의해 주시기 바랍니다.</div>'},
+    {key:"general", tab:"일반", sup:"gn", title:"일반공급 계약 시 필요서류", items:["계약자 신분증(실물)","계약자 인감도장 및 인감증명서(원본)","계약자 주민등록등본","가족관계증명서(상세 발급)","무주택증명서류"],
+     notes:HOUSE_NOTE}
+  ];
+  var docsKey = "newlywed";
+  $("#docs-tabs").innerHTML = DOCS.map(function(d){ return '<button type="button" role="tab" data-key="'+d.key+'" aria-selected="false"><span class="sup '+d.sup+'">'+d.tab+'</span></button>'; }).join("");
+  function renderDocs(){
+    var d = DOCS.filter(function(x){ return x.key===docsKey; })[0];
+    document.querySelectorAll("#docs-tabs button").forEach(function(b){ b.setAttribute("aria-selected", b.dataset.key===docsKey); });
+    $("#docs-panel").innerHTML = '<div class="docs-head"><span class="sup '+d.sup+'">'+d.tab+'</span><h2>'+d.title+'</h2></div>'+
+      '<div class="docs-body"><div><p class="docs-label">지참 서류</p><ol class="doc-list">'+d.items.map(function(i){ return '<li><span>'+i+'</span></li>'; }).join("")+'</ol></div>'+
+      '<div class="doc-notes">'+d.notes+'</div></div>';
+  }
+  $("#docs-tabs").addEventListener("click", function(e){ var b=e.target.closest("button"); if(!b) return; docsKey=b.dataset.key; renderDocs(); });
+  renderDocs();
+
   /* form */
   var form=$("#apply-form");
   $("#type-chips").innerHTML = WAITLIST.map(function(w){
@@ -1398,17 +1585,19 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
     und.addEventListener("change", toggle);
     form.addEventListener("reset", function(){ setTimeout(function(){ f1(); f2(); toggle(); },0); });
   })();
-  $("#f-phone").addEventListener("input", function(){
+  function phoneInput(){
     var v=this.value.replace(/\D/g,"").slice(0,11);
     this.value = v.length<4 ? v : v.length<8 ? v.slice(0,3)+"-"+v.slice(3) : v.slice(0,3)+"-"+v.slice(3,v.length-4)+"-"+v.slice(-4);
-  });
+  }
+  $("#f-phone").addEventListener("input", phoneInput);
+  $("#lk-phone").addEventListener("input", phoneInput);
   function setErr(id,msg){ $("#e-"+id).textContent = msg||""; }
   form.addEventListener("submit", function(e){
     e.preventDefault();
     var name=$("#f-name").value.trim(), phone=$("#f-phone").value.trim(), typeEl=form.querySelector('input[name="type"]:checked');
     var ok=true, first=null;
     function fail(id,msg,el){ setErr(id,msg); ok=false; first=first||el; }
-    ["name","phone","type","agree","when"].forEach(function(k){ setErr(k); });
+    ["name","phone","type","agree","when","elig","docs"].forEach(function(k){ setErr(k); });
     if (name.length<2) fail("name","성명을 2자 이상 입력하세요.",$("#f-name"));
     if (!/^01[016789]-\d{3,4}-\d{4}$/.test(phone)) fail("phone","휴대폰 번호를 010-1234-5678 형식으로 입력하세요.",$("#f-phone"));
     if (!typeEl) fail("type","희망 주택형을 하나 선택하세요.",form.querySelector('input[name="type"]:not([disabled])'));
@@ -1421,6 +1610,9 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
     }
     var ag=form.querySelector('input[name="agree"]:checked');
     if (!ag || ag.value!=="Y") fail("agree","개인정보 수집·이용에 ‘동의함’을 선택해야 입주대기예약이 가능합니다.",$("#f-agree-y"));
+    var ce=form.querySelector('input[name="chk_elig"]:checked'), cd=form.querySelector('input[name="chk_docs"]:checked');
+    if (!ce || ce.value!=="Y") fail("elig","신청자격을 확인한 뒤 ‘예, 확인했습니다’를 선택해 주세요.",$("#f-chk-elig-y"));
+    if (!cd || cd.value!=="Y") fail("docs","계약 필요서류를 확인한 뒤 ‘예, 확인했습니다’를 선택해 주세요.",$("#f-chk-docs-y"));
     if (!ok){ first.focus(); return; }
     var memo=$("#f-memo").value.trim();
     var payload = {
@@ -1442,6 +1634,87 @@ details.consent th{width:96px;font-weight:600;background:var(--soft)}
       .then(function(){ btn.disabled=false; btn.textContent="신청서 제출"; });
   });
   $("#apply-again").addEventListener("click", function(){ form.reset(); $("#apply-done").hidden=true; form.hidden=false; $("#f-name").focus(); });
+
+  /* 예약 확인·취소 */
+  (function(){
+    var lkForm=$("#lookup-form"), who=null;
+    var NET = "연결하지 못했어요. 인터넷 연결을 확인한 뒤 다시 시도하거나 임대관리센터로 문의해 주세요.";
+    var MSG = {
+      LIMIT:"조회 요청이 너무 많습니다. 10분 뒤에 다시 시도해 주세요.",
+      INVALID:"성명과 휴대폰 번호를 다시 확인해 주세요.",
+      NOT_FOUND:"취소할 예약을 찾지 못했습니다. 다시 조회해 주세요.",
+      LOCKED:"이미 처리 중인 예약이라 홈페이지에서 취소할 수 없습니다. 임대관리센터로 문의해 주세요."
+    };
+    function api(params){
+      return fetch(FORM_ENDPOINT, { method:"POST", body:new URLSearchParams(params) })
+        .then(function(r){ if(!r.ok) throw new Error("http "+r.status); return r.json(); });
+    }
+    function el(tag, cls, text){ var n=document.createElement(tag); if(cls) n.className=cls; if(text!=null) n.textContent=text; return n; }
+    function maskName(n){ n=n.replace(/\s/g,""); return n.length<2 ? n : n.length===2 ? n.charAt(0)+"*" : n.charAt(0)+new Array(n.length-1).join("*")+n.slice(-1); }
+    function statusInfo(s){
+      s=String(s||"").trim();
+      if (!s || s==="접수") return {cls:"wait", text:"대기 중", desc:"입주대기예약이 정상적으로 접수되어 있습니다."};
+      if (s.indexOf("취소")>-1) return {cls:"off", text:"취소됨", desc:"취소된 입주대기예약입니다."};
+      return {cls:"etc", text:s, desc:"임대관리센터에서 확인·처리 중인 예약입니다."};
+    }
+    function item(it){
+      var st=statusInfo(it.status), li=el("li","lk-item"+(st.cls==="off"?" is-off":""));
+      var top=el("div","lk-top"), badge=el("span","lk-st "+st.cls, st.text);
+      top.appendChild(badge); top.appendChild(el("span","lk-date num","접수일시 "+(it.date||"-"))); li.appendChild(top);
+      var desc=el("p","lk-desc",st.desc); li.appendChild(desc);
+      var dl=el("dl","lk-dl");
+      [["희망 주택형",it.type],["희망 입주 시기",it.when]].forEach(function(r){ dl.appendChild(el("dt",null,r[0])); dl.appendChild(el("dd",null,r[1]||"-")); });
+      li.appendChild(dl);
+      if (!it.cancelable) return li;
+      var act=el("div","lk-act"), cbtn=el("button","btn btn-line lk-cancel","예약 취소"); cbtn.type="button"; act.appendChild(cbtn); li.appendChild(act);
+      var cf=el("div","lk-confirm"); cf.hidden=true;
+      cf.appendChild(el("p","lk-cf-q","이 입주대기예약을 취소하시겠습니까?"));
+      cf.appendChild(el("p","lk-cf-d","취소하면 대기 순서가 없어지며 되돌릴 수 없습니다. 다시 원하시면 새로 신청해야 합니다."));
+      var cerr=el("p","err"); cerr.setAttribute("role","alert"); cf.appendChild(cerr);
+      var btns=el("div","lk-cf-btns"), no=el("button","btn btn-line","돌아가기"), yes=el("button","btn btn-blue","취소 확정");
+      no.type="button"; yes.type="button"; btns.appendChild(no); btns.appendChild(yes); cf.appendChild(btns); li.appendChild(cf);
+      cbtn.addEventListener("click", function(){ act.hidden=true; cf.hidden=false; no.focus(); });
+      no.addEventListener("click", function(){ cf.hidden=true; act.hidden=false; cerr.textContent=""; cbtn.focus(); });
+      yes.addEventListener("click", function(){
+        yes.disabled=true; no.disabled=true; yes.textContent="취소하는 중…"; cerr.textContent="";
+        api({action:"cancel", name:who.name, phone:who.phone, id:it.id})
+          .then(function(res){
+            if (!res || !res.ok){ cerr.textContent=MSG[res&&res.code]||NET; return false; }
+            li.classList.add("is-off"); badge.className="lk-st off"; badge.textContent="취소 완료";
+            desc.textContent="입주대기예약이 취소되었습니다. 입력하신 성명·휴대폰 번호는 가림 처리되었습니다.";
+            cf.remove(); act.remove(); desc.setAttribute("tabindex","-1"); desc.focus(); return true;
+          })
+          .catch(function(){ cerr.textContent=NET; return false; })
+          .then(function(done){ if(!done){ yes.disabled=false; no.disabled=false; yes.textContent="취소 확정"; } });
+      });
+      return li;
+    }
+    function render(items){
+      var list=$("#lk-list"); list.innerHTML="";
+      items.forEach(function(it){ list.appendChild(item(it)); });
+      $("#lk-count").textContent = items.length ? items.length+"건" : "";
+      $("#lk-who").textContent = maskName(who.name)+" · "+who.phone.replace(/-(\d{3,4})-/,"-****-");
+      $("#lk-empty").hidden = items.length>0;
+      $("#lk-result").hidden=false; $("#lk-title").focus();
+    }
+    lkForm.addEventListener("submit", function(e){
+      e.preventDefault();
+      var name=$("#lk-name").value.trim(), phone=$("#lk-phone").value.trim(), first=null;
+      setErr("lk-name"); setErr("lk-phone"); setErr("lookup");
+      if (name.length<2){ setErr("lk-name","성명을 2자 이상 입력하세요."); first=$("#lk-name"); }
+      if (!/^01[016789]-\d{3,4}-\d{4}$/.test(phone)){ setErr("lk-phone","휴대폰 번호를 010-1234-5678 형식으로 입력하세요."); first=first||$("#lk-phone"); }
+      if (first){ first.focus(); return; }
+      if (!FORM_ENDPOINT){ setErr("lookup","조회 주소가 아직 연결되지 않았습니다."); return; }
+      var btn=$("#lk-submit"); btn.disabled=true; btn.textContent="조회하는 중…"; $("#lk-result").hidden=true;
+      api({action:"check", name:name, phone:phone})
+        .then(function(res){
+          if (!res || !res.ok){ setErr("lookup", MSG[res&&res.code]||NET); return; }
+          who={name:name, phone:phone}; render(res.items||[]);
+        })
+        .catch(function(){ setErr("lookup", NET); })
+        .then(function(){ btn.disabled=false; btn.textContent="예약 조회"; });
+    });
+  })();
 
   $("#biz-img").src = document.querySelector(".banner-photo").src;
   renderType(); renderUnits();
