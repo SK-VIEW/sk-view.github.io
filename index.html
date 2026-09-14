@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>평택역 SK VIEW - 공식 홈페이지</title>
 <meta name="description" content="평택역 SK VIEW 공공지원민간임대주택 공식 홈페이지. 단지안내, 입주안내, 임대조건 정보를 제공합니다.">
+<meta name="robots" content="noindex,nofollow">
 <link rel="preconnect" href="https://script.google.com" crossorigin>
 <link rel="preconnect" href="https://script.googleusercontent.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -1223,21 +1224,21 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--red);box-sh
           </fieldset>
           <span class="err" id="e-agree" aria-live="polite"></span>
           <fieldset class="consent-q confirm-q">
-            <legend><span class="req-tag">[필수]</span> 신청자격을 확인하셨습니까?<small>공급유형별 <a href="#eligibility">신청자격</a>을 확인한 뒤 신청해 주세요.</small></legend>
+            <legend><span class="req-tag">[필수]</span> 신청자격과 계약 필요서류를 확인하셨습니까?<small>공급유형별 <a href="#eligibility">신청자격</a>과 계약 시 지참해야 할 <a href="#docs">계약 필요서류</a>를 미리 확인해 주세요.</small></legend>
             <div class="consent-opts">
-              <label for="f-chk-elig-y"><input type="radio" id="f-chk-elig-y" name="chk_elig" value="Y"> 예, 확인했습니다</label>
-              <label for="f-chk-elig-n"><input type="radio" id="f-chk-elig-n" name="chk_elig" value="N"> 아니오</label>
+              <label for="f-chk-read-y"><input type="radio" id="f-chk-read-y" name="chk_read" value="Y"> 예, 확인했습니다</label>
+              <label for="f-chk-read-n"><input type="radio" id="f-chk-read-n" name="chk_read" value="N"> 아니오</label>
             </div>
           </fieldset>
-          <span class="err" id="e-elig" aria-live="polite"></span>
+          <span class="err" id="e-read" aria-live="polite"></span>
           <fieldset class="consent-q confirm-q">
-            <legend><span class="req-tag">[필수]</span> 계약 필요서류를 확인하셨습니까?<small>계약 시 지참해야 할 <a href="#docs">계약 필요서류</a>를 미리 확인해 주세요.</small></legend>
+            <legend><span class="req-tag">[필수]</span> 중복 계약이 불가함을 확인하셨습니까?<small>이미 본 단지에 입주(계약)하신 분은 추가 계약을 하실 수 없으며, 계약 세대의 <span class="nw">세대원</span>으로 등록되어 있는 경우에도 <span class="nw">중복 계약이 불가</span>합니다.</small></legend>
             <div class="consent-opts">
-              <label for="f-chk-docs-y"><input type="radio" id="f-chk-docs-y" name="chk_docs" value="Y"> 예, 확인했습니다</label>
-              <label for="f-chk-docs-n"><input type="radio" id="f-chk-docs-n" name="chk_docs" value="N"> 아니오</label>
+              <label for="f-chk-dup-y"><input type="radio" id="f-chk-dup-y" name="chk_dup" value="Y"> 예, 확인했습니다</label>
+              <label for="f-chk-dup-n"><input type="radio" id="f-chk-dup-n" name="chk_dup" value="N"> 아니오</label>
             </div>
           </fieldset>
-          <span class="err" id="e-docs" aria-live="polite"></span>
+          <span class="err" id="e-dup" aria-live="polite"></span>
         </div>
         <div class="hp" aria-hidden="true"><label for="f-website">웹사이트</label><input type="text" id="f-website" name="website" tabindex="-1" autocomplete="off"></div>
         <div class="dup-box" id="apply-dup" hidden role="alert">
@@ -2094,7 +2095,7 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--red);box-sh
     var name=$("#f-name").value.trim(), phone=$("#f-phone").value.trim(), typeEl=form.querySelector('input[name="type"]:checked');
     var ok=true, first=null;
     function fail(id,msg,el){ setErr(id,msg); ok=false; first=first||el; }
-    ["name","phone","type","agree","when","elig","docs"].forEach(function(k){ setErr(k); });
+    ["name","phone","type","agree","when","read","dup"].forEach(function(k){ setErr(k); });
     if (name.length<2) fail("name","성명을 2자 이상 입력하세요.",$("#f-name"));
     if (!/^01[016789]-\d{3,4}-\d{4}$/.test(phone)) fail("phone","휴대폰 번호를 010-1234-5678 형식으로 입력하세요.",$("#f-phone"));
     if (!typeEl) fail("type","희망 주택형을 하나 선택하세요.",form.querySelector('input[name="type"]:not([disabled])'));
@@ -2107,9 +2108,9 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--red);box-sh
     }
     var ag=form.querySelector('input[name="agree"]:checked');
     if (!ag || ag.value!=="Y") fail("agree","개인정보 수집·이용에 ‘동의함’을 선택해야 입주대기예약이 가능합니다.",$("#f-agree-y"));
-    var ce=form.querySelector('input[name="chk_elig"]:checked'), cd=form.querySelector('input[name="chk_docs"]:checked');
-    if (!ce || ce.value!=="Y") fail("elig","신청자격을 확인한 뒤 ‘예, 확인했습니다’를 선택해 주세요.",$("#f-chk-elig-y"));
-    if (!cd || cd.value!=="Y") fail("docs","계약 필요서류를 확인한 뒤 ‘예, 확인했습니다’를 선택해 주세요.",$("#f-chk-docs-y"));
+    var cr=form.querySelector('input[name="chk_read"]:checked'), cu=form.querySelector('input[name="chk_dup"]:checked');
+    if (!cr || cr.value!=="Y") fail("read","신청자격과 계약 필요서류를 확인한 뒤 ‘예, 확인했습니다’를 선택해 주세요.",$("#f-chk-read-y"));
+    if (!cu || cu.value!=="Y") fail("dup","이미 계약하신 입주민(세대원 포함)은 중복 계약이 불가합니다. 내용을 확인한 뒤 ‘예, 확인했습니다’를 선택해 주세요.",$("#f-chk-dup-y"));
     if (!ok){ first.focus(); return; }
     var memo=$("#f-memo").value.trim();
     var payload = {
@@ -2748,6 +2749,6 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--red);box-sh
   if (location.hash==="#privacy"){ show("home", true); openPrivacy(); } else show(location.hash.slice(1), true);
 })();
 </script>
-
+<style>.testbar{position:fixed;left:0;right:0;bottom:0;z-index:200;background:#4A201D;color:#fff;font-size:12.5px;text-align:center;padding:6px 12px;font-family:inherit}.testbar a{color:#FFC9D3}</style><div class="testbar">테스트용 화면입니다 · 실제 홈페이지는 <a href="https://sk-view.pages.dev/">sk-view.pages.dev</a></div>
 </body>
 </html>

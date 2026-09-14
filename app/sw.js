@@ -1,5 +1,5 @@
 // 평택역 SK VIEW 입주민 앱 — 화면 파일만 기기에 저장 (개인정보·접수 내용은 저장하지 않음)
-const CACHE = 'skview-app-f56bd9f7a7';
+const CACHE = 'skview-app-fb85cfe892';
 const FILES = ['./', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png', './icon-maskable-512.png', './apple-touch-icon.png'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES.map(f => new Request(f, { cache: 'reload' })))).then(() => self.skipWaiting())); });
 self.addEventListener('activate', e => {
